@@ -6,7 +6,7 @@ triangularSequence.prototype = new Sequence();
 
 triangularSequence.prototype.constructor = triangularSequence;
 
-triangularSequence.prototype.name = 'square';
+triangularSequence.prototype.name = 'triangular';
 
 triangularSequence.prototype.length = Infinity;
 
