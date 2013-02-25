@@ -12,7 +12,7 @@ squareSequence.prototype.length = Infinity;
 
 squareSequence.prototype.Q = function (n){
 
-    var x = Math.floor(Math.sqrt(n));
+    var x = Math.round(Math.sqrt(n));
 
     if(x*x == n){
         return true;

@@ -12,7 +12,7 @@ triangularSequence.prototype.length = Infinity;
 
 triangularSequence.prototype.Q = function (n){
 
-    var x = Math.floor((Math.sqrt(8*n+1)-1)/2);
+    var x = Math.round((Math.sqrt(8*n+1)-1)/2);
 
     if((x*(x+1)/2) == n){
         return true;
