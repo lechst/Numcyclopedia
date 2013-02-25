@@ -4,11 +4,11 @@
 
 function Sequence(){}
 
-Partition.prototype.length = undefined;
+Sequence.prototype.length = undefined;
 // length określa jak długi jest ciąg, może być nieskończony
 // jeśli ustawimy Infinity, może być też zdegenerowany i mieć length = 0
 
-Partition.prototype.name = undefined;
+Sequence.prototype.name = undefined;
 // name określa nazwę ciągu czytelną dla uzytkownika
 
 
