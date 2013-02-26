@@ -12,7 +12,7 @@ pentagonalSequence.prototype.length = Infinity;
 
 pentagonalSequence.prototype.Q = function (n){
 
-    var x = Math.round((1+Math.sqrt(1+24*x))/6);
+    var x = Math.round((1+Math.sqrt(1+24*n))/6);
 
     if((x*(3*x-1)/2) == n){
         return true;
