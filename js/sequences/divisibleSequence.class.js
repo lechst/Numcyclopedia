@@ -1,4 +1,8 @@
 function divisibleSequence(byN) {
+    if(byN)
+    {
+        this.byN = undefined;
+    }
     Sequence.call(this);
     this.byN = byN;
 }
@@ -6,6 +10,8 @@ function divisibleSequence(byN) {
 divisibleSequence.prototype = new Sequence();
 
 divisibleSequence.prototype.length = Infinity;
+
+divisibleSequence.prototype.byN = 7;
 
 divisibleSequence.prototype.constructor = divisibleSequence;
 

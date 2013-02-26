@@ -1,8 +1,12 @@
 // Ta klasa reprezentuje ciąg liczb naturalnych
-// zaróno skończony jak i nieskończony.
+// zarówno skończony jak i nieskończony.
 
 
-function Sequence(){}
+function Sequence(){
+    Sequence.allSequencces.push(this);
+}
+
+Sequence.allSequencces = [];
 
 Sequence.prototype.length = undefined;
 // length określa jak długi jest ciąg, może być nieskończony

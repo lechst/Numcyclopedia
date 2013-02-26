@@ -3,18 +3,25 @@
 function listPage(conf) {
     Page.call(this,conf);
 
+    this.grid = new gridModule({
+        N:this.conf.N,
+        tileConf:this.conf.tileConf
+    });
+
+    var thisP = this;
+
     this.selector = new selectorModule({
-        sequences : this.conf.sequences
+        sequences : this.conf.sequences,
+        onSelect : function(tag){
+            thisP.grid.showOnly(tag);
+        }
     });
 
 
     this.subModules.push(this.selector);
 
 
-    this.grid = new gridModule({
-        N:this.conf.N,
-        tileConf:this.conf.tileConf
-    });
+
 
     this.subModules.push(this.grid);
 

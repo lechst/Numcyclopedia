@@ -12,3 +12,19 @@ function gridModule(conf) {
 gridModule.prototype = new Module();
 
 gridModule.prototype.constructor = gridModule;
+
+gridModule.prototype.showOnly = function(set){
+
+    for (var i = 0;i<this.subModules.length;i++)
+    {
+
+        if(set.Q(this.subModules[i].n)){
+            this.subModules[i].ctnr.show();
+        }
+        else
+        {
+            this.subModules[i].ctnr.hide();
+        }
+    }
+
+};

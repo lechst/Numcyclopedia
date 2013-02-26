@@ -1,5 +1,5 @@
-function selectorModule() {
-    Module.call(this);
+function selectorModule(conf) {
+    Module.call(this,conf);
 
     this.ctnr.addClass('selectorModule');
 
@@ -7,21 +7,22 @@ function selectorModule() {
 
     for (var tagId in this.conf.sequences){
         var tag = this.conf.sequences[tagId];
-        this.tagbox.append($('<div>'+tag.name+'</div>').addClass('tag'));
+        this.tagbox.append($('<div>'+tag.name+'</div>').addClass('tag').data('tag',tag));
     }
 
-    this.tagbox.find('.tag').mousedown(function(){
+    var thisS = this;
+
+    this.tagbox.find('.tag').mousedown(function(e){
         if($(this).hasClass('selected'))
         {
             // $(this).removeClass('selected')
         }
         else
         {
+            console.log(thisS);
+            thisS.conf.onSelect($(this).data('tag'));
             $(this).parent().find('.selected').removeClass('selected');
             $(this).addClass('selected');
-
-
-
         }
     });
 
