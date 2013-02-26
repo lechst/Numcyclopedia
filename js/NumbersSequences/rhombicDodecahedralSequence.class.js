@@ -15,9 +15,9 @@ rhombicDodecahedralSequence.prototype.length = Infinity;
 
 rhombicDodecahedralSequence.prototype.Q = function (n){
 
-    var x = Math.round((Math.pow(27*n+Math.sqrt(3)*Math.sqrt(243*n*n+1),-1/3)*Math.pow(3,-1/3)+Math.pow(27*n+Math.sqrt(3)*Math.sqrt(243*n*n+1),1/3)*Math.pow(3,-2/3)-1)/2);
+    var x = Math.round((1-Math.pow(9*n+Math.sqrt(3)*Math.sqrt(27*n*n+1),-1/3)*Math.pow(3,-1/3)+Math.pow(9*n+Math.sqrt(3)*Math.sqrt(27*n*n+1),1/3)*Math.pow(3,-2/3))/2);
 
-    if((2*x-1)*(2*x*x-2*x+1)/3 == n){
+    if((2*x-1)*(2*x*x-2*x+1) == n){
         return true;
     }
 
