@@ -28,3 +28,19 @@ gridModule.prototype.showOnly = function(set){
     }
 
 };
+
+gridModule.prototype.highlightOnly = function(set){
+
+    for (var i = 0;i<this.subModules.length;i++)
+    {
+
+        if(set.Q(this.subModules[i].n)){
+            this.subModules[i].ctnr.css('opacity','1');
+        }
+        else
+        {
+            this.subModules[i].ctnr.css('opacity','0.3');
+        }
+    }
+
+};

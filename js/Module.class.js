@@ -1,5 +1,6 @@
 function Module(conf){
 
+    this.conf = {};
 
     if(this.conf)
     {
@@ -16,9 +17,6 @@ Module.prototype.ctnrConf = function(){
 
 
 }
-
-//here ypu can put default configuration for module
-Module.prototype.conf = {};
 
 Module.prototype.build = function(){
 

@@ -10,18 +10,22 @@ function listPage(conf) {
 
     var thisP = this;
 
-    this.selector = new selectorModule({
+    this.selectorA = new selectorModule({
         sequences : this.conf.sequences,
         onSelect : function(tag){
             thisP.grid.showOnly(tag);
         }
     });
 
+    this.selectorB = new selectorModule({
+        sequences : this.conf.sequences,
+        onSelect : function(tag){
+            thisP.grid.highlightOnly(tag);
+        }
+    });
 
-    this.subModules.push(this.selector);
-
-
-
+    this.subModules.push(this.selectorA);
+    this.subModules.push(this.selectorB);
 
     this.subModules.push(this.grid);
 

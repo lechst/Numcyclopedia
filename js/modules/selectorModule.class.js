@@ -19,7 +19,6 @@ function selectorModule(conf) {
         }
         else
         {
-            console.log(thisS);
             thisS.conf.onSelect($(this).data('tag'));
             $(this).parent().find('.selected').removeClass('selected');
             $(this).addClass('selected');
