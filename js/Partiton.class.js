@@ -11,3 +11,23 @@ Partition.prototype.length = undefined;
 // length określa na ile części podział dzieli N
 
 
+// Najprostszy podział na jednoelemntowe zbiory, po prostu na liczby naturalne
+
+function naturalPartition() {
+    Partition.call(this);
+}
+
+naturalPartition.prototype = new Partition();
+
+naturalPartition.prototype.constructor = naturalPartition;
+
+naturalPartition.prototype.name = "naturals";
+
+naturalPartition.prototype.wiki = "http://en.wikipedia.org/wiki/Natural_number";
+naturalPartition.prototype.wolfram = "http://mathworld.wolfram.com/NaturalNumber.html";
+
+naturalPartition.prototype.length = Infinity;
+
+naturalPartition.prototype.Q = function (n){
+    return n;
+};
