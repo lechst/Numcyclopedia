@@ -29,6 +29,7 @@ naturalSequence.prototype.constructor = naturalSequence;
 naturalSequence.prototype.name = "naturals";
 
 naturalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Natural_number";
+naturalSequence.prototype.wolfram = "http://mathworld.wolfram.com/NaturalNumber.html";
 
 naturalSequence.prototype.length = Infinity;
 
