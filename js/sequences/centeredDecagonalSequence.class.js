@@ -8,6 +8,9 @@ centeredDecagonalSequence.prototype.constructor = centeredDecagonalSequence;
 
 centeredDecagonalSequence.prototype.name = 'centered decagonal';
 
+centeredDecagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_decagonal_number";
+centeredDecagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredDecagonalNumber.html";
+
 centeredDecagonalSequence.prototype.length = Infinity;
 
 centeredDecagonalSequence.prototype.Q = function (n){

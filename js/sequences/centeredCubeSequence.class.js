@@ -8,6 +8,9 @@ centeredCubeSequence.prototype.constructor = centeredCubeSequence;
 
 centeredCubeSequence.prototype.name = 'centered cube';
 
+centeredCubeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_cube_number";
+centeredCubeSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredCubeNumber.html";
+
 centeredCubeSequence.prototype.length = Infinity;
 
 centeredCubeSequence.prototype.Q = function (n){

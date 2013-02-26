@@ -8,6 +8,9 @@ fibonacciSequence.prototype.constructor = fibonacciSequence;
 
 fibonacciSequence.prototype.name = 'Fibonacci';
 
+fibonacciSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Fibonacci_number";
+fibonacciSequence.prototype.wolfram = "http://mathworld.wolfram.com/FibonacciNumber.html";
+
 fibonacciSequence.prototype.length = Infinity;
 
 fibonacciSequence.prototype.Q = function (n){

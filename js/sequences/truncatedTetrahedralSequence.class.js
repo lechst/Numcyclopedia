@@ -8,6 +8,8 @@ truncatedTetrahedralSequence.prototype.constructor = truncatedTetrahedralSequenc
 
 truncatedTetrahedralSequence.prototype.name = 'truncated tetrahedral';
 
+truncatedTetrahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/TruncatedTetrahedralNumber.html";
+
 truncatedTetrahedralSequence.prototype.length = Infinity;
 
 truncatedTetrahedralSequence.prototype.Q = function (n){

@@ -8,6 +8,9 @@ triangularSequence.prototype.constructor = triangularSequence;
 
 triangularSequence.prototype.name = 'triangular';
 
+triangularSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Triangular_number";
+triangularSequence.prototype.wolfram = "http://mathworld.wolfram.com/TriangularNumber.html";
+
 triangularSequence.prototype.length = Infinity;
 
 triangularSequence.prototype.Q = function (n){

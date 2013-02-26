@@ -8,6 +8,9 @@ centeredOctagonalSequence.prototype.constructor = centeredOctagonalSequence;
 
 centeredOctagonalSequence.prototype.name = 'centered octagonal';
 
+centeredOctagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_octagonal_number";
+centeredOctagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredOctagonalNumber.html";
+
 centeredOctagonalSequence.prototype.length = Infinity;
 
 centeredOctagonalSequence.prototype.Q = function (n){

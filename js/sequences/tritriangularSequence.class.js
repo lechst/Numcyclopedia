@@ -8,6 +8,8 @@ tritriangularSequence.prototype.constructor = tritriangularSequence;
 
 tritriangularSequence.prototype.name = 'tritriangular';
 
+tritriangularSequence.prototype.wolfram = "http://mathworld.wolfram.com/TritriangularNumber.html";
+
 tritriangularSequence.prototype.length = Infinity;
 
 tritriangularSequence.prototype.Q = function (n){

@@ -8,6 +8,9 @@ centeredHexagonalSequence.prototype.constructor = centeredHexagonalSequence;
 
 centeredHexagonalSequence.prototype.name = 'centered hexagonal';
 
+centeredHexagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_hexagonal_number";
+centeredHexagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredHexagonalNumber.html";
+
 centeredHexagonalSequence.prototype.length = Infinity;
 
 centeredHexagonalSequence.prototype.Q = function (n){

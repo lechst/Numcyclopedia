@@ -6,6 +6,9 @@ decagonalSequence.prototype = new Sequence();
 
 decagonalSequence.prototype.constructor = decagonalSequence;
 
+decagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Decagonal_number";
+decagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/DecagonalNumber.html";
+
 decagonalSequence.prototype.name = 'decagonal';
 
 decagonalSequence.prototype.length = Infinity;

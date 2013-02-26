@@ -8,6 +8,9 @@ pentagonalPyramidalSequence.prototype.constructor = pentagonalPyramidalSequence;
 
 pentagonalPyramidalSequence.prototype.name = 'pentagonal pyramidal';
 
+pentagonalPyramidalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Pentagonal_pyramidal_number";
+pentagonalPyramidalSequence.prototype.wolfram = "http://mathworld.wolfram.com/PentagonalPyramidalNumber.html";
+
 pentagonalPyramidalSequence.prototype.length = Infinity;
 
 pentagonalPyramidalSequence.prototype.Q = function (n){

@@ -8,6 +8,9 @@ octagonalSequence.prototype.constructor = octagonalSequence;
 
 octagonalSequence.prototype.name = 'octagonal';
 
+octagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Octagonal_number";
+octagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/OctagonalNumber.html";
+
 octagonalSequence.prototype.length = Infinity;
 
 octagonalSequence.prototype.Q = function (n){
