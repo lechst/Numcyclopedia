@@ -8,6 +8,9 @@ centeredTriangularSequence.prototype.constructor = centeredTriangularSequence;
 
 centeredTriangularSequence.prototype.name = 'centered triangular';
 
+centeredTriangularSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_triangular_number";
+centeredTriangularSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredTriangularNumber.html";
+
 centeredTriangularSequence.prototype.length = Infinity;
 
 centeredTriangularSequence.prototype.Q = function (n){

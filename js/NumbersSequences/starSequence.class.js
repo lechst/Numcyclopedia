@@ -6,6 +6,9 @@ starSequence.prototype = new NumbersSequence();
 
 starSequence.prototype.constructor = starSequence;
 
+starSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Star_number";
+starSequence.prototype.wolfram = "http://mathworld.wolfram.com/StarNumber.html";
+
 starSequence.prototype.name = 'star';
 
 starSequence.prototype.length = Infinity;

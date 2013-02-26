@@ -8,6 +8,9 @@ tetrahedralSequence.prototype.constructor = tetrahedralSequence;
 
 tetrahedralSequence.prototype.name = 'tetrahedral';
 
+tetrahedralSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Tetrahedral_number";
+tetrahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/TetrahedralNumber.html";
+
 tetrahedralSequence.prototype.length = Infinity;
 
 tetrahedralSequence.prototype.Q = function (n){

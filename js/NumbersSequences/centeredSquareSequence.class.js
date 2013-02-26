@@ -8,6 +8,9 @@ centeredSquareSequence.prototype.constructor = centeredSquareSequence;
 
 centeredSquareSequence.prototype.name = 'centered square';
 
+centeredSquareSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_square_number";
+centeredSquareSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredSquareNumber.html";
+
 centeredSquareSequence.prototype.length = Infinity;
 
 centeredSquareSequence.prototype.Q = function (n){

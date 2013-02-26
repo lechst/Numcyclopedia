@@ -8,6 +8,9 @@ rhombicDodecahedralSequence.prototype.constructor = rhombicDodecahedralSequence;
 
 rhombicDodecahedralSequence.prototype.name = 'rhombic dodecahedral';
 
+rhombicDodecahedralSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Rhombic_dodecahedral_number";
+rhombicDodecahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/RhombicDodecahedralNumber.html";
+
 rhombicDodecahedralSequence.prototype.length = Infinity;
 
 rhombicDodecahedralSequence.prototype.Q = function (n){

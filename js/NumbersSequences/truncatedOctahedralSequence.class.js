@@ -8,6 +8,8 @@ truncatedOctahedralSequence.prototype.constructor = truncatedOctahedralSequence;
 
 truncatedOctahedralSequence.prototype.name = 'truncated octahedral';
 
+truncatedOctahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/TruncatedOctahedralNumber.html";
+
 truncatedOctahedralSequence.prototype.length = Infinity;
 
 truncatedOctahedralSequence.prototype.Q = function (n){

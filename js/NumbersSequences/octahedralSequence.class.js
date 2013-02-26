@@ -8,6 +8,9 @@ octahedralSequence.prototype.constructor = octahedralSequence;
 
 octahedralSequence.prototype.name = 'octahedral';
 
+octahedralSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Octahedral_number";
+octahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/OctahedralNumber.html";
+
 octahedralSequence.prototype.length = Infinity;
 
 octahedralSequence.prototype.Q = function (n){

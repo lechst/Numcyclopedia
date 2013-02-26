@@ -8,6 +8,9 @@ pentagonalSequence.prototype.constructor = pentagonalSequence;
 
 pentagonalSequence.prototype.name = 'pentagonal';
 
+pentagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Pentagonal_number";
+pentagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/PentagonalNumber.html";
+
 pentagonalSequence.prototype.length = Infinity;
 
 pentagonalSequence.prototype.Q = function (n){

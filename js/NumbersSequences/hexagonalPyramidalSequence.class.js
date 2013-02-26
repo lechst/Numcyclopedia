@@ -8,6 +8,9 @@ hexagonalPyramidalSequence.prototype.constructor = hexagonalPyramidalSequence;
 
 hexagonalPyramidalSequence.prototype.name = 'hexagonal pyramidal';
 
+hexagonalPyramidalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Hexagonal_pyramidal_number";
+hexagonalPyramidalSequence.prototype.wolfram = "http://mathworld.wolfram.com/HexagonalPyramidalNumber.html";
+
 hexagonalPyramidalSequence.prototype.length = Infinity;
 
 hexagonalPyramidalSequence.prototype.Q = function (n){

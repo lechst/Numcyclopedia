@@ -8,6 +8,9 @@ centeredPentagonalSequence.prototype.constructor = centeredPentagonalSequence;
 
 centeredPentagonalSequence.prototype.name = 'centered pentagonal';
 
+centeredPentagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Centered_pentagonal_number";
+centeredPentagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/CenteredPentagonalNumber.html";
+
 centeredPentagonalSequence.prototype.length = Infinity;
 
 centeredPentagonalSequence.prototype.Q = function (n){

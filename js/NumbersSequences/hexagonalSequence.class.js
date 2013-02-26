@@ -8,6 +8,9 @@ hexagonalSequence.prototype.constructor = hexagonalSequence;
 
 hexagonalSequence.prototype.name = 'hexagonal';
 
+hexagonalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Hexagonal_number";
+hexagonalSequence.prototype.wolfram = "http://mathworld.wolfram.com/HexagonalNumber.html";
+
 hexagonalSequence.prototype.length = Infinity;
 
 hexagonalSequence.prototype.Q = function (n){
