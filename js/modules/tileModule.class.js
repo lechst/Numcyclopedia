@@ -1,30 +1,19 @@
-function tileModule() {
-    Module.call(this);
+function tileModule(conf,n) {
+    Module.call(this,conf);
+
+    this.n = n;
+
+    this.ctnr = $('<div></div>').addClass('numberTile').append('<div class="label">'+this.n+'</div>');
+
+    this.ctnr.css('background-color',conf.bgColorFunction(this.n));
+
+    //newTile.append(renderFactors(i));
+
+    this.ctnr.append(barsModule.prototype.build(primeSingature(this.n)));
 }
 
 tileModule.prototype = new Module();
 
 tileModule.prototype.constructor = tileModule;
 
-tileModule.prototype.build = function(i,conf){
-
-    if(!conf)
-    {
-        conf = {
-            bgColorFunction : function(){
-                return 'gray'
-            }
-        }
-    }
-
-    var newTile = $('<div></div>').addClass('numberTile').append('<div class="label">'+i+'</div>');
-
-    newTile.css('background-color',conf.bgColorFunction(i));
-
-    //newTile.append(renderFactors(i));
-
-    newTile.append(barsModule.prototype.build(primeSingature(i)));
-
-    return newTile;
-
-}
+tileModule.prototype.conf.bgColorFunction = function(){return 'gray';};

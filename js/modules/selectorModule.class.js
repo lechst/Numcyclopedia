@@ -1,26 +1,19 @@
 function selectorModule() {
     Module.call(this);
-}
 
-selectorModule.prototype = new Module();
+    this.ctnr.addClass('selectorModule');
 
-selectorModule.prototype.constructor = selectorModule;
+    this.tagbox = $('<div></div>').addClass('tagBox');
 
-selectorModule.prototype.build = function(list,onChange,conf){
-
-    var selector = $('<div></div>').addClass('selectorModule');
-
-    var tagbox = $('<div></div>').addClass('tagBox');
-
-    for (var tagId in list){
-        var tag = list[tagId];
-        tagbox.append($('<div>'+tag.name+'</div>').addClass('tag'));
+    for (var tagId in this.conf.sequences){
+        var tag = this.conf.sequences[tagId];
+        this.tagbox.append($('<div>'+tag.name+'</div>').addClass('tag'));
     }
 
-    tagbox.find('.tag').mousedown(function(){
+    this.tagbox.find('.tag').mousedown(function(){
         if($(this).hasClass('selected'))
         {
-           // $(this).removeClass('selected')
+            // $(this).removeClass('selected')
         }
         else
         {
@@ -32,7 +25,9 @@ selectorModule.prototype.build = function(list,onChange,conf){
         }
     });
 
-    selector.append(tagbox);
-
-    return selector;
+    this.ctnr.append(this.tagbox);
 }
+
+selectorModule.prototype = new Module();
+
+selectorModule.prototype.constructor = selectorModule;

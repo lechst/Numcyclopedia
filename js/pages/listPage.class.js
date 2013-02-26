@@ -1,7 +1,23 @@
 //TODO refactoring zeby zamiast listPabe było gridPage
 
-function listPage() {
-    Page.call(this);
+function listPage(conf) {
+    Page.call(this,conf);
+
+    this.selector = new selectorModule({
+        sequences : this.conf.sequences
+    });
+
+
+    this.subModules.push(this.selector);
+
+
+    this.grid = new gridModule({
+        N:this.conf.N,
+        tileConf:this.conf.tileConf
+    });
+
+    this.subModules.push(this.grid);
+
 }
 
 listPage.prototype = new Page();
@@ -9,8 +25,6 @@ listPage.prototype = new Page();
 listPage.prototype.constructor = listPage;
 
 listPage.prototype.sequences = [];
-
-listPage.prototype.tileConf = undefined;
 
 listPage.prototype.ctnrConf = function(ctnr){
     ctnr.addClass('listPage');
@@ -21,25 +35,3 @@ listPage.prototype.ctnrConf = function(ctnr){
         }
     );
 };
-
-listPage.prototype.__defineGetter__('modules',function(){
-
-    var modules = [];
-
-    var selector = new selectorModule();
-
-    if(this.sequences.length>0)
-    {
-        modules.push(selector.build(this.sequences));
-    }
-
-    for(var i=2;i<this.N;i++)
-    {
-
-        modules.push(tileModule.prototype.build(i,this.tileConf));
-
-    }
-
-    return modules;
-
-});

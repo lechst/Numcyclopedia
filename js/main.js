@@ -1,18 +1,18 @@
-var np = new listPage();
-
-np.N = 1000;
-
-np.sequences.push(new naturalSequence());
-
-np.sequences.push(new primesSequence());
-
-for(var i = 2;i<15;i++)
-    np.sequences.push(new divisibleSequence(i));
-
-np.tileConf = {};
-
-np.tileConf.bgColorFunction = coldPrimeCF;
-//np.tileConf.bgColorFunction = moduloRainbow(23);
+var np = new listPage({
+    sequences:[
+        new naturalSequence(),
+        new primesSequence(),
+        new divisibleSequence(2),
+        new divisibleSequence(3),
+        new divisibleSequence(6),
+        new divisibleSequence(11),
+        new divisibleSequence(15)
+    ],
+    N:1000,
+    tileConf : {
+        bgColorFunction : coldPrimeCF
+    }
+});
 
 np.render($('body'));
 

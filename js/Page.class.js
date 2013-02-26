@@ -1,16 +1,18 @@
-function Page(){}
+function Page(conf){
+    Module.call(this,conf);
+}
+
+Page.prototype = new Module();
+
+Page.prototype.constructor = Page;
 
 Page.prototype.render = function(where){
 
-    var pageCtnr = $("<div></div>").addClass('page');
+    this.ctnr.addClass('page');
 
-    where.append(pageCtnr);
+    this.build();
 
-    this.modules.map(function(m){
-        pageCtnr.append(m);
-    });
-
-    this.ctnrConf(pageCtnr)
+    where.append(this.ctnr);
 
     return true;
 

@@ -28,4 +28,4 @@ naturalSequence.prototype.length = Infinity;
 
 naturalSequence.prototype.Q = function (n){
     return (n>=2);
-}
+};
