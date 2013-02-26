@@ -28,6 +28,8 @@ naturalSequence.prototype.constructor = naturalSequence;
 
 naturalSequence.prototype.name = "naturals";
 
+naturalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Natural_number";
+
 naturalSequence.prototype.length = Infinity;
 
 naturalSequence.prototype.Q = function (n){
