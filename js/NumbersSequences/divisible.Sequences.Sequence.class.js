@@ -12,7 +12,7 @@ divisibleSequencesSequence.prototype.length = Infinity;
 
 divisibleSequencesSequence.prototype.getN = function(n){
 
-    return new divisibleSequence(byN);
+    return new divisibleSequence(n);
 
 };
 
@@ -20,13 +20,14 @@ divisibleSequencesSequence.prototype.getN = function(n){
 
 
 function divisibleSequence(byN) {
+    NumbersSequence.call(this);
+
     if(!byN)
     {
         throw new Error("n must be specified!")
     }
-    this.byN = byN;
-    NumbersSequence.call(this);
 
+    this.N = byN;
 
 }
 
@@ -36,13 +37,13 @@ divisibleSequence.prototype.constructor = divisibleSequence;
 
 divisibleSequence.prototype.length = Infinity;
 
-divisibleSequence.prototype.byN = undefined;
+divisibleSequence.prototype.N = undefined;
 
 
 divisibleSequence.prototype.__defineGetter__('name',function(){
-    return "divisible by "+this.byN;
+    return "divisible by "+this.N;
 });
 
 divisibleSequence.prototype.Q = function (n){
-    return n%this.byN==0;
+    return n%this.N==0;
 }
