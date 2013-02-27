@@ -1,8 +1,8 @@
 function Module(conf){
 
-    this.conf = {};
+    this.conf = deepFlatCopy(this.conf);
 
-    if(this.conf)
+    if(conf)
     {
         for (cId in conf){
             this.conf[cId] = conf[cId];
@@ -10,6 +10,17 @@ function Module(conf){
     }
 
     this.ctnr = $('<div></div>');
+
+    if(this.ctnrClassName)
+    {
+        this.ctnr.addClass(this.ctnrClassName);
+    }
+
+    if(this.conf.ctnrClassName)
+    {
+        this.ctnr.addClass(this.conf.ctnrClassName);
+    }
+
     this.subModules = [];
 }
 

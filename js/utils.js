@@ -1,3 +1,13 @@
+function deepFlatCopy(o){
+    var newObj = {};
+
+    for (fId in o){
+        newObj[fId] = o[fId];
+    }
+
+    return newObj;
+}
+
 factors = function (n){
 
     var factorsArr = [];

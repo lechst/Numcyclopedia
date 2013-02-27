@@ -12,6 +12,30 @@ NumbersSequence.prototype.length = undefined;
 NumbersSequence.prototype.name = undefined;
 // name określa nazwę ciągu czytelną dla uzytkownika
 
+NumbersSequence.prototype.maxSearch = 1000;
+
+NumbersSequence.prototype.getN = function(nn){
+
+    console.log('Warning: Brute getN implementation of:',this);
+
+    NumbersSequence.prototype.getN = function(n){
+        for (var i = 2;(i<this.maxSearch && n>0);i++)
+        {
+            if(this.Q(i))
+            {
+                n--;
+            }
+            if(n==0){
+                return i;
+            }
+        }
+        return false;
+    }
+
+    return this.getN(nn);
+
+}
+
 
 // poniżej przykładowa najprostsza klasa dziedzicaca po Sequence
 function naturalSequence(byN) {

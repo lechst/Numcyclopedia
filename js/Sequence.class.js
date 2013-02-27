@@ -14,3 +14,4 @@ Sequence.prototype.length = undefined;
 
 Sequence.prototype.name = undefined;
 // name określa nazwę ciągu czytelną dla uzytkownika
+

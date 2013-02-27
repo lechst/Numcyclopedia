@@ -23,3 +23,32 @@ starSequence.prototype.Q = function (n){
 
     return false;
 }
+
+//TODO zaimplementowac rysowanie gwiazdki
+
+starSequence.prototype.arrange = function(n){
+
+// n to n-ta liczba w ciągu, czyli w tym przypadku dla n=3 , rysujemy 3-cią star-number
+
+// narazie zwraca to trywialnie pozycje w lini, a ma zwracac pozycje kolejnych punktow, na parzystych
+// pozycjach (0,2,4...), znajduja sie wspolrzedne x a na nieparzystych y;
+
+// pozycje mogą być ujemne, nie musisz tez przejmować się odleglosciami i skalą, ona jest dobierana automatycznie na nastepnym etapie,
+// możesz to sprawdzić lekko modyfikując to co jest poniżej.
+
+    var pos = {};
+    pos.x = [];
+    pos.y = [];
+
+    var starN = this.getN(n);
+
+    for(var i=0;i<starN;i++)
+    {
+        pos.x.push(i*2);
+        pos.y.push(10-i*3);
+    }
+
+    return pos;
+
+};
+

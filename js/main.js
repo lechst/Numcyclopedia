@@ -1,6 +1,6 @@
 var np = new listPage({
     sequences:NumbersSequence.all,
-    N:1000,
+    N:100,
     tileConf : {
         bgColorFunction : coldPrimeCF
     }
