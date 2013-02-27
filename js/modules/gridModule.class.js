@@ -11,6 +11,8 @@ function gridModule(conf) {
 
 gridModule.prototype = new Module();
 
+gridModule.prototype.ctnrClassName = 'gridModule';
+
 gridModule.prototype.constructor = gridModule;
 
 gridModule.prototype.showOnly = function(set){

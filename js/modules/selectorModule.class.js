@@ -14,11 +14,12 @@ function selectorModule(conf) {
 
     this.tagbox.find('.sequenceLink').mousedown(function(e){
 
+        var tag = $(this).parent().data('tag');
+
         np.ctnr.remove();
 
         var sp = new sequencePage({
-            sequence:$(this).parent().data('tag'),
-            N:10
+            sequence:tag
         });
 
         sp.render($('body'));
