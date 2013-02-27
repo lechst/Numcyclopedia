@@ -47,3 +47,7 @@ divisibleSequence.prototype.__defineGetter__('name',function(){
 divisibleSequence.prototype.Q = function (n){
     return n%this.N==0;
 }
+
+divisibleSequence.prototype.getN = function (n){
+    return n*this.N;
+}
