@@ -26,7 +26,7 @@ fibonacciSequence.prototype.Q = function (n){
     return false;
 }
 
-fibonacciSequence.prototype.N = function (n){
+fibonacciSequence.prototype.getN = function (n){
 
     var a = 1;
     var b = 1;
@@ -63,7 +63,7 @@ fibonacciSequence.prototype.arrange = function(n){
         pos.y.push(y-Math.cos(alpha+2*Math.PI/8));
         x = pos.x[pos.x.length-1];
         y = pos.y[pos.y.length-1];
-        for(var j=0; j<fibonacciSequence.prototype.N(i+1)-1; j++){
+        for(var j=0; j<fibonacciSequence.prototype.getN(i+1)-1; j++){
             pos.x.push(x-(j+1)*Math.sqrt(2)*Math.cos(alpha));
             pos.y.push(y+(j+1)*Math.sqrt(2)*Math.sin(alpha));
         }

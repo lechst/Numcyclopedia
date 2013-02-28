@@ -24,6 +24,13 @@ starSequence.prototype.Q = function (n){
     return false;
 }
 
+starSequence.prototype.getN = function (n){
+
+    var x = 6*n*(n+1)+1;
+
+    return x;
+}
+
 //TODO zaimplementowac rysowanie gwiazdki
 
 starSequence.prototype.arrange = function(n){
