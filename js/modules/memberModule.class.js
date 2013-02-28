@@ -1,16 +1,19 @@
-function memberModule(conf,n) {
+function memberModule(conf,n,sequence) {
 
     Module.call(this,conf);
 
     this.n = n;
+    this.sequence = sequence;
 
-    this.ctnr.addClass('numberTile').append('<div class="label">'+this.n+'</div>');
+    console.log(this.sequence)
 
-    this.ctnr.css('background-color',this.conf.bgColorFunction(this.n));
+    if(this.n>1)
+    {
+    this.ctnr.append(pageLink('(prev)',this.sequence.getN(n-1)));
+    }
 
-    //newTile.append(renderFactors(i));
-
-    this.ctnr.append(barsModule.prototype.build(primeSingature(this.n)));
+    this.ctnr.append('<span>'+this.n+' of '+sequence.name+'</span>');
+    this.ctnr.append(pageLink('(next)',this.sequence.getN(n+1)));
 }
 
 memberModule.prototype = new Module();

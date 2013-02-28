@@ -1,3 +1,17 @@
+function pageLink(caption,obj){
+
+    var newElement = $('<a href="#">'+caption+'</a>').addClass('sequenceLink').data('pageLink',obj);
+
+    newElement.mousedown(function(e){
+
+        obj.ownPage.show();
+
+        return false;
+    });
+
+    return newElement;
+}
+
 function deepFlatCopy(o){
     var newObj = {};
 

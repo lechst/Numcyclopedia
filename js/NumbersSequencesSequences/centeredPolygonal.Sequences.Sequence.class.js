@@ -39,7 +39,7 @@ centeredPolygonalSequence.prototype.length = Infinity;
 
 centeredPolygonalSequence.prototype.final = false;
 
-centeredPolygonalSequence.prototype.memberOf = [centeredPolygonalSequencesSequence];
+centeredPolygonalSequence.prototype.memberOf = [centeredPolygonalSequencesSequence.prototype];
 
 centeredPolygonalSequence.prototype.getN = function(n){
 

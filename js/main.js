@@ -13,5 +13,10 @@ var np = new listPage({
     }
 });
 
-np.render($('body'));
+$(document).ready(function(){
+    np.show();
+});
+
+
+//TODO ponirsze koniecznie ogarnac, to jest robocze jeszcze, troche za male i za czeste na modul
 

@@ -17,6 +17,20 @@ NumbersSequence.prototype.name = undefined;
 
 NumbersSequence.prototype.maxSearch = 1000;
 
+NumbersSequence.prototype.__defineGetter__('ownPage',function(){
+
+    if(!this.ownPageForLazy)
+    {
+        this.ownPageForLazy = new sequencePage({
+            sequence:this
+        });
+    }
+
+    return this.ownPageForLazy
+});
+
+
+
 NumbersSequence.prototype.getN = function(nn){
 
     console.log('Warning: Brute getN implementation of:',this);

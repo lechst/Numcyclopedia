@@ -17,3 +17,12 @@ Page.prototype.render = function(where){
     return true;
 
 }
+
+Page.prototype.show = function(where){
+
+    $('.page').remove();
+    console.log(this)
+    this.render($('body'));
+    return true;
+
+}

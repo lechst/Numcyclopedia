@@ -9,6 +9,13 @@ function sequencePage(conf) {
 
     this.subModules.push(this.title);
 
+
+    for (var ssNid in this.conf.sequence.memberOf)
+    {
+
+        this.subModules.push(new memberModule({},this.conf.sequence.N,this.conf.sequence.memberOf[ssNid]));
+    }
+
     console.log(this.conf.N)
 
     var sNM = {};

@@ -17,24 +17,10 @@ function selectorModule(conf) {
 
     for (var tagId in this.conf.sequences){
         var tag = this.conf.sequences[tagId];
-        this.tagbox.append($('<div>'+tag.name+' <a href="#" class="sequenceLink">(?)</a></div>').addClass('tag').data('tag',tag));
+        this.tagbox.append($('<div>'+tag.name+'</div>').append(pageLink('(?)',tag)).addClass('tag').data('tag',tag));
     }
 
     var thisS = this;
-
-    this.tagbox.find('.sequenceLink').mousedown(function(e){
-
-        var tag = $(this).parent().data('tag');
-
-        np.ctnr.remove();
-
-        var sp = new sequencePage({
-            sequence:tag
-        });
-
-        sp.render($('body'));
-        return false;
-    });
 
     this.tagbox.find('.tag').mousedown(function(e){
         if($(this).hasClass('selected'))

@@ -39,7 +39,7 @@ generalizedFibonacciSequence.prototype.length = Infinity;
 
 generalizedFibonacciSequence.prototype.final = false;
 
-generalizedFibonacciSequence.prototype.memberOf = [generalizedFibonacciSequencesSequence];
+generalizedFibonacciSequence.prototype.memberOf = [generalizedFibonacciSequencesSequence.prototype];
 
 generalizedFibonacciSequence.prototype.getN = function(n){
 
