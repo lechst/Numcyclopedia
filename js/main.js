@@ -1,5 +1,5 @@
 var np = new listPage({
-    sequences:NumbersSequence.all.filter(function(x){return x.final}),
+    sequences:NumbersSequence.all.filter(function(ns){return ns.final}),
     sequencesSequences:[
         polygonalSequencesSequence.prototype,
         centeredPolygonalSequencesSequence.prototype,
