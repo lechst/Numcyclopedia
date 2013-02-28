@@ -8,6 +8,11 @@ function arrangeImgModule(conf,n,sequence) {
     var R = 10;
     var minDistance = 2*R+2;
 
+    if(sequence.arrange.minDistance)
+    {
+        minDistance = 2*R*sequence.arrange.minDistance;
+    }
+
     //TODO na kiedyś, jesli sequence nie ma arrange przydalaby sie jakiś trywialny sposob rysowania arrange, np na linii ?
     if(!(this.x = sequence.getN(this.n)) || !sequence.arrange){
         return false;
@@ -35,11 +40,14 @@ function arrangeImgModule(conf,n,sequence) {
 
     for(var i = 1;i<this.positions.x.length;i++)
     {
-        var distSq = (this.positions.x[i]-this.positions.x[i-1])*(this.positions.x[i]-this.positions.x[i-1])+(this.positions.y[i]-this.positions.y[i-1])*(this.positions.y[i]-this.positions.y[i-1]);
-
-        if(distSq>0 && distSq<minDistSq)
+        for(var j = 0;j<i;j++)
         {
-            minDistSq = distSq;
+            var distSq = (this.positions.x[i]-this.positions.x[j])*(this.positions.x[i]-this.positions.x[j])+(this.positions.y[i]-this.positions.y[j])*(this.positions.y[i]-this.positions.y[j]);
+
+            if(distSq>0 && distSq<minDistSq)
+            {
+                minDistSq = distSq;
+            }
         }
     }
 
@@ -56,6 +64,8 @@ function arrangeImgModule(conf,n,sequence) {
     this.canv[0].width = W*scaleX+2*R+2;
     this.canv[0].height = H*scaleY+2*R+2;
 
+    this.ctx.fillStyle = 'white';
+
     for(var i = 0;i<this.positions.x.length;i++)
     {
         this.ctx.beginPath();
@@ -63,6 +73,10 @@ function arrangeImgModule(conf,n,sequence) {
             R+1+scaleX*(this.positions.x[i]-minX),
             R+1+scaleY*(this.positions.y[i]-minY),
             R,0,2*Math.PI);
+
+
+        if(sequence.arrange.fill)
+            this.ctx.fill();
         this.ctx.stroke();
     }
 
