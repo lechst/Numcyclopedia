@@ -109,7 +109,6 @@ centeredPolygonalSequence.prototype.arrange = function(n){
 
 };
 
-centeredPolygonalSequence.prototype.arrange.minDistance = 1;
 
 
 
