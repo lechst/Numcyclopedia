@@ -83,3 +83,4 @@ starSequence.prototype.arrange = function(n){
 
 starSequence.prototype.arrange.minDistance = 0.5;
 starSequence.prototype.arrange.fill = true;
+

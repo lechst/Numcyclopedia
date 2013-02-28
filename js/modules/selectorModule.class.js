@@ -3,8 +3,18 @@ function selectorModule(conf) {
 
     this.ctnr.addClass('selectorModule');
 
+    this.tagbox = $('<div></div>').addClass('tagBox');
+
+
+    this.tags= $('<div></div>').addClass('tags')
     if(this.conf.sequence)
     {
+
+        this.tags.css('width',3000);
+
+        this.maintag = $('<div>'+this.conf.sequence.name+'</div>').addClass('mainTag');
+
+        this.tagbox.append(this.maintag);
         this.conf.sequences = [];
 
         for(var i = 1;i<10;i++)
@@ -13,11 +23,14 @@ function selectorModule(conf) {
         }
     }
 
-    this.tagbox = $('<div></div>').addClass('tagBox');
+    //TODO zrobic tu dobra szerokosc
+
+
+    this.tagbox.append(this.tags);
 
     for (var tagId in this.conf.sequences){
         var tag = this.conf.sequences[tagId];
-        this.tagbox.append($('<div>'+tag.name+'</div>').append(pageLink('(?)',tag)).addClass('tag').data('tag',tag));
+        this.tags.append($('<div>'+tag.name+'</div>').append(pageLink('(?)',tag)).addClass('tag').data('tag',tag));
     }
 
     var thisS = this;

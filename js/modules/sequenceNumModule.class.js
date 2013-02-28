@@ -26,6 +26,11 @@ function sequenceNumModule(conf,n,sequence) {
         this.ctnr.append(this.arrangeImg.ctnr);
     }
 
+    if(this.sequence.arrange3D)
+    {
+        this.arrange3DImg = new arrange3DImgModule({},this.n,this.sequence);
+        this.ctnr.append(this.arrange3DImg.ctnr);
+    }
 
 }
 

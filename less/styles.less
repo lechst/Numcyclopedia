@@ -119,12 +119,15 @@ div.bars div.bar div.brick:last-child {
 div.selector {}
 
 div.tagBox {
-    border:1px dotted gray;
+    border:1px solid black;
     position:relative;
     height: auto;
     overflow: auto;
     padding:3px;
     border-radius:8px;
+    margin-top:3px;
+    background-color: #eee;
+    overflow: hidden;
 }
 
 div.tagBox div.tag {
@@ -136,6 +139,21 @@ div.tagBox div.tag {
     padding:2px 4px 1px 4px;
     cursor:pointer;
     font-size:12px;
+    background-color: white;
+}
+
+div.tagBox div.mainTag {
+    border: 1px solid gray;
+    position: relative;
+    float: left;
+    margin: -4px;
+    border-radius: 8px;
+    padding: 6px 7px 5px 8px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-right: 4px;
+    background-color: white;
+
 }
 
 div.tagBox div.tag.selected {

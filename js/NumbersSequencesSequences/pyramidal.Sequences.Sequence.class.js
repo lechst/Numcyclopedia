@@ -71,9 +71,21 @@ pyramidalSequence.prototype.Q = function (n){
     return false;
 }
 
+pyramidalSequence.prototype.arrange3D = function(n){
 
 
+    //działa to tak że kolka ktore maja rozne z moga sie nakladac, najlepij potestuj na tym prostym przykladzie
 
+    var pos = {};
+    pos.x = [1,1,0,0,0.25,0.6];
+    pos.y = [1,0,1,0,0.25,1.5];
+    pos.z = [0,0,0,0,1,-1];
+
+    return pos;
+
+};
+
+pyramidalSequence.prototype.arrange3D.fill = true;
 
 
 
