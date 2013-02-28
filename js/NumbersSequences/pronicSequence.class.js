@@ -24,3 +24,19 @@ pronicSequence.prototype.Q = function (n){
     return false;
 }
 
+pronicSequence.prototype.arrange = function(n){
+
+    var pos = {};
+    pos.x = [];
+    pos.y = [];
+
+    for(var i=0; i<n; i++){
+        for(var j=0; j<n+1; j++){
+            pos.x.push(i);
+            pos.y.push(j);
+        }
+    }
+
+    return pos;
+
+};
