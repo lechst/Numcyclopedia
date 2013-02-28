@@ -41,6 +41,7 @@ divisibleSequence.prototype.final = false;
 
 divisibleSequence.prototype.N = undefined;
 
+divisibleSequence.prototype.memberOf = [divisibleSequencesSequence];
 
 divisibleSequence.prototype.__defineGetter__('name',function(){
     return "divisible by "+this.N;

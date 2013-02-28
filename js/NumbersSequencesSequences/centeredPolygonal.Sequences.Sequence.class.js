@@ -39,6 +39,8 @@ centeredPolygonalSequence.prototype.length = Infinity;
 
 centeredPolygonalSequence.prototype.final = false;
 
+centeredPolygonalSequence.prototype.memberOf = [centeredPolygonalSequencesSequence];
+
 centeredPolygonalSequence.prototype.getN = function(n){
 
     var r = this.N + 2;
@@ -106,7 +108,7 @@ centeredPolygonalSequence.prototype.arrange = function(n){
 
 };
 
-
+centeredPolygonalSequence.prototype.arrange.minDistance = 0.0000001;
 
 
 

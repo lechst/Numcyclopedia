@@ -30,13 +30,18 @@ function arrangeImgModule(conf,n,sequence) {
     var minY = Math.min.apply(this,this.positions.y);
     var maxY = Math.max.apply(this,this.positions.y);
 
+    console.log(minX,maxX,minY,maxY);
+
     var W = maxX-minX;
     var H = maxY-minY;
+
+    console.log(W,H);
 
     var scaleX = 1;
     var scaleY = 1;
 
     var minDistSq = Infinity;
+    var maxDistSq = 0;
 
     for(var i = 1;i<this.positions.x.length;i++)
     {
@@ -47,6 +52,11 @@ function arrangeImgModule(conf,n,sequence) {
             if(distSq>0 && distSq<minDistSq)
             {
                 minDistSq = distSq;
+            }
+
+            if(distSq>maxDistSq)
+            {
+                maxDistSq = distSq;
             }
         }
     }
@@ -60,6 +70,16 @@ function arrangeImgModule(conf,n,sequence) {
         scaleX = minDistance/Math.sqrt(minDistSq);
         scaleY = minDistance/Math.sqrt(minDistSq);
     }
+    console.log('maxDistScaled',maxDistSq*scaleX)
+    if((maxDistSq*scaleX)>1000*1000){
+        console.log('scaleDown!')
+        scaleX *= 1000/(Math.sqrt(maxDistSq)*scaleX);
+        scaleY *= 1000/(Math.sqrt(maxDistSq)*scaleY);
+    }
+
+    console.log('min,max',minDistSq,maxDistSq);
+
+    console.log('scale',scaleX);
 
     this.canv[0].width = W*scaleX+2*R+2;
     this.canv[0].height = H*scaleY+2*R+2;

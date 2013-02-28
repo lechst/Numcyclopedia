@@ -37,6 +37,8 @@ polygonalSequence.prototype.constructor = polygonalSequence;
 
 polygonalSequence.prototype.length = Infinity;
 
+polygonalSequence.prototype.memberOf = [polygonalSequencesSequence];
+
 polygonalSequence.prototype.final = false;
 
 polygonalSequence.prototype.getN = function(n){

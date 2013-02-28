@@ -34,6 +34,8 @@ function pyramidalSequence(n) {
 
 pyramidalSequence.prototype = new NumbersSequence();
 
+pyramidalSequence.prototype.memberOf = [pyramidalSequencesSequence];
+
 pyramidalSequence.prototype.constructor = pyramidalSequence;
 
 pyramidalSequence.prototype.length = Infinity;
