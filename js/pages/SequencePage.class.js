@@ -27,7 +27,7 @@ sequencePage.prototype.constructor = sequencePage;
 
 sequencePage.prototype.sequence = undefined;
 
-sequencePage.prototype.conf.N = 50;
+sequencePage.prototype.conf.N = 10;
 
 sequencePage.prototype.ctnrConf = function(ctnr){
     ctnr.addClass('sequencePage');
