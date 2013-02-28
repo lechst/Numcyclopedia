@@ -76,7 +76,8 @@ centeredPolygonalSequence.prototype.arrange = function(n){
     pos.y = [];
 
     var r = this.N + 2;
-    var alpha = 2*Math.PI/r;
+    var alpha = Math.PI/2+Math.PI/r;
+    var s = 2*Math.sin(Math.PI/r);
 
     var x = 0;
     var y = 0;
@@ -93,22 +94,22 @@ centeredPolygonalSequence.prototype.arrange = function(n){
 
         for(var j=0; j<r; j++){
             for(var k=0; k<i; k++){
-                pos.x.push(x-(k+1)*Math.cos(alpha));
-                pos.y.push(y-(k+1)*Math.sin(alpha));
+                pos.x.push(x+(k+1)*Math.cos(alpha)*s);
+                pos.y.push(y-(k+1)*Math.sin(alpha)*s);
             }
             x = pos.x[pos.x.length-1];
             y = pos.y[pos.y.length-1];
-            alpha = alpha - 2*Math.PI/r;
+            alpha = alpha + 2*Math.PI/r;
         }
 
-        alpha = 2*Math.PI/r;
+        alpha = Math.PI/2+Math.PI/r;
     }
 
     return pos;
 
 };
 
-centeredPolygonalSequence.prototype.arrange.minDistance = 0.0000001;
+centeredPolygonalSequence.prototype.arrange.minDistance = 1;
 
 
 
