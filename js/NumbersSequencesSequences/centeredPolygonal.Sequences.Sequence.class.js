@@ -89,9 +89,6 @@ centeredPolygonalSequence.prototype.arrange = function(n){
         x = i;
         y = 0;
 
-        pos.x.push(x);
-        pos.y.push(y);
-
         for(var j=0; j<r; j++){
             for(var k=0; k<i; k++){
                 pos.x.push(x+(k+1)*Math.cos(alpha)*s);
