@@ -26,7 +26,7 @@ function polygonalSequence(n) {
     if(!n) {
         throw new Error("n must be specified!")
     }
-
+    this.final = true;
     this.N = n;
 
 }
@@ -36,6 +36,8 @@ polygonalSequence.prototype = new NumbersSequence();
 polygonalSequence.prototype.constructor = polygonalSequence;
 
 polygonalSequence.prototype.length = Infinity;
+
+polygonalSequence.prototype.final = false;
 
 polygonalSequence.prototype.getN = function(n){
 

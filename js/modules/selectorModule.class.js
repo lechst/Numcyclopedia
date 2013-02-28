@@ -3,6 +3,15 @@ function selectorModule(conf) {
 
     this.ctnr.addClass('selectorModule');
 
+    if(this.conf.sequence)
+    {
+        this.conf.sequences = [];
+        for(var i = 1;i<10;i++)
+        {
+            this.conf.sequences.push(this.conf.sequence.getN(i));
+        }
+    }
+
     this.tagbox = $('<div></div>').addClass('tagBox');
 
     for (var tagId in this.conf.sequences){

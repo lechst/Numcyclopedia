@@ -26,7 +26,7 @@ function centeredPolygonalSequence(n) {
     if(!n) {
         throw new Error("n must be specified!")
     }
-
+    this.final = true;
     this.N = n;
 
 }
@@ -36,6 +36,8 @@ centeredPolygonalSequence.prototype = new NumbersSequence();
 centeredPolygonalSequence.prototype.constructor = centeredPolygonalSequence;
 
 centeredPolygonalSequence.prototype.length = Infinity;
+
+centeredPolygonalSequence.prototype.final = false;
 
 centeredPolygonalSequence.prototype.getN = function(n){
 

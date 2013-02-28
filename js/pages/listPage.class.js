@@ -24,11 +24,27 @@ function listPage(conf) {
         }
     });
 
+    this.selectors = [];
+
+    for (ssId in this.conf.sequencesSequences)
+    {
+        this.selectors.push(
+            new selectorModule({
+            sequence : this.conf.sequencesSequences[ssId],
+            onSelect : function(tag){
+                thisP.grid.highlightOnly(tag);
+            }
+            })
+        );
+
+    }
+
     this.subModules.push(this.selectorA);
     this.subModules.push(this.selectorB);
 
-    this.subModules.push(this.grid);
+    this.subModules = this.subModules.concat(this.selectors);
 
+    this.subModules.push(this.grid);
 }
 
 listPage.prototype = new Page();

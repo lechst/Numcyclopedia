@@ -26,7 +26,7 @@ function generalizedFibonacciSequence(n) {
     if(!n) {
         throw new Error("n must be specified!")
     }
-
+    this.final = true;
     this.N = n;
 
 }
@@ -36,6 +36,8 @@ generalizedFibonacciSequence.prototype = new NumbersSequence();
 generalizedFibonacciSequence.prototype.constructor = generalizedFibonacciSequence;
 
 generalizedFibonacciSequence.prototype.length = Infinity;
+
+generalizedFibonacciSequence.prototype.final = false;
 
 generalizedFibonacciSequence.prototype.getN = function(n){
 

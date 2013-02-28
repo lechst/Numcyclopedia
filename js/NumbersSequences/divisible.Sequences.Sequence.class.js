@@ -26,7 +26,7 @@ function divisibleSequence(byN) {
     {
         throw new Error("n must be specified!")
     }
-
+    this.final = true;
     this.N = byN;
 
 }
@@ -36,6 +36,8 @@ divisibleSequence.prototype = new NumbersSequence();
 divisibleSequence.prototype.constructor = divisibleSequence;
 
 divisibleSequence.prototype.length = Infinity;
+
+divisibleSequence.prototype.final = false;
 
 divisibleSequence.prototype.N = undefined;
 

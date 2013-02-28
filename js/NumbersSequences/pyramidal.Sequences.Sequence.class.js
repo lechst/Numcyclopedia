@@ -27,6 +27,7 @@ function pyramidalSequence(n) {
         throw new Error("n must be specified!")
     }
 
+    this.final = true;
     this.N = n;
 
 }
@@ -36,6 +37,8 @@ pyramidalSequence.prototype = new NumbersSequence();
 pyramidalSequence.prototype.constructor = pyramidalSequence;
 
 pyramidalSequence.prototype.length = Infinity;
+
+pyramidalSequence.prototype.final = false;
 
 pyramidalSequence.prototype.getN = function(n){
 
