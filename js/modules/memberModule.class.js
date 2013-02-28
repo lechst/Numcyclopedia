@@ -1,4 +1,4 @@
-function memebrModule(conf,n) {
+function memberModule(conf,n) {
 
     Module.call(this,conf);
 
@@ -13,6 +13,6 @@ function memebrModule(conf,n) {
     this.ctnr.append(barsModule.prototype.build(primeSingature(this.n)));
 }
 
-memebrModule.prototype = new Module();
+memberModule.prototype = new Module();
 
-memebrModule.prototype.constructor = memebrModule;
+memberModule.prototype.constructor = memberModule;
