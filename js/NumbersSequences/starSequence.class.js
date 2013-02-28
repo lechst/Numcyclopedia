@@ -42,10 +42,30 @@ starSequence.prototype.arrange = function(n){
 
     var starN = this.getN(n);
 
-    for(var i=0;i<starN;i++)
-    {
-        pos.x.push(i*2);
-        pos.y.push(10-i*3);
+    //środkowy rząd
+    for(var i=0; i<(2*n+1); i++){
+        pos.x.push(-n+i);
+        pos.y.push(0);
+    }
+
+    //szerokie rzędy
+    for(var i=0; i<n; i++){
+        for(var j=0; j<(2*n+2+i); j++){
+            pos.x.push(-(2*n+1+i)/2+j);
+            pos.y.push((i+1)*Math.sqrt(3)/2);
+            pos.x.push(-(2*n+1+i)/2+j);
+            pos.y.push(-(i+1)*Math.sqrt(3)/2);
+        }
+    }
+
+    //wąskie rzędy
+    for(var i=0; i<n; i++){
+        for(var j=(n-i); j>0; j--){
+            pos.x.push(-(n-i+1)/2+j);
+            pos.y.push((n+1+i)*Math.sqrt(3)/2);
+            pos.x.push(-(n-i+1)/2+j);
+            pos.y.push(-(n+1+i)*Math.sqrt(3)/2);
+        }
     }
 
     return pos;
