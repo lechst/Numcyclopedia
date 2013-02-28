@@ -24,6 +24,13 @@ pronicSequence.prototype.Q = function (n){
     return false;
 }
 
+pronicSequence.prototype.getN = function (n){
+
+    var x = n*(n+1);
+
+    return x;
+}
+
 pronicSequence.prototype.arrange = function(n){
 
     var pos = {};
