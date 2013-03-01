@@ -29,14 +29,44 @@ NumbersSequence.prototype.__defineGetter__('ownPage',function(){
     return this.ownPageForLazy
 });
 
+NumbersSequence.prototype.QN = function(nn){
 
+    console.log('Warning: Brute QN implementation of:',this);
+
+    NumbersSequence.prototype.QN = function(n){
+
+        console.log(n);
+
+        if(n>this.maxSearch)
+        {
+            return false;
+        }
+
+        var N = 0;
+
+        for (var i = 1;(N<n && i<this.maxSearch);i++)
+        {
+            if(this.Q(i)){
+                N++;
+                if(i==n)
+                {
+                    return N;
+                }
+            }
+        }
+        return false;
+    }
+
+    return this.QN(nn);
+
+}
 
 NumbersSequence.prototype.getN = function(nn){
 
     console.log('Warning: Brute getN implementation of:',this);
 
     NumbersSequence.prototype.getN = function(n){
-        for (var i = 2;(i<this.maxSearch && n>0);i++)
+        for (var i = 1;(i<this.maxSearch && n>0);i++)
         {
             if(this.Q(i))
             {
@@ -72,5 +102,9 @@ naturalSequence.prototype.wolfram = "http://mathworld.wolfram.com/NaturalNumber.
 naturalSequence.prototype.length = Infinity;
 
 naturalSequence.prototype.Q = function (n){
-    return (n>=2);
+    return (n>=1);
+};
+
+naturalSequence.prototype.QN = function (n){
+    return n;
 };

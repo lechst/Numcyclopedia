@@ -41,8 +41,6 @@ centeredPolygonalSequence.prototype.final = false;
 
 centeredPolygonalSequence.prototype.memberOf = [centeredPolygonalSequencesSequence.prototype];
 
-centeredPolygonalSequence.prototype.texExpression = "\\frac{rn(n-1)}{2} + 1";
-
 centeredPolygonalSequence.prototype.getN = function(n){
 
     var r = this.N + 2;

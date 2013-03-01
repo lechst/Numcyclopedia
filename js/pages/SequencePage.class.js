@@ -12,7 +12,6 @@ function sequencePage(conf) {
 
     for (var ssNid in this.conf.sequence.memberOf)
     {
-
         this.subModules.push(new memberModule({},this.conf.sequence.N,this.conf.sequence.memberOf[ssNid]));
     }
 
@@ -22,7 +21,7 @@ function sequencePage(conf) {
 
     for (var i = 1;(i<this.conf.N) && sNM;i++)
     {
-        if (sNM = new sequenceNumModule({},i,this.conf.sequence))
+        if (sNM = new sequenceNumModule({tile:true},i,this.conf.sequence))
             this.subModules.push(sNM);
     }
 

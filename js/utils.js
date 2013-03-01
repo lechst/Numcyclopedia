@@ -4,6 +4,16 @@ function pageLink(caption,obj){
 
     newElement.mousedown(function(e){
 
+        if(typeof(obj)=='number')
+        {
+
+            (new numberPage({
+                number:obj
+            })).show();
+
+            return false;
+        }
+
         obj.ownPage.show();
 
         return false;

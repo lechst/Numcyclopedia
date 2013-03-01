@@ -10,15 +10,16 @@ function sequenceNumModule(conf,n,sequence) {
 
     this.sequence = sequence;
 
+    if(this.conf.tile)
+    {
+        this.tile = new tileModule( {
+            bgColorFunction : coldPrimeCF
+        },this.x)
 
-    this.tile = new tileModule( {
-        bgColorFunction : coldPrimeCF
-    },this.x)
-
-    this.ctnr.append($('<div>'+this.n+" - "+'</div>').addClass('nEquals'));
-    this.ctnr.append(this.tile.ctnr);
-    this.ctnr.append('<div style="clear:both;"></div>');
-
+        this.ctnr.append($('<div>'+this.n+" - "+'</div>').addClass('nEquals'));
+        this.ctnr.append(this.tile.ctnr);
+        this.ctnr.append('<div style="clear:both;"></div>');
+    }
 
     if(this.sequence.arrange)
     {

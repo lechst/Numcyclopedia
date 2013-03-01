@@ -11,6 +11,7 @@ function tileModule(conf,n) {
     //newTile.append(renderFactors(i));
 
     this.ctnr.append(barsModule.prototype.build(primeSingature(this.n)));
+    this.ctnr.append(pageLink('(?)',this.n));
 }
 
 tileModule.prototype = new Module();
