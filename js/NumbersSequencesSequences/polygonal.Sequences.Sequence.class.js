@@ -41,6 +41,8 @@ polygonalSequence.prototype.memberOf = [polygonalSequencesSequence.prototype];
 
 polygonalSequence.prototype.final = false;
 
+polygonalSequence.prototype.texExpression = "\\frac{n^2 (r-2) - n (r-4)}{2}";
+
 polygonalSequence.prototype.getN = function(n){
 
     var r = this.N + 2;
