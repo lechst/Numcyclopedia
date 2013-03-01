@@ -73,13 +73,56 @@ pyramidalSequence.prototype.Q = function (n){
 
 pyramidalSequence.prototype.arrange3D = function(n){
 
-
-    //działa to tak że kolka ktore maja rozne z moga sie nakladac, najlepij potestuj na tym prostym przykladzie
-
     var pos = {};
-    pos.x = [1,1,0,0,0.25,0.6];
-    pos.y = [1,0,1,0,0.25,1.5];
-    pos.z = [0,0,0,0,1,-1];
+    pos.x = [];
+    pos.y = [];
+    pos.z = [];
+
+    var r = this.N + 2;
+    var alpha = 2*Math.PI/r;
+
+    var x = 0;
+    var y = 0;
+    var z = 0;
+    var dx = 0;
+    var dy = 0;
+
+    for(var m=n; m>0; m--){
+
+        x = 0 + dx;
+        y = 0 + dy;
+        z = n - m;
+
+        pos.x.push(x);
+        pos.y.push(y);
+        pos.z.push(z);
+
+        for(var i=1; i<m; i++){
+            x = i + dx;
+            y = 0 + dy;
+
+            pos.x.push(x);
+            pos.y.push(y);
+            pos.z.push(z);
+
+            for(var j=0; j<(r-2); j++){
+                for(var k=0; k<i; k++){
+                    pos.x.push(x+(k+1)*Math.cos(alpha));
+                    pos.y.push(y-(k+1)*Math.sin(alpha));
+                    pos.z.push(z);
+                }
+                x = pos.x[pos.x.length-1];
+                y = pos.y[pos.y.length-1];
+                alpha = alpha + 2*Math.PI/r;
+            }
+
+            alpha = 2*Math.PI/r;
+        }
+
+        dx = dx + 1/2;
+        dy = dy - 1/(2*Math.tan(alpha/2));
+
+    }
 
     return pos;
 
