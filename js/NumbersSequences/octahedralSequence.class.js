@@ -102,3 +102,4 @@ octahedralSequence.prototype.arrange3D = function(n){
 
 
 octahedralSequence.prototype.arrange3D.fill = true;
+
