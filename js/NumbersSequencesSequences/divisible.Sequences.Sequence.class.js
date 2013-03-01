@@ -51,6 +51,8 @@ divisibleSequence.prototype.Q = function (n){
     return n%this.N==0;
 }
 
+divisibleSequence.prototype.texExpression = "n\\times k";
+
 divisibleSequence.prototype.getN = function (n){
     return n*this.N;
 }

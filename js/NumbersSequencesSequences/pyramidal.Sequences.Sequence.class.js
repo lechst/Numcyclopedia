@@ -42,6 +42,8 @@ pyramidalSequence.prototype.length = Infinity;
 
 pyramidalSequence.prototype.final = false;
 
+pyramidalSequence.prototype.texExpression = "\\frac{n (n+1) \\left[ (r-2) n + (5-r) \\right] }{6}";
+
 pyramidalSequence.prototype.getN = function(n){
 
     var r = this.N + 2;
