@@ -13,6 +13,8 @@ fibonacciSequence.prototype.wolfram = "http://mathworld.wolfram.com/FibonacciNum
 
 fibonacciSequence.prototype.length = Infinity;
 
+lucasSequence.prototype.texExpression = "F_{-1}=1,\\, F_{0}=1,\\, F_n=F_{n-1}+F_{n-2}";
+
 fibonacciSequence.prototype.Q = function (n){
 
     var phi = (1+Math.sqrt(5))/2;
