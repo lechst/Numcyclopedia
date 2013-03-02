@@ -5,6 +5,7 @@ var np = new listPage({
         centeredPolygonalSequencesSequence.prototype,
         divisibleSequencesSequence.prototype,
         generalizedFibonacciSequencesSequence.prototype,
+        generalizedLucasSequencesSequence.prototype,
         pyramidalSequencesSequence.prototype
     ],
     N:100,
