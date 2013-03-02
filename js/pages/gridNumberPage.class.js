@@ -1,64 +1,44 @@
-function gridPage(conf) {
-    Page.call(this,conf);
+function gridNumberPage(conf) {
+    gridPage.call(this,conf);
 
-    console.log(this.conf.number)
+    this.number = this.conf.number;
 
-    this.ctnr.css('width',window.innerWidth);
-    this.ctnr.css('height',window.innerHeight);
+    var boxId = 0;
 
-    this.ctnr.append(this.boxes = $('<div></div>'));
+    for (var ssNid in NumbersSequence.all)
+    {
+        if(boxId<this.nBox*this.mBox)
+        {
+            if(NumbersSequence.all[ssNid].final)
+            {
+                //console.log('testing',NumbersSequence.all[ssNid])
+                if(NumbersSequence.all[ssNid].Q(this.number))
+                {
+                    var qn = NumbersSequence.all[ssNid].QN(this.number);
+                    //console.log(NumbersSequence.all[ssNid])
+                    var nMm = new memberModule({},qn,NumbersSequence.all[ssNid]);
+                    nMm.build();
+                    $(this.boxes.children('div')[boxId]).append(nMm.ctnr);
 
-
-    var nBox = 6;
-    var mBox = 3;
-
-    var boxW = 200;
-    var boxH = 200;
-
-    var borderDist = 4;
-    var cssBorder = 0;
-
-    this.boxes.css('left',(window.innerWidth-nBox*boxW)/2);
-    this.boxes.css('top',(window.innerHeight-mBox*boxH)/2);
-    this.boxes.css('position','absolute');
-
-    for(var i=0; i<nBox;i++){
-        for(var j=0; j<mBox;j++){
-            this.boxes.append($('<div></div>')
-                .css('position','absolute')
-                .css('left',(boxW*i)+borderDist)
-                .css('top',(boxH*j)+borderDist)
-                .css('width',boxW-(2*(borderDist+cssBorder)))
-                .css('height',boxH-(2*(borderDist+cssBorder)))
-                .css('border-width',cssBorder)
-                .css('border-style','solid')
-                .css('border-color','gray')
-                .css('background-color','white')
-                .css('overflow','hidden')
-                .css('border-radius',8)
-                .append(
-                    $('<div></div>')
-                        .css('border-image','url(img/inner_shadow.png) 80 80 80 80')
-                        .css('width',boxW-(2*(borderDist+cssBorder)))
-                        .css('height',boxH-(2*(borderDist+cssBorder)))
-                        .css('border-width',6)
-                        .css('opacity',0.8)
-                )
-
-
-            );
+                    var nSNm = new sequenceNumModule({maxW:this.boxW*0.8,maxH:this.boxH*0.7},qn,NumbersSequence.all[ssNid])
+                    nSNm.build();
+                    $(this.boxes.children('div')[boxId]).append(nSNm.ctnr);
+                    boxId++;
+                    //this.subModules.push(new sequenceNumModule({},qn,NumbersSequence.all[ssNid]));
+                }
+            }
         }
     }
 
 }
 
-gridPage.prototype = new Page();
+gridNumberPage.prototype = new gridPage();
 
-gridPage.prototype.constructor = gridPage;
+gridNumberPage.prototype.constructor = gridNumberPage;
 
-gridPage.prototype.number = undefined;
+gridNumberPage.prototype.number = undefined;
 
-gridPage.prototype.ctnrConf = function(ctnr){
+gridNumberPage.prototype.ctnrConf = function(ctnr){
     ctnr.addClass('gridPage');
 
     ctnr.css(

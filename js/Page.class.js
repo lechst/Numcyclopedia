@@ -21,7 +21,6 @@ Page.prototype.render = function(where){
 Page.prototype.show = function(where){
 
     $('.page').remove();
-    console.log(this)
     this.render($('body'));
     return true;
 

@@ -81,6 +81,6 @@ starSequence.prototype.arrange = function(n){
 
 // poniżej przykład opcji, jeśli się ich nie poda to jest tak jak wcześniej
 
-starSequence.prototype.arrange.minDistance = 0.5;
-starSequence.prototype.arrange.fill = true;
+//starSequence.prototype.arrange.minDistance = 0.5;
+//starSequence.prototype.arrange.fill = true;
 

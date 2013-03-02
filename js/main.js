@@ -16,6 +16,23 @@ var np = new listPage({
 
 $(document).ready(function(){
     np.show();
+
+    if(window.location.hash.search('num')>0)
+    {
+        var num;
+        if(parseInt(window.location.hash.split('num')[1])<0)
+        {
+            num = 1;
+        }
+        else
+        {
+            num = parseInt(window.location.hash.split('num')[1]);
+        }
+
+        (new gridNumberPage({
+            number:num
+        })).show();
+    }
 });
 
 

@@ -190,3 +190,79 @@ div.sequenceNumModule div.nEquals {
 div.sequenceNumModule div.numberTile {
     float:left;
 }
+
+div.gridPage {
+    background-color: #d3d3d3;
+    position: relative;
+    z-index: 100;
+}
+
+div.gridPage div.gridBox div{
+    position: relative;
+    z-index: 50;
+}
+
+div.gridBox div.memberModule {
+    position:relative;
+    width:100%;
+}
+
+div.gridBox div.memberModule a.sequenceLink {
+    color:gray;
+    text-decoration: none;
+    font-weight: bold;
+    top:0px;
+    font-family: courier;
+}
+
+div.gridBox div.memberModule a.prev {
+    position:absolute;
+    left:7px;
+}
+
+div.gridBox div.memberModule a.next {
+    position:absolute;
+    right:7px;
+}
+
+div.gridBox div.memberModule > span {
+    margin-left: 10%;
+    position:relative;
+    display:block;
+    text-align: center;
+    margin-top:10px;
+    width:80%;
+    font-weight: normal;
+    color: #5c5c5c;
+    font-size: 80%;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 3px;
+}
+
+div.gridBox div.memberModule span span.num {
+    font-weight: bold;
+    color: #5c5c5c;
+    font-size: 120%;
+}
+
+div.gridBox div.memberModule span span.seq {
+    font-weight: normal;
+    font-weight: bold;
+    color: #5c5c5c;
+    font-size: 120%;
+    text-transform:capitalize;
+}
+
+div.gridBox div.sequenceNumModule {
+    margin-top:5px;
+}
+
+div.gridBox div.sequenceNumModule div.arrangeImgModule {
+
+}
+
+div.gridBox div.sequenceNumModule div.arrangeImgModule canvas {
+    margin: auto;
+    position: relative;
+    display: block;
+}

@@ -6,8 +6,8 @@ function pageLink(caption,obj){
 
         if(typeof(obj)=='number')
         {
-
-            (new numberPage({
+            window.location.hash = "#num"+obj;
+            (new gridNumberPage({
                 number:obj
             })).show();
 

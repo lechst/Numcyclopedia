@@ -35,7 +35,7 @@ NumbersSequence.prototype.QN = function(nn){
 
     NumbersSequence.prototype.QN = function(n){
 
-        console.log(n);
+
 
         if(n>this.maxSearch)
         {

@@ -85,15 +85,38 @@ function arrangeImgModule(conf,n,sequence) {
     this.canv[0].width = W*scaleX+2*R+2;
     this.canv[0].height = H*scaleY+2*R+2;
 
+    var ratio = this.canv[0].height/this.canv[0].width;
+
+    var globScale = 1;
+
+    if(this.conf.maxH<this.canv[0].height || this.conf.maxW<this.canv[0].width)
+    {
+       var boundsRatio = this.conf.maxH/this.conf.maxW;
+
+       if(boundsRatio<ratio)
+       {
+           globScale *= this.conf.maxH/this.canv[0].height;
+       }
+       else
+       {
+           globScale *= this.conf.maxW/this.canv[0].width;
+       }
+
+
+    }
+
+    this.canv[0].width = (W*scaleX*globScale+2*R+2);
+    this.canv[0].height = (H*scaleY*globScale+2*R+2);
+
     this.ctx.fillStyle = 'white';
 
     for(var i = 0;i<this.positions.x.length;i++)
     {
         this.ctx.beginPath();
         this.ctx.arc(
-            R+1+scaleX*(this.positions.x[i]-minX),
-            R+1+scaleY*(this.positions.y[i]-minY),
-            R,0,2*Math.PI);
+            R*globScale+1+scaleX*globScale*(this.positions.x[i]-minX),
+            R*globScale+1+scaleY*globScale*(this.positions.y[i]-minY),
+            R*globScale,0,2*Math.PI);
 
 
         if(sequence.arrange.fill)

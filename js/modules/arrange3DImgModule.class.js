@@ -95,13 +95,38 @@ function arrange3DImgModule(conf,n,sequence) {
 
     this.ctx.fillStyle = 'white';
 
+    var ratio = this.canv[0].height/this.canv[0].width;
+
+    var globScale = 1;
+
+    if(this.conf.maxH<this.canv[0].height || this.conf.maxW<this.canv[0].width)
+    {
+        var boundsRatio = this.conf.maxH/this.conf.maxW;
+
+        if(boundsRatio<ratio)
+        {
+            globScale *= this.conf.maxH/this.canv[0].height;
+        }
+        else
+        {
+            globScale *= this.conf.maxW/this.canv[0].width;
+        }
+
+
+    }
+
+    this.canv[0].width = (W*scaleX*globScale+2*R+2);
+    this.canv[0].height = (H*scaleY*globScale+2*R+2);
+
+    this.ctx.fillStyle = 'white';
+
     for(var i = 0;i<posArr.length;i++)
     {
         this.ctx.beginPath();
         this.ctx.arc(
-            R+1+scaleX*(posArr[i][0]-minX),
-            R+1+scaleY*(posArr[i][1]-minY),
-            R,0,2*Math.PI);
+            R*globScale+1+scaleX*globScale*(posArr[i][0]-minX),
+            R*globScale+1+scaleY*globScale*(posArr[i][1]-minY),
+            R*globScale,0,2*Math.PI);
 
 
         if(sequence.arrange3D.fill)
