@@ -13,7 +13,7 @@ lucasSequence.prototype.wolfram = "http://mathworld.wolfram.com/LucasNumber.html
 
 lucasSequence.prototype.length = Infinity;
 
-lucasSequence.prototype.texExpression = "L_{-1}=2,\\, L_{0}=1,\\, L_n=L_{n-1}+L_{n-2}";
+lucasSequence.prototype.texExpression = "L_{-1}=2\\\\ L_{0}=1\\\\ L_n=L_{n-1}+L_{n-2}";
 
 lucasSequence.prototype.getN = function (n){
 

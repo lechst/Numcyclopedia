@@ -10,6 +10,8 @@ centeredPolygonalSequencesSequence.prototype.name = 'centered polygonal numbers'
 
 centeredPolygonalSequencesSequence.prototype.length = Infinity;
 
+centeredPolygonalSequencesSequence.prototype.texExpression = "\\frac{rn(n-1)}{2} + 1";
+
 centeredPolygonalSequencesSequence.prototype.getN = function(n){
 
     return new centeredPolygonalSequence(n);
@@ -41,7 +43,21 @@ centeredPolygonalSequence.prototype.final = false;
 
 centeredPolygonalSequence.prototype.memberOf = [centeredPolygonalSequencesSequence.prototype];
 
-centeredPolygonalSequence.prototype.texExpression = "\\frac{rn(n-1)}{2} + 1";
+centeredPolygonalSequence.prototype.__defineGetter__('texExpression',function(){
+    return "\\frac{"+this.N+"n(n-1)}{2} + 1";
+})
+
+centeredPolygonalSequence.prototype.texExpressionForN = function(x,n){
+
+    var thisN = this.N>1?String(this.N):"";
+
+    var expr = "\\frac{"+thisN+"n(n-1)}{2} + 1"
+    //expr += "\\\\"+String(x)+"=\\frac{"+thisN+"("+String(n)+"("+String(n)+"-1))}{2} + 1";
+
+    return expr;
+
+}
+
 
 centeredPolygonalSequence.prototype.getN = function(n){
 

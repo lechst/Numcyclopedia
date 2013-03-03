@@ -30,12 +30,12 @@ function arrange3DImgModule(conf,n,sequence) {
     var minY = Math.min.apply(this,this.positions.y);
     var maxY = Math.max.apply(this,this.positions.y);
 
-    //console.log(minX,maxX,minY,maxY);
+    //verbose(this,minX,maxX,minY,maxY);
 
     var W = maxX-minX;
     var H = maxY-minY;
 
-    //console.log(W,H);
+    //verbose(this,W,H);
 
     var scaleX = 1;
     var scaleY = 1;
@@ -79,16 +79,16 @@ function arrange3DImgModule(conf,n,sequence) {
         scaleY = minDistance/Math.sqrt(minDistSq);
     }
 
-    //console.log('maxDistScaled',maxDistSq*scaleX)
+    //verbose(this,'maxDistScaled',maxDistSq*scaleX)
     if((maxDistSq*scaleX)>1000*1000){
-        console.log('scaleDown!')
+        verbose(this,'scaleDown!')
         scaleX *= 1000/(Math.sqrt(maxDistSq)*scaleX);
         scaleY *= 1000/(Math.sqrt(maxDistSq)*scaleY);
     }
 
-    //console.log('min,max',minDistSq,maxDistSq);
+    //verbose(this,'min,max',minDistSq,maxDistSq);
 
-    //console.log('scale',scaleX);
+    //verbose(this,'scale',scaleX);
 
     this.canv[0].width = W*scaleX+2*R+2;
     this.canv[0].height = H*scaleY+2*R+2;

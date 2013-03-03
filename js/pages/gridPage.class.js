@@ -77,8 +77,8 @@ gridPage.prototype.constructor = gridPage;
 gridPage.prototype.revolver = function(newPage){
 
     newPage.build();
-    console.log('revolver from',this.number,'to',newPage.number);
-    console.log('oldboxes',this.boxes);
+    verbose(this,'revolver from',this.number,'to',newPage.number);
+    verbose(this,'oldboxes',this.boxes);
     if(!newPage.conf.context.Q(newPage.number))
     {
         throw new Error('cant revolve here, context not maching number',newPage.number,newPage.conf.context);
@@ -90,7 +90,7 @@ gridPage.prototype.revolver = function(newPage){
 
     var newBoxes = newPage.boxes;
 
-    console.log(oldBoxes.length,oldPage.contents.length,newPage.contents.length);
+    verbose(this,oldBoxes.length,oldPage.contents.length,newPage.contents.length);
 
     var movement = -1*this.boxW;
 
@@ -103,10 +103,10 @@ gridPage.prototype.revolver = function(newPage){
     var revolver = undefined;
     for(var i = 0;i<oldBoxes.length;i++)
     {
-        console.log('revSearch',i,oldBoxes[i].data('context'));
+        verbose(this,'revSearch',i,oldBoxes[i].data('context'));
         if(oldBoxes[i].data('context')==newPage.conf.context)
         {
-            console.log('oldRev',i);
+            verbose(this,'oldRev',i);
             revolver = i;
         }
         else
@@ -118,7 +118,7 @@ gridPage.prototype.revolver = function(newPage){
 
     if(revolver==undefined)
     {
-        console.log('newCtx',newPage.conf.context)
+        verbose(this,'newCtx',newPage.conf.context)
         throw new Error('revolver not Found');
     }
 
@@ -129,22 +129,24 @@ gridPage.prototype.revolver = function(newPage){
         {
             newRevolver = i;
 
-            console.log(revolver);
+            verbose(this,revolver);
             oldBoxes[revolver].append(newPage.contents[newRevolver]);
         }
 
     }
 
-    console.log('oR',revolver,'nR',newRevolver)
+    verbose(this,'oR',revolver,'nR',newRevolver)
 
     newPage.contents[newRevolver].css('left',-movement);
-    newPage.contents[newRevolver].animate({left:0},400);
+    newPage.contents[newRevolver].animate({left:0},500);
 
+    this.contents[revolver].css('border-left','1px solid gray')
+    this.contents[revolver].css('border-right','1px solid gray')
 
     this.contents[revolver].data('oldI',revolver);
     this.contents[revolver].data('newJ',newRevolver);
 
-    this.contents[revolver].animate({left:movement},400,function(){
+    this.contents[revolver].animate({left:movement},500,function(){
         oldPage.contents[$(this).data('oldI')] = newPage.contents[$(this).data('newJ')];
         $(this).remove();
 
@@ -175,11 +177,11 @@ gridPage.prototype.revolver = function(newPage){
                     }
                     else
                     {
-                        console.log('missJ',missedJ)
+                        verbose(this,'missJ',missedJ)
                         oldPage.contents[i].data('newJ',missedJ);
                     }
 
-                    oldPage.contents[i].animate({opacity:0},400,function(){
+                    oldPage.contents[i].animate({opacity:0},500,function(){
                             oldPage.contents[$(this).data('oldI')] = newPage.contents[$(this).data('newJ')];
                             oldPage.boxes[$(this).data('oldI')].data('context',newPage.boxes[$(this).data('newJ')].data('context'));
                             $(this).remove()
@@ -190,7 +192,7 @@ gridPage.prototype.revolver = function(newPage){
 
                 if(j<newPage.contents.length){
                     newPage.contents[j].css('opacity',0);
-                    newPage.contents[j].animate({opacity:1},400);
+                    newPage.contents[j].animate({opacity:1},500);
                 }
 
             i++;

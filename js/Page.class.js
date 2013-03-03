@@ -6,6 +6,8 @@ Page.prototype = new Module();
 
 Page.current = {};
 
+Page.prototype.verbose = false;
+
 Page.prototype.constructor = Page;
 
 Page.prototype.render = function(where){

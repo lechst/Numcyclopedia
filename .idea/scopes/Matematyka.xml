@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Matematyka" pattern="(file:js/NumbersSequences//*||file:js/NumbersSequencesSequences//*||file:js/Partitions//*)&amp;&amp;!file:*" />
+</component>

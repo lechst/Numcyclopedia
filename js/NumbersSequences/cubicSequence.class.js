@@ -23,3 +23,26 @@ cubicSequence.prototype.Q = function (n){
 
     return false;
 }
+
+cubicSequence.prototype.arrange3D = function(n){
+
+    var pos = {};
+    pos.x = [];
+    pos.y = [];
+    pos.z = [];
+
+    for(var i=0; i<n; i++){
+        for(var j=0; j<n; j++){
+            for(var k=0; k<n; k++){
+                    pos.x.push(i-k*0.5);
+                    pos.y.push(j+k*0.25);
+                    pos.z.push(k);
+            }
+        }
+    }
+
+    return pos;
+
+};
+
+cubicSequence.prototype.arrange3D.fill = true;

@@ -2,8 +2,6 @@ function sequenceNumModule(conf,n,sequence) {
 
     Module.call(this,conf);
 
-
-
     this.n = n;
 
     if(!(this.x = sequence.getN(this.n))){
@@ -25,17 +23,40 @@ function sequenceNumModule(conf,n,sequence) {
 
     var thisM = this;
 
-    if(this.sequence.arrange)
+    if(this.sequence == naturalSequence.prototype)
     {
-        this.arrangeImg = new arrangeImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
-        this.ctnr.append(this.arrangeImg.ctnr);
+        this.ctnr.append('<div class="bigNum">'+this.x+'</div>');
     }
 
-    if(this.sequence.arrange3D)
+
+    if(this.sequence.texExpressionForN)
     {
-        this.arrange3DImg = new arrange3DImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
-        this.ctnr.append(this.arrange3DImg.ctnr);
+        this.equationForN = new equationModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.sequence.texExpressionForN(this.x,this.n));
+        this.subModules.push(this.equationForN);
     }
+
+    if(this.sequence.arrange || this.sequence.arrange3D)
+    {
+        if(this.sequence.arrange)
+        {
+            this.arrangeImg = new arrangeImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
+            this.subModules.push(this.arrangeImg);
+        }
+
+        if(this.sequence.arrange3D)
+        {
+            this.arrange3DImg = new arrange3DImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
+            this.subModules.push(this.arrange3DImg);
+        }
+
+        if(this.sequence.arrangeNested)
+        {
+            this.arrangeNested = new nestedImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
+            this.subModules.push(this.arrangeNested);
+        }
+    }
+
+
 
 }
 

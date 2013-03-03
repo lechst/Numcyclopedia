@@ -1,7 +1,7 @@
 function numberPage(conf) {
     Page.call(this,conf);
 
-    console.log(this.conf.number)
+    verbose(this,this.conf.number)
 
     this.number = this.conf.number;
 
@@ -17,11 +17,11 @@ function numberPage(conf) {
     {
         if(NumbersSequence.all[ssNid].final)
         {
-            //console.log('testing',NumbersSequence.all[ssNid])
+            //verbose(this,'testing',NumbersSequence.all[ssNid])
             if(NumbersSequence.all[ssNid].Q(this.number))
             {
                 var qn = NumbersSequence.all[ssNid].QN(this.number);
-                //console.log(NumbersSequence.all[ssNid])
+                //verbose(this,NumbersSequence.all[ssNid])
                 this.subModules.push(new memberModule({},qn,NumbersSequence.all[ssNid]));
 
                 this.subModules.push(new sequenceNumModule({},qn,NumbersSequence.all[ssNid]));

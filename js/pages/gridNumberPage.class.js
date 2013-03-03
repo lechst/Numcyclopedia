@@ -5,7 +5,7 @@ function gridNumberPage(conf) {
 
     var boxId = 0;
 
-    console.log('AllS:',NumbersSequence.all.length)
+    verbose(this,'AllS:',NumbersSequence.all.length)
 
     for (var ssNid in NumbersSequence.all)
     {
@@ -14,7 +14,7 @@ function gridNumberPage(conf) {
         {
             if(NumbersSequence.all[ssNid].final)
             {
-                console.log('testing',this.number,NumbersSequence.all[ssNid],NumbersSequence.all[ssNid].Q(this.number))
+                verbose(this,'testing',this.number,NumbersSequence.all[ssNid],NumbersSequence.all[ssNid].Q(this.number))
                 if(NumbersSequence.all[ssNid].Q(this.number))
                 {
 
@@ -23,7 +23,7 @@ function gridNumberPage(conf) {
                     this.boxes[boxId].data('context',NumbersSequence.all[ssNid]);
 
                     var qn = NumbersSequence.all[ssNid].QN(this.number);
-                    //console.log(NumbersSequence.all[ssNid])
+                    //verbose(this,NumbersSequence.all[ssNid])
                     var nMm = new memberModule({},qn,NumbersSequence.all[ssNid]);
                     nMm.build();
                     this.boxes[boxId].children('.content').append(nMm.ctnr);

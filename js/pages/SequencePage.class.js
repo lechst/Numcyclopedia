@@ -1,7 +1,7 @@
 function sequencePage(conf) {
     Page.call(this,conf);
 
-    console.log(this.conf.N)
+    verbose(this,this.conf.N)
 
     this.title = new titleModule({
         mainTitle : this.conf.sequence.name
@@ -15,7 +15,7 @@ function sequencePage(conf) {
         this.subModules.push(new memberModule({},this.conf.sequence.N,this.conf.sequence.memberOf[ssNid]));
     }
 
-    console.log(this.conf.N)
+    verbose(this,this.conf.N)
 
     var sNM = {};
 

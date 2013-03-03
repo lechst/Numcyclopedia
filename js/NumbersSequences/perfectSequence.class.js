@@ -29,4 +29,4 @@ perfectSequence.prototype.Q = function (n){
     return false;
 }
 
-console.log(perfectSequence.prototype.Q(6));
+verbose(this,perfectSequence.prototype.Q(6));

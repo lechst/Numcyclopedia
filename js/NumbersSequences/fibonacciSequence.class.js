@@ -13,7 +13,18 @@ fibonacciSequence.prototype.wolfram = "http://mathworld.wolfram.com/FibonacciNum
 
 fibonacciSequence.prototype.length = Infinity;
 
-lucasSequence.prototype.texExpression = "F_{-1}=1,\\, F_{0}=1,\\, F_n=F_{n-1}+F_{n-2}";
+fibonacciSequence.prototype.texExpression = "F_{-1}=1\\\\ F_{0}=1\\\\ F_n=F_{n-1}+F_{n-2}";
+
+fibonacciSequence.prototype.texExpressionForN = function(x,n){
+
+
+    var expr = "F_{"+n+"}=F_{"+(n-1)+"}+F_{"+(n-2)+"}";
+    if(n>2)
+        expr += "\\\\"+(String(x)+"="+String(this.getN(n-1)+"+"+String(this.getN(n-2))));
+
+    return expr;
+
+}
 
 fibonacciSequence.prototype.Q = function (n){
 
@@ -30,6 +41,11 @@ fibonacciSequence.prototype.Q = function (n){
 
 fibonacciSequence.prototype.getN = function (n){
 
+    if(n==1)
+        return 1;
+
+    n--;
+
     var a = 1;
     var b = 1;
 
@@ -44,7 +60,8 @@ fibonacciSequence.prototype.getN = function (n){
     return x;
 }
 
-fibonacciSequence.prototype.arrange = function(n){
+
+fibonacciSequence.prototype.arrangeFalse = function(n){
 
     var pos = {};
     pos.x = [];

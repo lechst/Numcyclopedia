@@ -31,7 +31,7 @@ NumbersSequence.prototype.__defineGetter__('ownPage',function(){
 
 NumbersSequence.prototype.QN = function(nn){
 
-    console.log('Warning: Brute QN implementation of:',this);
+    verbose(this,'Warning: Brute QN implementation of:',this);
 
     NumbersSequence.prototype.QN = function(n){
 
@@ -63,7 +63,7 @@ NumbersSequence.prototype.QN = function(nn){
 
 NumbersSequence.prototype.getN = function(nn){
 
-    console.log('Warning: Brute getN implementation of:',this);
+    verbose(this,'Warning: Brute getN implementation of:',this);
 
     NumbersSequence.prototype.getN = function(n){
         for (var i = 1;(i<this.maxSearch && n>0);i++)

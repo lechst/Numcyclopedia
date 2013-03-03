@@ -27,7 +27,7 @@ function divisibleSequence(byN) {
         throw new Error("n must be specified!")
     }
     this.final = true;
-    this.N = byN;
+    this.N = byN+1;
 
 }
 
@@ -51,7 +51,9 @@ divisibleSequence.prototype.Q = function (n){
     return n%this.N==0;
 }
 
-divisibleSequence.prototype.texExpression = "n\\times k";
+divisibleSequence.prototype.__defineGetter__('texExpression',function(){
+    return "n\\times "+this.N;
+})
 
 divisibleSequence.prototype.getN = function (n){
     return n*this.N;

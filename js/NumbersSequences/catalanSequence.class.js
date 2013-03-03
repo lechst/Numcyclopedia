@@ -13,7 +13,7 @@ catalanSequence.prototype.name = 'Catalan';
 
 catalanSequence.prototype.length = Infinity;
 
-catalanSequence.prototype.texExpression = "C_0=1,\\, C_{n+1}=\\frac{2(2n+1)C_n}{n+2}";
+catalanSequence.prototype.texExpression = "C_0=1\\\\C_{n+1}=\\frac{2(2n+1)C_n}{n+2}";
 
 catalanSequence.prototype.getN = function (n){
 

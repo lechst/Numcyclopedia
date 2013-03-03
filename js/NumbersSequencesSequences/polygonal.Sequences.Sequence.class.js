@@ -8,6 +8,8 @@ polygonalSequencesSequence.prototype.constructor = polygonalSequencesSequence;
 
 polygonalSequencesSequence.prototype.name = 'polygonal numbers';
 
+polygonalSequencesSequence.prototype.texExpression = "\\frac{n^2 (r-2) - n (r-4)}{2}";
+
 polygonalSequencesSequence.prototype.length = Infinity;
 
 polygonalSequencesSequence.prototype.getN = function(n){
@@ -41,7 +43,29 @@ polygonalSequence.prototype.memberOf = [polygonalSequencesSequence.prototype];
 
 polygonalSequence.prototype.final = false;
 
-polygonalSequence.prototype.texExpression = "\\frac{n^2 (r-2) - n (r-4)}{2}";
+polygonalSequence.prototype.__defineGetter__('texExpression',function(){
+
+    if(this.N==1)
+    {
+        return "\\frac{n^2 "+this.N+" + n }{2}";
+    }
+    else
+    {
+        //return "\\frac{n^2 ("+(this.N+2)+"-2) - n ("+(this.N+2)+"-4)}{2}";
+        return "\\frac{n^2 "+(this.N)+" - ("+(this.N-2)+" n}{2}";
+    }
+})
+
+polygonalSequence.prototype.texExpressionForN = function(x,n){
+
+    var thisN = this.N>1?String(this.N):"";
+
+    var expr = "\\frac{"+thisN+"n(n-1)}{2} + 1"
+    //expr += "\\\\"+String(x)+"=\\frac{"+thisN+"("+String(n)+"("+String(n)+"-1))}{2} + 1";
+
+    return expr;
+
+}
 
 polygonalSequence.prototype.getN = function(n){
 

@@ -8,6 +8,24 @@ compositeSequence.prototype.constructor = compositeSequence;
 
 compositeSequence.prototype.name = 'composite';
 
+compositeSequence.prototype.texExpressionForN = function(n){
+
+    var expr = "";
+
+    var fac = factors(n);
+
+    for(facId in fac)
+    {
+        expr += fac[facId].prime + "^" + fac[facId].power;
+
+        if(facId<fac.length-1){
+            expr +="\\times";
+        }
+    }
+
+    return expr;
+
+}
 
 compositeSequence.prototype.length = Infinity;
 

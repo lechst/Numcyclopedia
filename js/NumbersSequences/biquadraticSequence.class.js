@@ -12,6 +12,20 @@ biquadraticSequence.prototype.wolfram = "http://mathworld.wolfram.com/Biquadrati
 
 biquadraticSequence.prototype.length = Infinity;
 
+biquadraticSequence.prototype.texExpression = "n^4";
+
+biquadraticSequence.prototype.texExpressionForN = function(x,n){
+
+
+    var expr = n+"^"+4;
+   // if(n>2)
+   //     expr += "\\\\"+(String(x)+"="+String(this.getN(n-1)+"+"+String(this.getN(n-2))));
+
+    return expr;
+
+}
+
+
 biquadraticSequence.prototype.Q = function (n){
 
     var x = Math.round(Math.pow(n,1/4));
@@ -22,3 +36,25 @@ biquadraticSequence.prototype.Q = function (n){
 
     return false;
 }
+
+biquadraticSequence.prototype.arrange = function(n){
+
+    var pos = {};
+    pos.x = [];
+    pos.y = [];
+
+
+    for(var i=0; i<n; i++){
+        for(var j=0; j<n; j++){
+            for(var ii=0; ii<n; ii++){
+                for(var jj=0; jj<n; jj++){
+                    pos.x.push(1.2*n*i+ii);
+                    pos.y.push(1.2*n*j+jj);
+                }
+            }
+        }
+    }
+
+    return pos;
+
+};
