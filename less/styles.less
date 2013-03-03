@@ -281,3 +281,39 @@ div.gridBox div.content div.sequenceNumModule div.bigNum {
     text-align: center;
     margin-top:20px;
 }
+
+div.gridBox div.content div.bars {
+    width:90%;
+    position:relative;
+}
+
+@brickColor : #c9c9c9;
+
+div.gridBox div.content div.bars div.bar {
+    float:right;
+    clear:right;
+    margin-right:1px;
+    position:relative;
+    border-width:1px 0px 1px 0px;
+    border-color:@brickColor;
+    border-style:solid;
+    margin-bottom:3px;
+}
+
+div.gridBox div.content div.bars div.bar div.brick {
+    float:right;
+    position:relative;
+    background-color:@brickColor;
+}
+
+div.gridBox div.content div.bars div.bar div.brick:last-child {
+    float:right;
+    position:relative;
+    background-color:@brickColor;
+    margin-left:0px;
+
+}
+
+div.gridBox div.content div.bars div.bar div.brick:last-child {
+    margin-left:0px;
+}

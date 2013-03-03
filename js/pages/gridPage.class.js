@@ -76,6 +76,8 @@ gridPage.prototype.constructor = gridPage;
 
 gridPage.prototype.revolver = function(newPage){
 
+    //this.verbose = true;
+
     newPage.build();
     verbose(this,'revolver from',this.number,'to',newPage.number);
     verbose(this,'oldboxes',this.boxes);
@@ -138,7 +140,7 @@ gridPage.prototype.revolver = function(newPage){
     verbose(this,'oR',revolver,'nR',newRevolver)
 
     newPage.contents[newRevolver].css('left',-movement);
-    newPage.contents[newRevolver].animate({left:0},500);
+    newPage.contents[newRevolver].animate({left:0},400);
 
     this.contents[revolver].css('border-left','1px solid gray')
     this.contents[revolver].css('border-right','1px solid gray')
@@ -146,7 +148,7 @@ gridPage.prototype.revolver = function(newPage){
     this.contents[revolver].data('oldI',revolver);
     this.contents[revolver].data('newJ',newRevolver);
 
-    this.contents[revolver].animate({left:movement},500,function(){
+    this.contents[revolver].animate({left:movement},400,function(){
         oldPage.contents[$(this).data('oldI')] = newPage.contents[$(this).data('newJ')];
         $(this).remove();
 
@@ -181,19 +183,23 @@ gridPage.prototype.revolver = function(newPage){
                         oldPage.contents[i].data('newJ',missedJ);
                     }
 
-                    oldPage.contents[i].animate({opacity:0},500,function(){
+                    newPage.contents[oldPage.contents[i].data('newJ')].css('opacity','0');
+
+                    oldPage.contents[i].animate({opacity:0},300,function(){
                             oldPage.contents[$(this).data('oldI')] = newPage.contents[$(this).data('newJ')];
                             oldPage.boxes[$(this).data('oldI')].data('context',newPage.boxes[$(this).data('newJ')].data('context'));
+                            newPage.contents[$(this).data('newJ')].animate({opacity:1},300);
                             $(this).remove()
+
                         }
                     );
 
                 }
 
-                if(j<newPage.contents.length){
-                    newPage.contents[j].css('opacity',0);
-                    newPage.contents[j].animate({opacity:1},500);
-                }
+                //if(j<newPage.contents.length){
+                //    newPage.contents[j].css('opacity',0);
+                //    newPage.contents[j].animate({opacity:1},500);
+                //}
 
             i++;
 

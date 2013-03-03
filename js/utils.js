@@ -33,6 +33,20 @@ function deepFlatCopy(o){
     return newObj;
 }
 
+function flatCompare(a,b){
+    var newObj = {};
+
+    if(a.length!= b.length)
+        return false
+
+    for (fId in a){
+        if(a[fId] != b[fId])
+            return false;
+    }
+
+    return true;
+}
+
 factors = function (n){
 
     var factorsArr = [];

@@ -56,6 +56,10 @@ function sequenceNumModule(conf,n,sequence) {
         }
     }
 
+    if(this.sequence.boxModule)
+    {
+        this.subModules.push(this.sequence.boxModule(this.n));
+    }
 
 
 }

@@ -9,8 +9,10 @@ function tileModule(conf,n) {
     this.ctnr.css('background-color',this.conf.bgColorFunction(this.n));
 
     //newTile.append(renderFactors(i));
+    this.bars = new barsModule({size:5},primeSingature(this.n));
+    this.bars.build();
 
-    this.ctnr.append(barsModule.prototype.build(primeSingature(this.n)));
+    this.ctnr.append(this.bars.ctnr);
     this.ctnr.append(pageLink('(?)',this.n));
 }
 

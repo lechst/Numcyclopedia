@@ -20,7 +20,7 @@ imgModule.prototype.ctnrClassName = "imgModule";
 
 imgModule.prototype.draw = function(positions){
 
-    console.log(this.conf);
+
 
     var R = this.conf.R;
     var minDistance = this.conf.minDistance;
@@ -31,7 +31,7 @@ imgModule.prototype.draw = function(positions){
 
     var stats = statsNDimPoints(this.positions);
 
-    console.log(stats);
+
 
     //verbose(this,minX,maxX,minY,maxY);
 

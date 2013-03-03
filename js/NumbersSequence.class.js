@@ -5,12 +5,20 @@ function NumbersSequence(){
 
 NumbersSequence.all = [];
 
+NumbersSequence.__defineGetter__('allFinal',function(){
+
+    return this.all.filter(function(s){return s.final});
+
+});
+
 NumbersSequence.prototype.length = undefined;
 // length określa jak długi jest ciąg, może być nieskończony
 // jeśli ustawimy Infinity, może być też zdegenerowany i mieć length = 0
 
 NumbersSequence.prototype.final = true;
 //jeśli konstruktor ciągu nei rpzyjmuje zadnych parametrów, to final ustawiamy na true
+
+NumbersSequence.prototype.partMemberOf = [];
 
 NumbersSequence.prototype.name = undefined;
 // name określa nazwę ciągu czytelną dla uzytkownika

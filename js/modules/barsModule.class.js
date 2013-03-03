@@ -1,36 +1,47 @@
-function barsModule() {
-    Module.call(this);
+function barsModule(conf,data) {
+    Module.call(this,conf);
+
+    this.data = data;
 }
 
 barsModule.prototype = new Module();
 
 barsModule.prototype.constructor = barsModule;
 
-barsModule.prototype.build = function(data,conf){
+barsModule.prototype.build = function(){
 
-    if(!(conf))
-    {
-        conf = {};
-    }
+    var conf = this.conf;
 
-    if(!(conf.size))
-    {
-        conf.size = 6;
-    }
+    console.log(this.data)
 
-    var signature = $('<div></div>').addClass('bars');
+    var data = this.data;
+
+    this.ctnr.addClass('bars');
 
     var max = 0;
 
+    var that = this;
+
+    var dist = 3;
+    var distV = 3;
+
     data.map(function(p,i){
 
-        signature.append($('<div style="width:'+((conf.size*p)-1)+'px;height:'+(conf.size-3)+'px;"></div>').addClass('bar'));
+        that.ctnr.append(
+            $('<div style="width:'+(((conf.size)*p)-dist)+'px;height:'+(conf.size-2*distV)+'px;"></div>')
+                .css('border-width',distV+'px 0px '+distV+'px 0px')
+                .addClass('bar')
+        );
 
         for(var j =0;j<p;j++)
         {
-            signature.children('div').last().append($('<div style="width:'+(conf.size-1)+'px;height:'+(conf.size-3)+'px;"></div>').addClass('brick'));
+            that.ctnr.children('div').last().append(
+                $('<div style="width:'+(conf.size-dist)+'px;height:'+(conf.size-2*distV)+'px;"></div>')
+                    .addClass('brick')
+                    .css('margin-left',j==p-1?0:dist)
+            );
         }
     });
 
-    return signature;
+    return this.ctnr;
 }
