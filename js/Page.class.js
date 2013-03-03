@@ -4,6 +4,8 @@ function Page(conf){
 
 Page.prototype = new Module();
 
+Page.current = {};
+
 Page.prototype.constructor = Page;
 
 Page.prototype.render = function(where){
@@ -20,8 +22,15 @@ Page.prototype.render = function(where){
 
 Page.prototype.show = function(where){
 
+    if(Page.current.revolver == this.revolver && this.revolver)
+    {
+        Page.current.revolver(this);
+    }
+    else
+    {
     $('.page').remove();
+    Page.current = this;
     this.render($('body'));
     return true;
-
+    }
 }

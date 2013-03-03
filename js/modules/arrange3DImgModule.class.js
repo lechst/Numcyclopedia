@@ -119,6 +119,7 @@ function arrange3DImgModule(conf,n,sequence) {
     this.canv[0].height = (H*scaleY*globScale+2*R+2);
 
     this.ctx.fillStyle = 'white';
+    this.ctx.strokeStyle = '#333333';
 
     for(var i = 0;i<posArr.length;i++)
     {

@@ -8,11 +8,11 @@ function memberModule(conf,n,sequence) {
 
     if(this.n>1)
     {
-    this.ctnr.append(pageLink('<',this.sequence.getN(n-1)).addClass('prev'));
+    this.ctnr.append(pageLink('<',this.sequence.getN(n-1),sequence).addClass('prev'));
     }
 
     this.ctnr.append('<span><span class="num">'+this.n+'</span> of <span class="seq">'+sequence.name+'</span></span>');
-    this.ctnr.append(pageLink('>',this.sequence.getN(n+1)).addClass('next'));
+    this.ctnr.append(pageLink('>',this.sequence.getN(n+1),sequence).addClass('next'));
 }
 
 memberModule.prototype = new Module();

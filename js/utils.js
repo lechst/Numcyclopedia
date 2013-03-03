@@ -1,4 +1,4 @@
-function pageLink(caption,obj){
+function pageLink(caption,obj,context){
 
     var newElement = $('<a href="#">'+caption+'</a>').addClass('sequenceLink').data('pageLink',obj);
 
@@ -8,7 +8,8 @@ function pageLink(caption,obj){
         {
             window.location.hash = "#num"+obj;
             (new gridNumberPage({
-                number:obj
+                number:obj,
+                context:context
             })).show();
 
             return false;

@@ -15,6 +15,11 @@ starSequence.prototype.length = Infinity;
 
 starSequence.prototype.Q = function (n){
 
+    if(n==1)
+    {
+        return false;
+    }
+
     var x = Math.round((Math.sqrt(2*n+1)*Math.sqrt(3)+3)/6);
 
     if((6*x*(x-1)+1) == n){
@@ -25,6 +30,7 @@ starSequence.prototype.Q = function (n){
 }
 
 starSequence.prototype.getN = function (n){
+
 
     var x = 6*n*(n+1)+1;
 
