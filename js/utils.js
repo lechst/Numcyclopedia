@@ -108,9 +108,67 @@ var primeSingature = function (n){
 }
 
 var divisorsN = function (n){
-    return factors(n).map(function(x){return x.power+1}).reduce(function(a,b){return a*b;});
+    if (n == 1){
+        return 1;
+    } else {
+        return factors(n).map(function(x){return x.power+1}).reduce(function(a,b){return a*b;});
+    }
 }
 
 var primePowersN = function (n){
     return factors(n).map(function(x){return x.power}).reduce(function(a,b){return a+b;});
+}
+
+var divisorFunction = function(n){
+    var a = factors(n);
+    var x = 1;
+
+    for(var i=0; i<a.length; i++){
+        x = x*(Math.pow(a[i].prime,a[i].power+1)-1)/(a[i].prime-1);
+    }
+
+    return x;
+}
+
+var divisors = function(n){
+    var a = factors(n);
+    var d = [1];
+
+    for(var i=0; i<a.length; i++){
+        var l = d.length;
+
+        for(var j=0; j<l; j++){
+            for(var k=1; k<(a[i].power+1); k++){
+                d.push(d[j]*Math.pow(a[i].prime,k));
+            }
+        }
+    }
+
+    d = d.sort(function(a,b){return a-b});
+
+    return d;
+}
+
+var digits = function(n){
+
+    var a = [];
+    var x = n.toString();
+
+    for(var i=0; i<x.length; i++){
+        a.push(parseInt(x[i]));
+    }
+
+    return a;
+}
+
+var sumOfDigits = function(n){
+    var sum = 0;
+    var x = n;
+
+    while(x>0){
+        sum = sum + x%10;
+        x = Math.floor(x/10);
+    }
+
+    return sum;
 }

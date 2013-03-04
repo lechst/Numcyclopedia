@@ -28,5 +28,3 @@ perfectSequence.prototype.Q = function (n){
 
     return false;
 }
-
-verbose(this,perfectSequence.prototype.Q(6));
