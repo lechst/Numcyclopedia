@@ -9,7 +9,7 @@ hoaxSequence.prototype.constructor = hoaxSequence;
 hoaxSequence.prototype.name = 'Hoax';
 
 hoaxSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Hoax_number";
-hoaxSequence.prototype.wolfram = "http://mathworld.wolfram.com/Hoax.html";
+hoaxSequence.prototype.wolfram = "http://mathworld.wolfram.com/HoaxNumber.html";
 
 hoaxSequence.prototype.texExpressionForN = function(x,n){
 
@@ -61,7 +61,7 @@ hoaxSequence.prototype.Q = function (n){
     var a = factors(n);
     var l = a.length;
 
-    if(l == 1){
+    if((l == 1) && (a[0].power == 1)){
         return false;
     }
 
