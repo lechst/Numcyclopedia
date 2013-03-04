@@ -16,15 +16,16 @@ multiplicativePerfectSequence.prototype.texExpressionForN = function(x,n){
 
     var m = this.getN(n);
     var a = divisors(m);
+    a.pop();
     var l = a.length;
 
     var expr = '';
 
-    for(var i=0; i<l-1; i++){
+    for(var i=1; i<l-1; i++){
         expr += a[i]+ '\\times';
     }
 
-    expr += a[l-1] + '=' + m + '^2';
+    expr += a[l-1] + '=' + m;
 
     return expr;
 
