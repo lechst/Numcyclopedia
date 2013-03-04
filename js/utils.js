@@ -120,3 +120,15 @@ var divisorFunction = function(n){
 
     return x;
 }
+
+var sumOfDigits = function(n){
+    var sum = 0;
+    var x = n;
+
+    while(x>0){
+        sum = sum + x%10;
+        x = Math.floor(x/10);
+    }
+
+    return sum;
+}
