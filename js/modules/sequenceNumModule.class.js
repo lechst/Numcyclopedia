@@ -28,39 +28,40 @@ function sequenceNumModule(conf,n,sequence) {
         this.ctnr.append('<div class="bigNum">'+this.x+'</div>');
     }
 
+    if(true){
 
-    if(this.sequence.texExpressionForN)
-    {
-        this.equationForN = new equationModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.sequence.texExpressionForN(this.x,this.n));
-        this.subModules.push(this.equationForN);
-    }
-
-    if(this.sequence.arrange || this.sequence.arrange3D)
-    {
-        if(this.sequence.arrange)
+        if(this.sequence.texExpressionForN)
         {
-            this.arrangeImg = new arrangeImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
-            this.subModules.push(this.arrangeImg);
+            this.equationForN = new equationModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.sequence.texExpressionForN(this.x,this.n));
+            this.subModules.push(this.equationForN);
         }
 
-        if(this.sequence.arrange3D)
+        if(this.sequence.arrange || this.sequence.arrange3D)
         {
-            this.arrange3DImg = new arrange3DImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
-            this.subModules.push(this.arrange3DImg);
+            if(this.sequence.arrange)
+            {
+                this.arrangeImg = new arrangeImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
+                this.subModules.push(this.arrangeImg);
+            }
+
+            if(this.sequence.arrange3D)
+            {
+                this.arrange3DImg = new arrange3DImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
+                this.subModules.push(this.arrange3DImg);
+            }
+
+            if(this.sequence.arrangeNested)
+            {
+                this.arrangeNested = new nestedImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
+                this.subModules.push(this.arrangeNested);
+            }
         }
 
-        if(this.sequence.arrangeNested)
+        if(this.sequence.boxModule)
         {
-            this.arrangeNested = new nestedImgModule({maxW:this.conf.maxW,maxH:this.conf.maxH},this.n,this.sequence);
-            this.subModules.push(this.arrangeNested);
+            this.subModules.push(this.sequence.boxModule(this.n));
         }
     }
-
-    if(this.sequence.boxModule)
-    {
-        this.subModules.push(this.sequence.boxModule(this.n));
-    }
-
 
 }
 

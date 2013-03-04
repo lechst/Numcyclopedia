@@ -4,11 +4,11 @@ function imgModule(conf) {
 
     //TODO to poniższe opcje mają być w konfiguracji kiedyś;
 
-
     this.canv = $('<canvas></canvas>');
     this.ctx = this.canv[0].getContext('2d');
 
     this.ctnr.append(this.canv);
+
 
 }
 
@@ -16,11 +16,13 @@ imgModule.prototype = new Module();
 
 imgModule.prototype.constructor = imgModule;
 
+
+
 imgModule.prototype.ctnrClassName = "imgModule";
 
 imgModule.prototype.draw = function(positions){
 
-
+    this.pixRatio = pixRatio;
 
     var R = this.conf.R;
     var minDistance = this.conf.minDistance;
@@ -67,8 +69,8 @@ imgModule.prototype.draw = function(positions){
 
     //verbose(this,'scale',scaleX);
 
-    this.canv[0].width = W*scaleX+2*R+2;
-    this.canv[0].height = H*scaleY+2*R+2;
+    this.canv[0].width = (W*scaleX+2*R+2);
+    this.canv[0].height = (H*scaleY+2*R+2);
 
     var ratio = this.canv[0].height/this.canv[0].width;
 
@@ -90,8 +92,13 @@ imgModule.prototype.draw = function(positions){
 
     }
 
-    this.canv[0].width = (W*scaleX*globScale+2*R+2);
-    this.canv[0].height = (H*scaleY*globScale+2*R+2);
+    this.canv[0].style.width = (W*scaleX+2*R+2)*globScale+'px';
+    this.canv[0].style.height = (H*scaleY+2*R+2)*globScale+'px';
+
+    globScale *= this.pixRatio;
+
+    this.canv[0].width = (W*scaleX+2*R+2)*globScale;
+    this.canv[0].height = (H*scaleY+2*R+2)*globScale;
 
     this.ctx.fillStyle = 'white';
     this.ctx.strokeStyle = '#333333';

@@ -4,8 +4,13 @@ function gridPage(conf) {
     this.ctnr.css('width',window.innerWidth);
     this.ctnr.css('height',window.innerHeight);
 
+    this.W = window.innerWidth;
+    this.H = window.innerHeight;
+
+
     this.ctnr.append(this.boxesCtnr = $('<div></div>'));
 
+    this.unfolded = false;
 
     this.nBox = 6;
     this.mBox = 3;
@@ -16,12 +21,19 @@ function gridPage(conf) {
     this.borderDist = 4;
     this.cssBorder = 0;
 
-    this.boxesCtnr.css('left',(window.innerWidth-this.nBox*this.boxW)/2);
-    this.boxesCtnr.css('top',(window.innerHeight-this.mBox*this.boxH)/2);
+    this.leftM = (window.innerWidth-this.nBox*this.boxW)/2;
+    this.topM = (window.innerHeight-this.mBox*this.boxH)/2;
+
+    this.boxesCtnr.css('left',this.leftM);
+    this.boxesCtnr.css('top',this.topM);
     this.boxesCtnr.css('position','absolute');
 
     this.boxes = [];
     this.contents = [];
+
+    var thisP = this;
+
+    var boxN = 0;
 
     for(var j=0; j<this.mBox;j++){
         for(var i=0; i<this.nBox;i++){
@@ -34,29 +46,45 @@ function gridPage(conf) {
                 .css('border-width',this.cssBorder)
                 .css('border-style','solid')
                 .css('border-color','gray')
-                .css('background-color','white')
+                //.css('background-color','white')
                 .css('overflow','hidden')
                 .css('border-radius',8)
                 .addClass('gridBox')
-                .append(
+          /*      .append(
                     $('<div></div>')
                         .css('border-image','url(img/inner_shadow.png) 80 80 80 80')
-                        .css('width',this.boxW-(2*(this.borderDist+this.cssBorder)))
-                        .css('height',this.boxH-(2*(this.borderDist+this.cssBorder)))
+                        //.css('width',this.boxW-(2*(this.borderDist+this.cssBorder)))
+                        //.css('height',this.boxH-(2*(this.borderDist+this.cssBorder)))
+                        .css('width','100%')
+                        .css('height','100%')
                         .css('border-width',6)
-                        .css('opacity',0.8)
-                        .css('z-index',10)
+                        //.css('opacity',0.8)
+                        .css('z-index',40)
                         .css('position','absolute')
                         .css('top',0)
                         .css('left',0)
+                        .css('cursor','pointer')
                         .addClass('innerShadow')
+                )                                   */
+                .append(
+                $('<div class="foldBtn"></div>')
+                    //.css('width',this.boxW-(2*(this.borderDist+this.cssBorder)))
+                    //.css('height',this.boxH-(2*(this.borderDist+this.cssBorder)))
+                    .css('width','100%')
+                    .css('height','70%')
+                    //.css('opacity',1)
+                    .css('z-index',90)
+                    .css('position','absolute')
+                    .css('top','30%')
+                    .css('left',0)
+                    .css('cursor','pointer')
                 )
             );
 
             var nContent = $('<div></div>')
                 .css('width',this.boxW-(2*(this.borderDist+this.cssBorder)))
                 .css('height',this.boxH-(2*(this.borderDist+this.cssBorder)))
-                .css('z-index',40)
+                .css('z-index',50)
                 .css('position','absolute')
                 .css('top',0)
                 .css('left',0)
@@ -65,6 +93,23 @@ function gridPage(conf) {
             this.contents.push(nContent);
             this.boxes[this.boxes.length-1].append(nContent);
             this.boxesCtnr.append(this.boxes[this.boxes.length-1]);
+
+            var unfoldE = (function(n){
+                return function(e){
+                    if(!thisP.unfolded)
+                        thisP.unfoldBox(n);
+                    else
+                        thisP.foldBox(n);
+
+                }})(boxN);
+
+            this.boxes[boxN].find('.foldBtn').mousedown(
+                unfoldE
+            );
+            this.boxes[boxN].find('.foldBtn')[0].ontouchstart = unfoldE;
+            boxN++;
+
+
         }
     }
 
@@ -73,6 +118,73 @@ function gridPage(conf) {
 gridPage.prototype = new Page();
 
 gridPage.prototype.constructor = gridPage;
+
+gridPage.prototype.unfoldBox = function(n){
+
+    this.unfolded = true;
+
+    var col = n%this.nBox;
+
+    var row = Math.floor(n/this.nBox);
+
+    this.boxes[n][0].style.webkitTransitionProperty = 'width,left';
+    this.boxes[n][0].style.webkitTransitionDuration = '600ms';
+    this.boxes[n][0].style.webkitTransitionDelay = '600ms';
+    this.boxes[n][0].style.width = (this.W+100)+'px';
+    this.boxes[n][0].style.left = (-(this.leftM+50))+'px';
+
+    this.contents[n][0].style.webkitTransitionProperty = 'left';
+    this.contents[n][0].style.webkitTransitionDuration = '600ms';
+    this.contents[n][0].style.webkitTransitionDelay = '600ms';
+    this.contents[n][0].style.left = (this.leftM+50+col*this.boxW+this.borderDist)+'px';
+
+
+    for(var i=0;i<this.nBox;i++){
+        if(i!=col){
+            for(var j=row;j<this.mBox;j++){
+                this.boxes[i+j*this.nBox][0].style.webkitTransitionProperty = 'top';
+                this.boxes[i+j*this.nBox][0].style.webkitTransitionDuration = '600ms';
+                this.boxes[i+j*this.nBox][0].style.webkitTransitionDelay = '0ms';
+                this.boxes[i+j*this.nBox][0].style.top = ((this.boxH*(j+1))+this.borderDist)+'px';
+            }
+        }
+    }
+
+}
+
+gridPage.prototype.foldBox = function(n){
+
+    this.unfolded = false;
+
+    var col = n%this.nBox;
+
+    var row = Math.floor(n/this.nBox);
+
+    this.boxes[n][0].style.webkitTransitionProperty = 'width,left';
+    this.boxes[n][0].style.webkitTransitionDuration = '600ms';
+    this.boxes[n][0].style.webkitTransitionDelay = '0ms';
+    this.boxes[n][0].style.width = (this.boxW-(2*(this.borderDist+this.cssBorder)))+'px';
+    this.boxes[n][0].style.left = ((col*this.boxW)+this.borderDist)+'px';
+
+    this.contents[n][0].style.webkitTransitionProperty = 'left';
+    this.contents[n][0].style.webkitTransitionDelay = '0ms';
+    this.contents[n][0].style.webkitTransitionDuration = '600ms';
+
+    this.contents[n][0].style.left = 0+'px';
+
+
+    for(var i=0;i<this.nBox;i++){
+        if(i!=col){
+            for(var j=row;j<this.mBox;j++){
+                this.boxes[i+j*this.nBox][0].style.webkitTransitionProperty = 'top';
+                this.boxes[i+j*this.nBox][0].style.webkitTransitionDuration = '600ms';
+                this.boxes[i+j*this.nBox][0].style.webkitTransitionDelay = '600ms';
+                this.boxes[i+j*this.nBox][0].style.top = ((this.boxH*(j))+this.borderDist)+'px';
+            }
+        }
+    }
+
+}
 
 gridPage.prototype.revolver = function(newPage){
 
@@ -139,8 +251,21 @@ gridPage.prototype.revolver = function(newPage){
 
     verbose(this,'oR',revolver,'nR',newRevolver)
 
-    newPage.contents[newRevolver].css('left',-movement);
-    newPage.contents[newRevolver].animate({left:0},400);
+    //TODO naprawic ? nie mam siwego pojecia czemu ponizsze nie dziala :( nowy content wogole sie nie animuje choc reaguje na  css
+
+    newPage.contents[newRevolver][0].style.left = '0px';
+
+    newPage.contents[newRevolver][0].style.webkitTransitionProperty = 'left';
+    newPage.contents[newRevolver][0].style.webkitTransitionDuration = '400ms';
+    newPage.contents[newRevolver][0].style.webkitTransitionDelay = '0ms';
+
+    newPage.contents[newRevolver][0].addEventListener( 'webkitTransitionEnd',
+        function( e) {
+            e.target.style.webkitTransitionDuration = '400ms';
+            e.target.style.left = '0px';
+            e.target.webkitTransitionEnd = "";
+
+        }, false );
 
     this.contents[revolver].css('border-left','1px solid gray')
     this.contents[revolver].css('border-right','1px solid gray')
@@ -148,12 +273,16 @@ gridPage.prototype.revolver = function(newPage){
     this.contents[revolver].data('oldI',revolver);
     this.contents[revolver].data('newJ',newRevolver);
 
-    this.contents[revolver].animate({left:movement},400,function(){
-        oldPage.contents[$(this).data('oldI')] = newPage.contents[$(this).data('newJ')];
-        $(this).remove();
+    this.contents[revolver][0].style.webkitTransitionProperty = 'left';
+    this.contents[revolver][0].style.webkitTransitionDuration = '400ms';
+    this.contents[revolver][0].style.webkitTransitionDelay = '0ms';
+    this.contents[revolver][0].style.left = String(movement)+'px';
 
-    });
-
+    this.contents[revolver][0].addEventListener( 'webkitTransitionEnd',
+        function( e) {
+            oldPage.contents[$(e.target).data('oldI')] = newPage.contents[$(e.target).data('newJ')];
+            $(e.target).remove();
+        }, false );
 
     var i=0;
     var missedJ;
@@ -183,12 +312,13 @@ gridPage.prototype.revolver = function(newPage){
                         oldPage.contents[i].data('newJ',missedJ);
                     }
 
-                    newPage.contents[oldPage.contents[i].data('newJ')].css('opacity','0');
+                    //newPage.contents[oldPage.contents[i].data('newJ')].css('opacity','0');
 
-                    oldPage.contents[i].animate({opacity:0},300,function(){
+
+                    oldPage.contents[i].animate({},300,function(){
                             oldPage.contents[$(this).data('oldI')] = newPage.contents[$(this).data('newJ')];
                             oldPage.boxes[$(this).data('oldI')].data('context',newPage.boxes[$(this).data('newJ')].data('context'));
-                            newPage.contents[$(this).data('newJ')].animate({opacity:1},300);
+                            newPage.contents[$(this).data('newJ')].animate({},300);
                             $(this).remove()
 
                         }

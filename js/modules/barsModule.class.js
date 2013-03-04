@@ -12,8 +12,6 @@ barsModule.prototype.build = function(){
 
     var conf = this.conf;
 
-    console.log(this.data)
-
     var data = this.data;
 
     this.ctnr.addClass('bars');

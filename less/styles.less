@@ -202,6 +202,20 @@ div.gridPage div.gridBox div{
     z-index: 50;
 }
 
+div.gridPage div.gridBox {
+    background-color: gray;
+    position: relative;
+    z-index: 50;
+}
+
+div.gridPage div.gridBox div.content {
+    background-color:white;
+}
+
+div.gridBox div.content div.sequenceNumModule {
+    cursor:pointer;
+}
+
 div.gridBox div.content div.memberModule {
     position:relative;
     width:100%;
@@ -213,6 +227,10 @@ div.gridBox div.content div.memberModule a.sequenceLink {
     font-weight: bold;
     top:0px;
     font-family: courier;
+}
+
+div.gridBox div.content div {
+    z-index:80;
 }
 
 div.gridBox div.content div.memberModule a.prev {
@@ -255,6 +273,7 @@ div.gridBox div.content div.memberModule span span.seq {
 
 div.gridBox div.content div.sequenceNumModule {
     margin-top:5px;
+
 }
 
 div.gridBox div.content div.sequenceNumModule div.arrangeImgModule {

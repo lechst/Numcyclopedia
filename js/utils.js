@@ -2,7 +2,8 @@ function pageLink(caption,obj,context){
 
     var newElement = $('<a href="#">'+caption+'</a>').addClass('sequenceLink').data('pageLink',obj);
 
-    newElement.mousedown(function(e){
+
+    var event = function(e){
 
         if(typeof(obj)=='number')
         {
@@ -18,7 +19,11 @@ function pageLink(caption,obj,context){
         obj.ownPage.show();
 
         return false;
-    });
+    };
+
+    newElement.mousedown(event);
+
+    newElement[0].ontouchstart = event;
 
     return newElement;
 }
