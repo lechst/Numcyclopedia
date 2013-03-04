@@ -18,10 +18,6 @@ highlyCompositeSequence.prototype.Q = function (n){
     var m = divisorsN(n);
     var k = 0;
 
-    if(n == 2){
-        return true;
-    }
-
     for(var i=1; i<n; i++){
         k = divisorsN(i);
         if(k >= m){

@@ -103,7 +103,11 @@ var primeSingature = function (n){
 }
 
 var divisorsN = function (n){
-    return factors(n).map(function(x){return x.power+1}).reduce(function(a,b){return a*b;});
+    if (n == 1){
+        return 1;
+    } else {
+        return factors(n).map(function(x){return x.power+1}).reduce(function(a,b){return a*b;});
+    }
 }
 
 var primePowersN = function (n){
