@@ -74,13 +74,15 @@ $(document).ready(function(){
         }
 
         (new gridNumberPage({
-            number:num
+            obj:num,
+            context:{}
         })).show();
     }
     else
     {
         (new gridNumberPage({
-            number:13
+            obj:13,
+            context:{}
         })).show();
     }
 

@@ -9,7 +9,7 @@ function pageLink(caption,obj,context){
         {
             window.location.hash = "#num"+obj;
             (new gridNumberPage({
-                number:obj,
+                obj:obj,
                 context:context
             })).show();
 

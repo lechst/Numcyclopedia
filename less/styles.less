@@ -53,7 +53,7 @@ div.numberTile div.label {
     font-weight:bold;
     color:white;
     font-size:26px;
-    text-shadow: 0em 0.1em 0.2em black;
+    //text-shadow: 0em 0.1em 0.2em black;
 
 }
 
@@ -193,27 +193,27 @@ div.sequenceNumModule div.numberTile {
 
 div.gridPage {
     background-color: #d3d3d3;
-    position: relative;
+    position: absolute;
     z-index: 100;
 }
 
-div.gridPage div.gridBox div{
-    position: relative;
-    z-index: 50;
+div.gridBox{
+    overflow: hidden;
+    position: absolute;
 }
 
-div.gridPage div.gridBox {
-    background-color: gray;
-    position: relative;
-    z-index: 50;
-}
-
-div.gridPage div.gridBox div.content {
+div.gridBox div.content {
     background-color:white;
+    width:100%;
+    height:100%;
+    position:absolute;
 }
 
 div.gridBox div.content div.sequenceNumModule {
     cursor:pointer;
+    position:absolute;
+    top:0px;
+    left:0px;
 }
 
 div.gridBox div.content div.memberModule {
@@ -273,7 +273,7 @@ div.gridBox div.content div.memberModule span span.seq {
 
 div.gridBox div.content div.sequenceNumModule {
     margin-top:5px;
-
+    position:relative;
 }
 
 div.gridBox div.content div.sequenceNumModule div.arrangeImgModule {

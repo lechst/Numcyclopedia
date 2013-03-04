@@ -22,17 +22,16 @@ Page.prototype.render = function(where){
 
 }
 
-Page.prototype.show = function(where){
+Page.prototype.displayed = false;
 
-    if(Page.current.revolver == this.revolver && this.revolver)
-    {
-        Page.current.revolver(this);
-    }
-    else
-    {
-    $('.page').remove();
-    Page.current = this;
-    this.render($('body'));
-    return true;
+Page.prototype.show = function(where){
+    if(!this.displayed){
+        this.displayed = true;
+
+        $('.page').remove();
+        Page.current = this;
+        this.render($('body'));
+        return true;
+
     }
 }
