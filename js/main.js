@@ -6,6 +6,7 @@ var np = new listPage({
         divisibleSequencesSequence.prototype,
         generalizedFibonacciSequencesSequence.prototype,
         generalizedLucasSequencesSequence.prototype,
+        powerfreeSequencesSequence.prototype,
         pyramidalSequencesSequence.prototype
     ],
     N:100,
