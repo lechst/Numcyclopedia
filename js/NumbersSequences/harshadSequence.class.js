@@ -13,6 +13,24 @@ harshadSequence.prototype.wolfram = "http://mathworld.wolfram.com/HarshadNumber.
 
 harshadSequence.prototype.texExpression = "(x+y+...+z)|xy...z";
 
+harshadSequence.prototype.texExpressionForN = function(x,n){
+
+    var m = this.getN(n);
+    var a = digits(m);
+    var l = a.length;
+
+    var expr = '(';
+
+    for(var i=0; i<l-1; i++){
+        expr += a[i]+ '+';
+    }
+
+    expr += a[l-1] + ')|' + m;
+
+    return expr;
+
+}
+
 harshadSequence.prototype.length = Infinity;
 
 harshadSequence.prototype.Q = function (n){

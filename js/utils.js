@@ -121,6 +121,18 @@ var divisorFunction = function(n){
     return x;
 }
 
+var digits = function(n){
+
+    var a = [];
+    var x = n.toString();
+
+    for(var i=0; i<x.length; i++){
+        a.push(parseInt(x[i]));
+    }
+
+    return a;
+}
+
 var sumOfDigits = function(n){
     var sum = 0;
     var x = n;
