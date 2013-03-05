@@ -7,7 +7,8 @@ var np = new listPage({
         generalizedFibonacciSequencesSequence.prototype,
         generalizedLucasSequencesSequence.prototype,
         powerfreeSequencesSequence.prototype,
-        pyramidalSequencesSequence.prototype
+        pyramidalSequencesSequence.prototype,
+        automorphicSequencesSequence.prototype
     ],
     N:100,
     tileConf : {
