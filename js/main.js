@@ -28,7 +28,8 @@ var seqSeq = [
     generalizedFibonacciSequencesSequence.prototype,
     generalizedLucasSequencesSequence.prototype,
     //powerfreeSequencesSequence.prototype,  fajna sekwencja, ale duzo jej :) na razie chowam ale pojawi sie
-    pyramidalSequencesSequence.prototype
+        pyramidalSequencesSequence.prototype,
+        automorphicSequencesSequence.prototype
 ]
 
 for(ssId in seqSeq)
