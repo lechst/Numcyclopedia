@@ -8,7 +8,7 @@ primaryPseudoperfectSequence.prototype.constructor = primaryPseudoperfectSequenc
 
 primaryPseudoperfectSequence.prototype.name = 'primary pseudoperfect';
 
-primaryPseudoperfectSequence.prototype.wiki = "http://mathworld.wolfram.com/Primary_pseudoperfect_number";
+primaryPseudoperfectSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Primary_pseudoperfect_number";
 primaryPseudoperfectSequence.prototype.wolfram = "http://mathworld.wolfram.com/PrimaryPseudoperfectNumber.html";
 
 primaryPseudoperfectSequence.prototype.texExpression = "\\sum_{p|n}\\frac{1}{p}+\\frac{1}{N}=1";

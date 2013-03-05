@@ -1,17 +1,16 @@
-function happySequence() {
+function unhappySequence() {
     NumbersSequence.call(this);
 }
 
-happySequence.prototype = new NumbersSequence();
+unhappySequence.prototype = new NumbersSequence();
 
-happySequence.prototype.constructor = happySequence;
+unhappySequence.prototype.constructor = unhappySequence;
 
-happySequence.prototype.name = 'happy';
+unhappySequence.prototype.name = 'unhappy';
 
-happySequence.prototype.wiki = "http://en.wikipedia.org/wiki/Happy_number";
-happySequence.prototype.wolfram = "http://mathworld.wolfram.com/HappyNumber.html";
+unhappySequence.prototype.wolfram = "http://mathworld.wolfram.com/UnhappyNumber.html";
 
-happySequence.prototype.texExpressionForN = function(x,n){
+unhappySequence.prototype.texExpressionForN = function(x,n){
 
     var m = this.getN(n);
     var d = digits(m);
@@ -21,7 +20,7 @@ happySequence.prototype.texExpressionForN = function(x,n){
 
     var expr = '';
 
-    while(s != 1){
+    while(s != 4){
         expr += 's_'+i+'('+m+')=';
         for(var j=0; j<l-1; j++){
             expr += d[j]+'^2+';
@@ -39,20 +38,20 @@ happySequence.prototype.texExpressionForN = function(x,n){
     for(var j=0; j<l-1; j++){
         expr += d[j]+'^2+';
     }
-    expr += d[l-1]+'^2=1';
+    expr += d[l-1]+'^2=4';
 
     return expr;
 
 }
 
-happySequence.prototype.length = Infinity;
+unhappySequence.prototype.length = Infinity;
 
-happySequence.prototype.Q = function (n){
+unhappySequence.prototype.Q = function (n){
 
     var s = digits(n).map(function(x){return x*x;}).reduce(function(a,b){return a+b;});
 
-    while(s != 1){
-        if(s==4){
+    while(s != 4){
+        if(s==1){
             return false;
         }
 

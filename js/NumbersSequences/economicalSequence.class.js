@@ -8,7 +8,7 @@ economicalSequence.prototype.constructor = economicalSequence;
 
 economicalSequence.prototype.name = 'economical';
 
-economicalSequence.prototype.wiki = "http://mathworld.wolfram.com/Economical_number";
+economicalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Economical_number";
 economicalSequence.prototype.wolfram = "http://mathworld.wolfram.com/EconomicalNumber.html";
 
 economicalSequence.prototype.texExpressionForN = function(x,n){
