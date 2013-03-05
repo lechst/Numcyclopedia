@@ -1,6 +1,6 @@
 if(navigator.userAgent.match(/iPad/i) != null)
 {
-    var pixRatio = 1.6;
+    var pixRatio = 2;
 }
 else
 {

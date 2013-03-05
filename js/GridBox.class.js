@@ -8,10 +8,12 @@ function GridBox(grid,n,m){
     this.ctnr = document.createElement('div');
     this.ctnr.className = "gridBox"
 
+    //this.ctnr.style.webkitTransformStyle = 'preserve-3d';
+
     this.W = this.grid.boxW-(2*(this.grid.borderDist));
     this.H = this.grid.boxH-(2*(this.grid.borderDist));
 
-    this.renderBorders(10);
+    this.renderBorders(20);
 
     this.ctnr.style.width =  this.W+'px';
     this.ctnr.style.height = this.H +'px';
@@ -58,6 +60,30 @@ GridBox.prototype.X = 0;
 GridBox.prototype.Y = 0;
 GridBox.prototype.Z = 0;
 
+GridBox.prototype.styleBorders = function(bW){
+
+    if (!GridBox.prototype.borderImgs)
+        GridBox.prototype.borderImgs = prepareCorner(bW, '#d3d3d3', 'rgba(0,0,0,1)', 2, 2,4,15);
+
+    this.borders[0].style.backgroundRepeat = 'repeat-x';
+    this.borders[1].style.backgroundRepeat = 'repeat-y';
+    this.borders[2].style.backgroundRepeat = 'repeat-x';
+    this.borders[3].style.backgroundRepeat = 'repeat-y';
+
+    for(var i = 0;i<4;i++){
+        this.corners[i].style.backgroundRepeat = 'no-repeat';
+
+        this.corners[i].style.backgroundImage = 'url('
+        +GridBox.prototype.borderImgs[i][0]
+        +')';
+
+        this.borders[i].style.backgroundImage = 'url('
+            +GridBox.prototype.borderImgs[i][1]
+            +')';
+
+        //this.borders[i].style.webkitTransformStyle = 'preserve-3d';
+    }
+}
 
 GridBox.prototype.renderBorders = function(bW){
     this.borders = [
@@ -81,31 +107,36 @@ GridBox.prototype.renderBorders = function(bW){
         this.corners[i].style.position = 'absolute';
         this.borders[i].style.position = 'absolute';
 
+        this.corners[i].style.backgroundSize = '100% 100%';
+        this.borders[i].style.backgroundSize = '100% 100%';
+        this.borders[i].style.position = 'absolute';
+
+
         if(i%2==0){
 
             this.borders[i].style.height =bW+'px';
-            this.borders[i].style.left =bW+'px';
-            this.borders[i].style.width =(this.W-(2*bW))+'px';
+            this.borders[i].style.left =bW-1+'px';
+            this.borders[i].style.width =(this.W-(2*bW)+2)+'px';
 
             if(i==0){
-                this.borders[i].style.top =0+'px';
+                this.borders[i].style.top =-1+'px';
             }
             else if(i==2){
-                this.borders[i].style.bottom =0+'px';
+                this.borders[i].style.bottom =-1+'px';
             }
         }
 
         if(i%2==1){
 
             this.borders[i].style.width =bW+'px';
-            this.borders[i].style.top =bW+'px';
-            this.borders[i].style.height =(this.W-(2*bW))+'px';
+            this.borders[i].style.top =bW-1+'px';
+            this.borders[i].style.height =(this.W-(2*bW)+2)+'px';
 
             if(i==1){
-                this.borders[i].style.right =0+'px';
+                this.borders[i].style.right =-1+'px';
             }
             else if(i==3){
-                this.borders[i].style.left =0+'px';
+                this.borders[i].style.left =-1+'px';
             }
         }
 
@@ -114,25 +145,27 @@ GridBox.prototype.renderBorders = function(bW){
         this.corners[i].style.height = bW + 'px';
 
         if(i<2){
-            this.corners[i].style.top =0+'px';
+            this.corners[i].style.top =-1+'px';
         }
         else
         {
-            this.corners[i].style.bottom =0+'px';
+            this.corners[i].style.bottom =-1+'px';
         }
 
         if(i==1 || i==2){
-            this.corners[i].style.right =0+'px';
+            this.corners[i].style.right =-1+'px';
         }
         else
         {
-            this.corners[i].style.left =0+'px';
+            this.corners[i].style.left =-1+'px';
         }
 
 
         this.ctnr.appendChild(this.corners[i]);
         this.ctnr.appendChild(this.borders[i]);
     }
+
+    this.styleBorders(bW)
 
 }
 

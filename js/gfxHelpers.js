@@ -1,3 +1,105 @@
+function prepareCorner(size,bgColor, shadowColor, shadowXdist, shadowYdist,blur,radius) {
+
+    size*=pixRatio;
+    shadowYdist*=pixRatio;
+    shadowXdist*=pixRatio;
+    blur*=pixRatio;
+    radius*=pixRatio;
+
+    var c = document.createElement('canvas');
+    var cOutCorner = document.createElement('canvas');
+    var cOutBorder = document.createElement('canvas');
+    c.width = 5*size;
+    c.height = 5*size;
+    cOutCorner.width = size;
+    cOutCorner.height = size;
+    cOutBorder.width = size;
+    cOutBorder.height = size;
+    var ctx = c.getContext('2d');
+
+    ctx.transform(1,0,0,1,shadowXdist,shadowYdist);
+
+    ctx.beginPath();
+
+    ctx.fillStyle = shadowColor;
+
+    var x = size+1;
+    var y = size+1;
+    var width = 3*size - 2;
+    var height = 3*size - 2;
+
+    ctx.moveTo(x+radius,y);
+    ctx.arcTo(x+width,y,x+width,y+radius,radius);
+    ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);
+    ctx.arcTo(x,y+height,x,y+height-radius,radius);
+    ctx.arcTo(x,y,x+radius,y,radius);
+
+    ctx.lineTo(x+radius,0);
+    ctx.lineTo(0,0);
+    ctx.lineTo(0,5*size);
+    ctx.lineTo(5*size,5*size);
+    ctx.lineTo(5*size,0);
+    ctx.lineTo(x+radius,0);
+
+    ctx.fill();
+
+    stackBlurCanvasRGBA(c,ctx, 0, 0, 5*size, 5*size, blur )
+
+    ctx.setTransform(1,0,0,1,0,0);
+
+    ctx.beginPath();
+
+    ctx.fillStyle = bgColor;
+
+    ctx.moveTo(x+radius,y);
+    ctx.arcTo(x+width,y,x+width,y+radius,radius);
+    ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);
+    ctx.arcTo(x,y+height,x,y+height-radius,radius);
+    ctx.arcTo(x,y,x+radius,y,radius);
+
+    ctx.lineTo(x+radius,0);
+    ctx.lineTo(0,0);
+    ctx.lineTo(0,5*size);
+    ctx.lineTo(5*size,5*size);
+    ctx.lineTo(5*size,0);
+    ctx.lineTo(x+radius,0);
+
+    ctx.fill();
+
+    var toRtrn = [];
+
+    cOutCorner.getContext('2d').putImageData(ctx.getImageData(size,size,size,size),0,0);
+    cOutBorder.getContext('2d').putImageData(ctx.getImageData(2*size,size,size,size),0,0);
+
+    toRtrn.push([cOutCorner.toDataURL(),cOutBorder.toDataURL()]);
+
+    cOutCorner.getContext('2d').putImageData(ctx.getImageData(3*size,size,size,size),0,0);
+    cOutBorder.getContext('2d').putImageData(ctx.getImageData(3*size,2*size,size,size),0,0);
+
+    toRtrn.push([cOutCorner.toDataURL(),cOutBorder.toDataURL()]);
+
+    cOutCorner.getContext('2d').putImageData(ctx.getImageData(3*size,3*size,size,size),0,0);
+    cOutBorder.getContext('2d').putImageData(ctx.getImageData(2*size,3*size,size,size),0,0);
+
+    toRtrn.push([cOutCorner.toDataURL(),cOutBorder.toDataURL()]);
+
+    cOutCorner.getContext('2d').putImageData(ctx.getImageData(size,3*size,size,size),0,0);
+    cOutBorder.getContext('2d').putImageData(ctx.getImageData(size,2*size,size,size),0,0);
+
+    toRtrn.push([cOutCorner.toDataURL(),cOutBorder.toDataURL()]);
+
+    c.toDataURL();
+
+    return toRtrn;
+
+}
+
+var cornerImg = prepareCorner([
+    {x:0, y:1},
+    {x:0.5, y:0},
+    {x:1, y:1}
+], '#003399', '#999999', 4, 20, 20);
+
 
 function prepareArrow(dir, bgColor, lineColor, lineW, w, h) {
     var c = document.createElement('canvas');
