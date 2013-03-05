@@ -8,7 +8,7 @@ abundantSequence.prototype.constructor = abundantSequence;
 
 abundantSequence.prototype.name = 'abundant';
 
-abundantSequence.prototype.wiki = "http://mathworld.wolfram.com/Abundant_number";
+abundantSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Abundant_number";
 abundantSequence.prototype.wolfram = "http://mathworld.wolfram.com/AbundantNumber.html";
 
 abundantSequence.prototype.texExpression = "\\sigma(n)-n>n";

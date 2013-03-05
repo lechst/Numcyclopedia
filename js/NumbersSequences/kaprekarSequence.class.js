@@ -8,7 +8,7 @@ kaprekarSequence.prototype.constructor = kaprekarSequence;
 
 kaprekarSequence.prototype.name = 'Kaprekar';
 
-kaprekarSequence.prototype.wiki = "http://mathworld.wolfram.com/Kaprekar_number";
+kaprekarSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Kaprekar_number";
 kaprekarSequence.prototype.wolfram = "http://mathworld.wolfram.com/KaprekarNumber.html";
 
 kaprekarSequence.prototype.texExpressionForN = function(x,n){

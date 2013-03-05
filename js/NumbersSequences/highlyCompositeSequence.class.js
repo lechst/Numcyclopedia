@@ -8,7 +8,7 @@ highlyCompositeSequence.prototype.constructor = highlyCompositeSequence;
 
 highlyCompositeSequence.prototype.name = 'highly composite';
 
-highlyCompositeSequence.prototype.wiki = "http://mathworld.wolfram.com/Highly_composite_number";
+highlyCompositeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Highly_composite_number";
 highlyCompositeSequence.prototype.wolfram = "http://mathworld.wolfram.com/HighlyCompositeNumber.html";
 
 highlyCompositeSequence.prototype.length = Infinity;

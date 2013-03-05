@@ -8,7 +8,7 @@ roundSequence.prototype.constructor = roundSequence;
 
 roundSequence.prototype.name = 'round';
 
-roundSequence.prototype.wiki = "http://mathworld.wolfram.com/Round_number";
+roundSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Round_number";
 roundSequence.prototype.wolfram = "http://mathworld.wolfram.com/RoundNumber.html";
 
 roundSequence.prototype.texExpression = "\\nexists p: p|N, p>\\sqrt{N}";

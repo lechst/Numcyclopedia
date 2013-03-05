@@ -8,7 +8,7 @@ selfSequence.prototype.constructor = selfSequence;
 
 selfSequence.prototype.name = 'self';
 
-selfSequence.prototype.wiki = "http://mathworld.wolfram.com/Self_number";
+selfSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Self_number";
 selfSequence.prototype.wolfram = "http://mathworld.wolfram.com/SelfNumber.html";
 
 selfSequence.prototype.texExpression = "\\nexists k=xy...z:\\\\ n=k+x+y+...+z";
