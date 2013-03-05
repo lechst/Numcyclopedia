@@ -48,7 +48,7 @@ powerfreeSequence.prototype.texExpressionForN = function(x,n){
     var r = this.N+1;
     var m = this.getN(n);
 
-    var expr = '\\nexists n:\\, n^'+r+'|'+m;
+    var expr = '\\nexists n:\\, n^{'+r+'}|'+m;
 
     return expr;
 
