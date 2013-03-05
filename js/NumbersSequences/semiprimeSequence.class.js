@@ -11,7 +11,7 @@ semiprimeSequence.prototype.name = 'semiprime';
 semiprimeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Semiprime";
 semiprimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/Semiprime.html";
 
-semiprimeSequence.prototype.texExpression = "n=pq || n=p^2";
+semiprimeSequence.prototype.texExpression = "n=pq | n=p^2";
 
 semiprimeSequence.prototype.texExpressionForN = function(x,n){
 
