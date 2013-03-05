@@ -27,5 +27,3 @@ highlyCompositeSequence.prototype.Q = function (n){
 
     return true;
 }
-
-console.log(divisorsN(1));
