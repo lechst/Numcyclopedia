@@ -27,6 +27,7 @@ var seqSeq = [
     divisibleSequencesSequence.prototype,
     generalizedFibonacciSequencesSequence.prototype,
     generalizedLucasSequencesSequence.prototype,
+    //powerfreeSequencesSequence.prototype,  fajna sekwencja, ale duzo jej :) na razie chowam ale pojawi sie
     pyramidalSequencesSequence.prototype
 ]
 
@@ -38,27 +39,6 @@ for(ssId in seqSeq)
     }
 
 }
-
-/*
-
-var np = new listPage({
-    sequences:NumbersSequence.all.filter(function(ns){return ns.final}),
-    sequencesSequences:[
-        polygonalSequencesSequence.prototype,
-        centeredPolygonalSequencesSequence.prototype,
-        divisibleSequencesSequence.prototype,
-        generalizedFibonacciSequencesSequence.prototype,
-        generalizedLucasSequencesSequence.prototype,
-        powerfreeSequencesSequence.prototype,
-        pyramidalSequencesSequence.prototype
-    ],
-    N:100,
-    tileConf : {
-        bgColorFunction : coldPrimeCF
-    }
-});
-
-*/
 
 $(document).ready(function(){
 

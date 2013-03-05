@@ -1,6 +1,15 @@
 function gridPage(conf) {
     Page.call(this,conf);
 
+    this.nBox = 6;
+    this.mBox = 3;
+
+    this.boxW = 200;
+    this.boxH = 200;
+
+    this.borderDist = 4;
+
+
     if(conf){
         this.obj = this.conf.obj;
         this.context = this.conf.context;
@@ -45,18 +54,15 @@ gridPage.prototype.buildBoxes = function(){
 
     this.unfolded = false;
 
-    this.nBox = 6;
-    this.mBox = 3;
-
-    this.boxW = 200;
-    this.boxH = 200;
-
-    this.borderDist = 4;
-
     this.leftM = Math.floor((window.innerWidth-this.nBox*this.boxW)/2);
     this.topM = Math.floor((window.innerHeight-this.mBox*this.boxH)/2);
 
+    this.boxesCtnr.style.width = '100%';
+    this.boxesCtnr.style.height = '100%';
+
     this.boxesCtnr.style.position = 'absolute';
+    this.boxesCtnr.style.webkitPerspective = '3000';
+    this.boxesCtnr.style.webkitPerspectiveOrigin = '50% 50%';
 
     this.boxes = [];
 
@@ -90,51 +96,49 @@ gridPage.prototype.buildBoxes = function(){
 }
 
 gridPage.prototype.unfoldBox = function(n){
+    if(!this.unfolded){
+        this.unfolded = true;
 
-    this.unfolded = true;
+        var col = n%this.nBox;
 
-    var col = n%this.nBox;
+        var row = Math.floor(n/this.nBox);
 
-    var row = Math.floor(n/this.nBox);
-
-    for(var i=0;i<this.nBox;i++){
-        if(i!=col){
-            for(var j=row;j<this.mBox;j++){
-                this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionProperty = 'webkitTransform';
-                this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDuration = '600ms';
-                this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDelay = '0ms';
-                this.boxes[i+j*this.nBox].m++;
+        for(var i=0;i<this.nBox;i++){
+            if(i!=col){
+                for(var j=row;j<this.mBox;j++){
+                    this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionProperty = 'webkitTransform';
+                    this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDuration = '600ms';
+                    this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDelay = '0ms';
+                    this.boxes[i+j*this.nBox].m++;
+                }
             }
         }
     }
-
 }
 
 gridPage.prototype.foldBox = function(n){
+    if(this.unfolded){
+        this.unfolded = false;
 
-    this.unfolded = false;
+        var col = n%this.nBox;
 
-    var col = n%this.nBox;
+        var row = Math.floor(n/this.nBox);
 
-    var row = Math.floor(n/this.nBox);
-
-    for(var i=0;i<this.nBox;i++){
-        if(i!=col){
-            for(var j=row;j<this.mBox;j++){
-                this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionProperty = 'webkitTransform';
-                this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDuration = '600ms';
-                this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDelay = '0ms';
-                this.boxes[i+j*this.nBox].m--;
+        for(var i=0;i<this.nBox;i++){
+            if(i!=col){
+                for(var j=row;j<this.mBox;j++){
+                    this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionProperty = 'webkitTransform';
+                    this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDuration = '600ms';
+                    this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDelay = '0ms';
+                    this.boxes[i+j*this.nBox].m--;
+                }
             }
         }
     }
-
 }
 
 gridPage.prototype.revolver = function(newContent,newObject,context){
     //console.log(newContent,this.content);
-
-    console.log(context);
 
     var shared  = [];
 
@@ -218,8 +222,6 @@ gridPage.prototype.clearContentBoxes = function(){
 gridPage.prototype.putContentInBoxes = function(){
 
     var boxId = 0;
-
-    console.log(this.content)
 
                 while(boxId<this.nBox*this.mBox)
                 {

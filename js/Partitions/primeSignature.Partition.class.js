@@ -21,7 +21,7 @@ primeSignaturePartition.prototype.cachedParts = {};
 primeSignaturePartition.prototype.getN = function(signature){
 
     if (this.cachedParts[signature.join('p')]){
-        console.log(this.cachedParts);
+
         return this.cachedParts[signature.join('p')];
     }
     else
