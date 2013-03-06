@@ -1,11 +1,4 @@
-if(navigator.userAgent.match(/iPad/i) != null)
-{
-    var pixRatio = 2;
-}
-else
-{
-    var pixRatio = 1;
-}
+
 
 document.getElementsByTagName('body')[0].ontouchstart = function(e){
     e.preventDefault();

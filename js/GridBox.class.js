@@ -13,26 +13,75 @@ function GridBox(grid,n,m){
     this.W = this.grid.boxW-(2*(this.grid.borderDist));
     this.H = this.grid.boxH-(2*(this.grid.borderDist));
 
-    this.renderBorders(20);
+    this.bg = document.createElement('div');
+    this.bg.style.width =  this.W+'px';
+    this.bg.style.height = this.H +'px';
+    this.bg.style.position = 'absolute';
+    this.bg.style.top = '0px';
+    this.bg.style.left = '0px';
+    this.bg.style.backgroundColor = '#a0a0a0';
+    this.bg.style.webkitTransformOrigin =  "0 0";
+
+
+    this.bg.style.zIndex = '-5';
+
+    this.ctnr.appendChild(this.bg);
 
     this.ctnr.style.width =  this.W+'px';
     this.ctnr.style.height = this.H +'px';
 
-    this.ctnr.style.backgroundColor = 'white';
+    this.privBgW = this.W;
+    this.privBgH = this.H;
+    this.privBgX = 0;
+    this.privBgY = 0;
+
+    this.renderBorders(20);
+    this.bordersUpdate();
 
     var that = this;
 
-    this.ctnr.addEventListener('gesturechange', function(event) {
+    this.ctnr.addEventListener('mousedown', function(e) {
+
+        for(var bId in that.buttons){
+            var button = that.buttons[bId];
+            var x = (e.x-that.X)/that.W;
+            var y = (e.y-that.Y)/that.H;
+
+            if(x>button.p[0] && y>button.p[1] && x<(button.p[0]+button.p[2]) && y<(button.p[1]+button.p[3]))
+            {
+                button.event();
+            }
+
+        }
+
+        return false;
+    }, true);
+
+    this.ctnr.addEventListener('touchstart', function(e) {
+
+        for(var bId in that.buttons){
+            var button = that.buttons[bId];
+            var x = (e.pageX-that.X)/that.W;
+            var y = (e.pageY-that.Y)/that.H;
+
+            if(x>button.p[0] && y>button.p[1] && x<(button.p[0]+button.p[2]) && y<(button.p[1]+button.p[3]))
+            {
+                button.event();
+            }
+
+        }
+
+        return false;
+    }, true);
+
+    this.ctnr.addEventListener('gesturechange', function() {
         event.preventDefault();
         if(event.scale>1.05 && !that.grid.unfolded){
 
            that.grid.unfoldBox(that.I);
 
-        }
-        if(event.scale<0.95 && that.grid.unfolded){
-
-            that.grid.foldBox(that.I);
-
+        } else if(event.scale<0.95 && that.grid.unfolded){
+            that.fold(function(){that.grid.foldBox(that.I)});
         }
     }, false);
 
@@ -51,16 +100,76 @@ GridBox.prototype.newMeta = {};
 
 GridBox.prototype.privI = undefined;
 
+GridBox.prototype.buttons = [];
+
 GridBox.prototype.privN = undefined;
 GridBox.prototype.privM = undefined;
 
 GridBox.prototype.privContent = undefined;
 
+GridBox.prototype.privBgW = undefined;
+GridBox.prototype.privBgH = undefined;
+
+GridBox.prototype.privBgX = 0;
+GridBox.prototype.privBgY = 0;
+
 GridBox.prototype.X = 0;
 GridBox.prototype.Y = 0;
 GridBox.prototype.Z = 0;
 
+GridBox.prototype.__defineGetter__('bgW',function(){
+    return this.privBgW;
+});
+
+GridBox.prototype.__defineGetter__('bgH',function(){
+    return this.privBgH;
+});
+
+GridBox.prototype.__defineGetter__('bgX',function(){
+    return this.privBgX;
+});
+
+GridBox.prototype.__defineGetter__('bgY',function(){
+    return this.privBgY;
+});
+
+GridBox.prototype.__defineSetter__('bgW',function(newBgW){
+    this.privBgW = newBgW;
+    this.updateBg();
+    this.bordersUpdate();
+});
+
+GridBox.prototype.__defineSetter__('bgH',function(newBgH){
+    this.privBgH = newBgH;
+    this.updateBg();
+    this.bordersUpdate();
+});
+
+GridBox.prototype.__defineSetter__('bgX',function(newBgX){
+    this.privBgX = newBgX;
+    this.updateBg();
+    this.bordersUpdate();
+});
+
+GridBox.prototype.__defineSetter__('bgY',function(newBgY){
+    this.privBgY = newBgY;
+    this.updateBg();
+    this.bordersUpdate();
+});
+
+GridBox.prototype.updateBg = function(){
+    this.bg.style.webkitTransform = 'translate3D('
+        +this.privBgX+'px,'
+        +this.privBgY+'px,'
+        +0+'px'
+        +') scale('+(this.privBgW/this.W)+','+(this.privBgH/this.H)+')';
+}
+
 GridBox.prototype.styleBorders = function(bW){
+
+
+
+    this.bW = bW;
 
     if (!GridBox.prototype.borderImgs)
         GridBox.prototype.borderImgs = prepareCorner(bW, '#d3d3d3', 'rgba(0,0,0,1)', 2, 2,4,15);
@@ -71,6 +180,27 @@ GridBox.prototype.styleBorders = function(bW){
     this.borders[3].style.backgroundRepeat = 'repeat-y';
 
     for(var i = 0;i<4;i++){
+
+        this.corners[i].style.webkitTransformOrigin =  "0 0";
+        this.borders[i].style.webkitTransformOrigin =  "0 0";
+
+        this.corners[i].style.webkitTransitionProperty = 'webkitTransform';
+        this.corners[i].style.webkitTransitionDuration = '800ms';
+        this.corners[i].style.webkitTransitionDelay = '0ms';
+
+        this.borders[i].style.webkitTransitionProperty = 'webkitTransform';
+        this.borders[i].style.webkitTransitionDuration = '800ms';
+        this.borders[i].style.webkitTransitionDelay = '0ms';
+
+        this.corners[i].style.zIndex = '90';
+        this.borders[i].style.zIndex ='90';
+
+        this.corners[i].style.position = 'absolute';
+        this.borders[i].style.position = 'absolute';
+
+        this.corners[i].style.backgroundSize = '100% 100%';
+        this.borders[i].style.backgroundSize = '100% 100%';
+
         this.corners[i].style.backgroundRepeat = 'no-repeat';
 
         this.corners[i].style.backgroundImage = 'url('
@@ -83,95 +213,158 @@ GridBox.prototype.styleBorders = function(bW){
 
         //this.borders[i].style.webkitTransformStyle = 'preserve-3d';
     }
-}
-
-GridBox.prototype.renderBorders = function(bW){
-    this.borders = [
-        document.createElement('div'),
-        document.createElement('div'),
-        document.createElement('div'),
-        document.createElement('div')
-    ];
-
-    this.corners = [
-        document.createElement('div'),
-        document.createElement('div'),
-        document.createElement('div'),
-        document.createElement('div')
-    ];
 
     for(var i = 0;i<4;i++){
-        this.corners[i].style.zIndex = '90';
-        this.borders[i].style.zIndex ='90';
-
-        this.corners[i].style.position = 'absolute';
-        this.borders[i].style.position = 'absolute';
-
-        this.corners[i].style.backgroundSize = '100% 100%';
-        this.borders[i].style.backgroundSize = '100% 100%';
-        this.borders[i].style.position = 'absolute';
 
 
         if(i%2==0){
 
             this.borders[i].style.height =bW+'px';
-            this.borders[i].style.left =bW-1+'px';
             this.borders[i].style.width =(this.W-(2*bW)+2)+'px';
 
-            if(i==0){
-                this.borders[i].style.top =-1+'px';
-            }
-            else if(i==2){
-                this.borders[i].style.bottom =-1+'px';
-            }
         }
 
         if(i%2==1){
 
             this.borders[i].style.width =bW+'px';
-            this.borders[i].style.top =bW-1+'px';
             this.borders[i].style.height =(this.W-(2*bW)+2)+'px';
 
-            if(i==1){
-                this.borders[i].style.right =-1+'px';
-            }
-            else if(i==3){
-                this.borders[i].style.left =-1+'px';
-            }
         }
 
 
         this.corners[i].style.width = bW + 'px';
         this.corners[i].style.height = bW + 'px';
 
+    }
+}
+
+GridBox.prototype.bordersUpdate = function(){
+
+    var bW = this.bW;
+
+    for(var i = 0;i<4;i++){
+
+
+        if(i%2==0){
+
+            this.borders[i].Tleft = (this.bgX+bW-1)+'px';
+
+            if(i==0){
+                this.borders[i].Ttop =-1+'px';
+            }
+            else if(i==2){
+                this.borders[i].Ttop =(this.bgH-bW+1)+'px';
+            }
+        }
+
+        if(i%2==1){
+
+            this.borders[i].Ttop =(this.bgY+bW-1)+'px';
+
+            if(i==1){
+                this.borders[i].Tleft =(this.bgX+this.bgW-bW+1)+'px';
+            }
+            else if(i==3){
+                this.borders[i].Tleft =(this.bgX-1)+'px';
+            }
+        }
+
         if(i<2){
-            this.corners[i].style.top =-1+'px';
+            this.corners[i].Ttop =(this.bgY-1)+'px';
         }
         else
         {
-            this.corners[i].style.bottom =-1+'px';
+            this.corners[i].Ttop =(this.bgY+this.bgH-bW+1)+'px';
         }
 
         if(i==1 || i==2){
-            this.corners[i].style.right =-1+'px';
+            this.corners[i].Tleft =(this.bgX+this.bgW-bW+1)+'px';
         }
         else
         {
-            this.corners[i].style.left =-1+'px';
+            this.corners[i].Tleft =(this.bgX-1)+'px';
         }
 
-
-        this.ctnr.appendChild(this.corners[i]);
-        this.ctnr.appendChild(this.borders[i]);
     }
 
-    this.styleBorders(bW)
+    for(var i = 0;i<4;i++){
+
+
+        if(i%2==0){
+            this.borders[i].Twidth =(this.bgW-(2*bW)+2);
+        }
+
+        if(i%2==1){
+            this.borders[i].Theight =(this.bgH-(2*bW)+2);
+        }
+
+    }
 
 }
 
-GridBox.prototype.updatePos = function(){
-    this.X = this.grid.leftM+(this.grid.boxW*(this.privN))+this.grid.borderDist;
-    this.Y = this.grid.topM+(this.grid.boxH*(this.privM))+this.grid.borderDist;
+GridBox.prototype.renderBorders = function(bW){
+    this.borders = [
+        new transformableDiv(document.createElement('div')),
+        new transformableDiv(document.createElement('div')),
+        new transformableDiv(document.createElement('div')),
+        new transformableDiv(document.createElement('div'))
+    ];
+
+    this.corners = [
+        new transformableDiv(document.createElement('div')),
+        new transformableDiv(document.createElement('div')),
+        new transformableDiv(document.createElement('div')),
+        new transformableDiv(document.createElement('div'))
+    ];
+
+
+    for(var i = 0;i<4;i++){
+        this.ctnr.appendChild(this.corners[i].element);
+        this.ctnr.appendChild(this.borders[i].element);
+    }
+
+    this.styleBorders(bW);
+}
+
+GridBox.prototype.unfold = function(){
+
+    this.ctnr.style.overflow = "visible";
+
+    this.bg.style.webkitTransitionProperty = 'webkitTransform';
+    this.bg.style.webkitTransitionDuration = '800ms';
+    this.bg.style.webkitTransitionDelay = '0ms';
+
+    this.bgW = this.grid.W-60;
+    this.bgX = -this.X+30;
+
+};
+
+GridBox.prototype.fold = function(doAfter){
+
+    this.bgW = this.W;
+    this.bgX = 0;
+    var that = this;
+
+    this.bg.addEventListener( 'webkitTransitionEnd',function(e){
+        doAfter();
+        e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);
+    });
+
+    this.updateBg();
+    this.bordersUpdate();
+};
+
+
+GridBox.prototype.updatePos = function(X,Y){
+    if(X==undefined)
+        this.X = this.grid.leftM+(this.grid.boxW*(this.privN))+this.grid.borderDist;
+    else
+        this.X = X;
+
+    if(Y==undefined)
+        this.Y = this.grid.topM+(this.grid.boxH*(this.privM))+this.grid.borderDist;
+    else
+        this.Y = Y;
 
     this.ctnr.style.webkitTransform = this.trans;
     return true;
@@ -218,6 +411,8 @@ GridBox.prototype.__defineSetter__('content',function(newContent){
 GridBox.prototype.newContentReset = function(){
     this.newMeta = undefined;
     this.privPendingContent = document.createElement('div');
+    this.privPendingContent.style.width = this.W+'px';
+    this.privPendingContent.style.height = this.H+'px';
     this.privPendingContent.className = "content";
 }
 
@@ -254,8 +449,6 @@ GridBox.prototype.newContentShow = function(){
 }
 var fake;
 GridBox.prototype.rollTransition = function(n){
-
-    console.log(n)
 
     if(Math.abs(n)>1)
     {

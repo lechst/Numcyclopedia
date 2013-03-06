@@ -23,6 +23,15 @@
 
         <script>
 
+            if(navigator.userAgent.match(/iPad/i) != null)
+            {
+                var pixRatio = 2;
+            }
+            else
+            {
+                var pixRatio = 1;
+            }
+
             var verbose = function(who){
                 if(who.verbose)
                 {
@@ -68,6 +77,7 @@
 
         <script src="js/colorFunctions.js"></script>
 
+        <script src="js/transformableDiv.js"></script>
 
         <script src="js/Module.class.js"></script>
 

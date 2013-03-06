@@ -84,9 +84,38 @@ gridPage.prototype.buildBoxes = function(){
 
                 }})(boxN);
 
-            //this.boxes[boxN].ctnr.onmousedown = unfoldE;
-            //this.boxes[boxN].ctnr.ontouchstart = unfoldE;
+            var that = this;
 
+            //pageLinkFN
+
+            nBox.buttons = [
+                {p:[0,0,0.25,0.25],
+                    event:(function(n){return function(){
+                        if(that.boxes[n].meta.number>1){
+                        pageLinkFN(
+                            that.boxes[n].meta.number-1,
+                            that.boxes[n].meta.sequence
+                        )()}
+                    }})(boxN)
+                },
+                {p:[0.75,0,0.25,0.25],
+                    event:(function(n){return function(){
+                        pageLinkFN(
+                            that.boxes[n].meta.number+1,
+                            that.boxes[n].meta.sequence
+                        )()
+                    }})(boxN)
+                },
+                {p:[0,0.25,1,0.75],
+                    event:(function(n){return function(){
+                        if(!that.unfolded){
+                            that.unfoldBox(n);
+                        }else{
+                            that.boxes[n].fold(function(){that.foldBox(n)});
+                        }
+                    }})(boxN)
+                }
+            ];
 
             boxN++;
 
@@ -96,6 +125,9 @@ gridPage.prototype.buildBoxes = function(){
 }
 
 gridPage.prototype.unfoldBox = function(n){
+
+
+
     if(!this.unfolded){
         this.unfolded = true;
 
@@ -103,13 +135,28 @@ gridPage.prototype.unfoldBox = function(n){
 
         var row = Math.floor(n/this.nBox);
 
+        var box = this.boxes[n];
+
+        var binded = false;
+
         for(var i=0;i<this.nBox;i++){
             if(i!=col){
                 for(var j=row;j<this.mBox;j++){
+
+
                     this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionProperty = 'webkitTransform';
                     this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDuration = '600ms';
                     this.boxes[i+j*this.nBox].ctnr.style.webkitTransitionDelay = '0ms';
                     this.boxes[i+j*this.nBox].m++;
+
+                    if(!binded){
+                        this.boxes[i+j*this.nBox].ctnr.addEventListener( 'webkitTransitionEnd',function(e){
+                            box.unfold();
+                            e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);
+                        });
+                        binded = true;
+                    }
+
                 }
             }
         }

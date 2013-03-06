@@ -2,6 +2,10 @@ function pageLink(caption,obj,context){
 
     var newElement = $('<a href="#">'+caption+'</a>').addClass('sequenceLink').data('pageLink',obj);
 
+    return newElement;
+}
+
+function pageLinkFN(obj,context){
 
     var event = function(e){
 
@@ -21,11 +25,7 @@ function pageLink(caption,obj,context){
         return false;
     };
 
-    newElement.mousedown(event);
-
-    newElement[0].ontouchstart = event;
-
-    return newElement;
+    return event;
 }
 
 function deepFlatCopy(o){

@@ -51,13 +51,19 @@ function prepareCorner(size,bgColor, shadowColor, shadowXdist, shadowYdist,blur,
 
     ctx.fillStyle = bgColor;
 
-    ctx.moveTo(x+radius,y);
-    ctx.arcTo(x+width,y,x+width,y+radius,radius);
-    ctx.arcTo(x+width,y+height,x+width-radius,y+height,radius);
-    ctx.arcTo(x,y+height,x,y+height-radius,radius);
-    ctx.arcTo(x,y,x+radius,y,radius);
+    ctx.moveTo(x+radius+2,y);
+    ctx.lineTo(x+width/2,y);
+    ctx.arcTo(x+width,y,x+width,y+radius+2,radius);
+    ctx.lineTo(x+width,y+height/2);
+    ctx.arcTo(x+width,y+height,x+width-radius-2,y+height,radius);
+    ctx.lineTo(x+width/2,y+height);
+    ctx.arcTo(x,y+height,x,y+height-radius-2,radius);
+    ctx.lineTo(x,y+height/2);
+    ctx.arcTo(x+2,y,x+radius+2,y,radius);
 
-    ctx.lineTo(x+radius,0);
+    ctx.lineTo(x+height/2,y);
+
+    ctx.lineTo(x+height/2,0);
     ctx.lineTo(0,0);
     ctx.lineTo(0,5*size);
     ctx.lineTo(5*size,5*size);
@@ -93,12 +99,6 @@ function prepareCorner(size,bgColor, shadowColor, shadowXdist, shadowYdist,blur,
     return toRtrn;
 
 }
-
-var cornerImg = prepareCorner([
-    {x:0, y:1},
-    {x:0.5, y:0},
-    {x:1, y:1}
-], '#003399', '#999999', 4, 20, 20);
 
 
 function prepareArrow(dir, bgColor, lineColor, lineW, w, h) {
