@@ -1,11 +1,6 @@
-
-
-
-
 function equationModule(conf,expression) {
 
     Module.call(this,conf);
-
 
     this.expression = expression;
 

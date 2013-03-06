@@ -4,11 +4,14 @@ function sequenceNumModule(conf,n,sequence) {
 
     this.n = n;
 
+
     if(!(this.x = sequence.getN(this.n))){
         return false;
     }
 
     this.sequence = sequence;
+
+
 
     if(this.conf.tile)
     {
@@ -62,6 +65,8 @@ function sequenceNumModule(conf,n,sequence) {
             this.subModules.push(this.sequence.boxModule(this.n));
         }
     }
+
+
 
 }
 

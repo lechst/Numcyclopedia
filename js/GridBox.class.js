@@ -19,9 +19,11 @@ function GridBox(grid,n,m){
     this.bg.style.position = 'absolute';
     this.bg.style.top = '0px';
     this.bg.style.left = '0px';
-    this.bg.style.backgroundColor = '#a0a0a0';
+    this.bgColor = '#a0a0a0';
+    this.bg.style.backgroundColor = this.bgColor;
     this.bg.style.webkitTransformOrigin =  "0 0";
 
+    this.live = true;
 
     this.bg.style.zIndex = '-5';
 
@@ -41,6 +43,7 @@ function GridBox(grid,n,m){
     var that = this;
 
     this.ctnr.addEventListener('mousedown', function(e) {
+    if(that.live){
 
         for(var bId in that.buttons){
             var button = that.buttons[bId];
@@ -53,24 +56,26 @@ function GridBox(grid,n,m){
             }
 
         }
-
+    }
         return false;
     }, true);
 
     this.ctnr.addEventListener('touchstart', function(e) {
+        if(that.live){
+            for(var bId in that.buttons){
+                var button = that.buttons[bId];
+                if (button.touch){
 
-        for(var bId in that.buttons){
-            var button = that.buttons[bId];
-            var x = (e.pageX-that.X)/that.W;
-            var y = (e.pageY-that.Y)/that.H;
+                    var x = (e.pageX-that.X)/that.W;
+                    var y = (e.pageY-that.Y)/that.H;
 
-            if(x>button.p[0] && y>button.p[1] && x<(button.p[0]+button.p[2]) && y<(button.p[1]+button.p[3]))
-            {
-                button.event();
+                    if(x>button.p[0] && y>button.p[1] && x<(button.p[0]+button.p[2]) && y<(button.p[1]+button.p[3]))
+                    {
+                        button.event();
+                    }
+                }
             }
-
         }
-
         return false;
     }, true);
 
@@ -347,6 +352,7 @@ GridBox.prototype.fold = function(doAfter){
 
     this.bg.addEventListener( 'webkitTransitionEnd',function(e){
         doAfter();
+        that.ctnr.style.overflow = "hidden";
         e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);
     });
 
@@ -513,6 +519,10 @@ GridBox.prototype.trivialTransition = function(){
 
 GridBox.prototype.alphaTransition = function(){
 
+    this.bg.style.backgroundColor = "white";
+
+    var that = this;
+
     if(this.privContent){
         this.privContent.style.webkitTransitionProperty = '';
         this.privContent.style.webkitFilter = 'opacity(1)';
@@ -543,11 +553,20 @@ GridBox.prototype.alphaTransition = function(){
 
     this.privPendingContent.clientWidth;
 
+    this.privPendingContent.addEventListener( 'webkitTransitionEnd',
+        function( e ) {
+            that.bg.style.backgroundColor = that.bgColor;
+
+            e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);
+        }, false );
+
     this.privPendingContent.style.webkitTransitionDelay = '700ms';
     this.privPendingContent.style.webkitTransitionProperty = 'webkitFilter';
     this.privPendingContent.style.webkitTransitionDuration = '500ms';
 
     this.privPendingContent.style.webkitFilter = 'opacity(1)';
+
+
 }
 
 GridBox.prototype.XAngle = 0;

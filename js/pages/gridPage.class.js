@@ -96,7 +96,8 @@ gridPage.prototype.buildBoxes = function(){
                             that.boxes[n].meta.sequence.getN(that.boxes[n].meta.number-1),
                             that.boxes[n].meta.sequence
                         )()}
-                    }})(boxN)
+                    }})(boxN),
+                    touch:true
                 },
                 {p:[0.75,0,0.25,0.25],
                     event:(function(n){return function(){
@@ -104,7 +105,8 @@ gridPage.prototype.buildBoxes = function(){
                             that.boxes[n].meta.sequence.getN(that.boxes[n].meta.number+1),
                             that.boxes[n].meta.sequence
                         )()
-                    }})(boxN)
+                    }})(boxN),
+                    touch:true
                 },
                 {p:[0,0.25,1,0.75],
                     event:(function(n){return function(){
@@ -113,7 +115,8 @@ gridPage.prototype.buildBoxes = function(){
                         }else{
                             that.boxes[n].fold(function(){that.foldBox(n)});
                         }
-                    }})(boxN)
+                    }})(boxN),
+                    touch:false
                 }
             ];
 
@@ -186,6 +189,7 @@ gridPage.prototype.foldBox = function(n){
 
 gridPage.prototype.revolver = function(newContent,newObject,context){
     //console.log(newContent,this.content);
+    var start = new Date();
 
     var shared  = [];
 
@@ -244,7 +248,7 @@ gridPage.prototype.revolver = function(newContent,newObject,context){
     }
 
     this.putContentInBoxes();
-
+    Console.innerText += ", rev:" + (new Date() - start);
 };
 
 gridPage.prototype.content = [];

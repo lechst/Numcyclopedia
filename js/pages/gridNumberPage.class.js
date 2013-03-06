@@ -30,14 +30,20 @@ gridNumberPage.prototype.generateContent = function(){
 
     this.sequences = this.partSequences.concat(NumbersSequence.allFinal.filter(function(s){return s.partMemberOf.length==0}));
 
+    var start = new Date();
+    Console.innerHTML="cntnt:";
+
 
     for (var ssNid in this.sequences)
     {
+
             if(this.sequences[ssNid].Q(this.number))
             {
                 var qn = this.sequences[ssNid].QN(this.number);
 
                 var seq = this.sequences[ssNid];
+
+
 
                 this.content.push(
                     {
@@ -49,11 +55,13 @@ gridNumberPage.prototype.generateContent = function(){
                             ]
                     }
                 )
+
+
             }
 
 
     }
-
+    Console.innerText += (new Date() - start);
 }
 
 gridNumberPage.prototype.ctnrConf = function(ctnr){
