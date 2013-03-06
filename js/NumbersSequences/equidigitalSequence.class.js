@@ -1,17 +1,17 @@
-function economicalSequence() {
+function equidigitalSequence() {
     NumbersSequence.call(this);
 }
 
-economicalSequence.prototype = new NumbersSequence();
+equidigitalSequence.prototype = new NumbersSequence();
 
-economicalSequence.prototype.constructor = economicalSequence;
+equidigitalSequence.prototype.constructor = equidigitalSequence;
 
-economicalSequence.prototype.name = 'economical';
+equidigitalSequence.prototype.name = 'equidigital';
 
-economicalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Frugal_number";
-economicalSequence.prototype.wolfram = "http://mathworld.wolfram.com/EconomicalNumber.html";
+equidigitalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Equidigital_number";
+equidigitalSequence.prototype.wolfram = "http://mathworld.wolfram.com/EquidigitalNumber.html";
 
-economicalSequence.prototype.texExpressionForN = function(x,n){
+equidigitalSequence.prototype.texExpressionForN = function(x,n){
 
     var m = this.getN(n);
     var d = digits(m).length;
@@ -31,7 +31,6 @@ economicalSequence.prototype.texExpressionForN = function(x,n){
         } else {
             expr += x+'\\cdot';
         }
-
     }
 
     var x = f[l-1].prime;
@@ -44,7 +43,7 @@ economicalSequence.prototype.texExpressionForN = function(x,n){
         expr += x+'\\\\';
     }
 
-    expr += d+'>';
+    expr += d+'=';
 
     var la = a.length;
 
@@ -58,9 +57,9 @@ economicalSequence.prototype.texExpressionForN = function(x,n){
 
 }
 
-economicalSequence.prototype.length = Infinity;
+equidigitalSequence.prototype.length = Infinity;
 
-economicalSequence.prototype.Q = function (n){
+equidigitalSequence.prototype.Q = function (n){
 
     var d = digits(n).length;
     var f = factors(n);
@@ -73,7 +72,7 @@ economicalSequence.prototype.Q = function (n){
         }
     }
 
-    if(d > x){
+    if(d == x){
         return true;
     }
 

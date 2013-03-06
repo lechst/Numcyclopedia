@@ -21,8 +21,9 @@ var seqSeq = [
     generalizedFibonacciSequencesSequence.prototype,
     generalizedLucasSequencesSequence.prototype,
     //powerfreeSequencesSequence.prototype,  fajna sekwencja, ale duzo jej :) na razie chowam ale pojawi sie
-        pyramidalSequencesSequence.prototype,
-        automorphicSequencesSequence.prototype
+    pyramidalSequencesSequence.prototype,
+    automorphicSequencesSequence.prototype
+    //smoothSequencesSequence.prototype,  jak wyzej
 ]
 
 for(ssId in seqSeq)

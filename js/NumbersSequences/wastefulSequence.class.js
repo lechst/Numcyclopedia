@@ -1,17 +1,17 @@
-function economicalSequence() {
+function wastefulSequence() {
     NumbersSequence.call(this);
 }
 
-economicalSequence.prototype = new NumbersSequence();
+wastefulSequence.prototype = new NumbersSequence();
 
-economicalSequence.prototype.constructor = economicalSequence;
+wastefulSequence.prototype.constructor = wastefulSequence;
 
-economicalSequence.prototype.name = 'economical';
+wastefulSequence.prototype.name = 'wasteful';
 
-economicalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Frugal_number";
-economicalSequence.prototype.wolfram = "http://mathworld.wolfram.com/EconomicalNumber.html";
+wastefulSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Extravagant_number";
+wastefulSequence.prototype.wolfram = "http://mathworld.wolfram.com/WastefulNumber.html";
 
-economicalSequence.prototype.texExpressionForN = function(x,n){
+wastefulSequence.prototype.texExpressionForN = function(x,n){
 
     var m = this.getN(n);
     var d = digits(m).length;
@@ -31,7 +31,6 @@ economicalSequence.prototype.texExpressionForN = function(x,n){
         } else {
             expr += x+'\\cdot';
         }
-
     }
 
     var x = f[l-1].prime;
@@ -44,7 +43,7 @@ economicalSequence.prototype.texExpressionForN = function(x,n){
         expr += x+'\\\\';
     }
 
-    expr += d+'>';
+    expr += d+'<';
 
     var la = a.length;
 
@@ -58,9 +57,9 @@ economicalSequence.prototype.texExpressionForN = function(x,n){
 
 }
 
-economicalSequence.prototype.length = Infinity;
+wastefulSequence.prototype.length = Infinity;
 
-economicalSequence.prototype.Q = function (n){
+wastefulSequence.prototype.Q = function (n){
 
     var d = digits(n).length;
     var f = factors(n);
@@ -73,7 +72,7 @@ economicalSequence.prototype.Q = function (n){
         }
     }
 
-    if(d > x){
+    if(d < x){
         return true;
     }
 
