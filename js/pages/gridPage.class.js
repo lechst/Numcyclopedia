@@ -93,7 +93,7 @@ gridPage.prototype.buildBoxes = function(){
                     event:(function(n){return function(){
                         if(that.boxes[n].meta.number>1){
                         pageLinkFN(
-                            that.boxes[n].meta.number-1,
+                            that.boxes[n].meta.sequence.getN(that.boxes[n].meta.number-1),
                             that.boxes[n].meta.sequence
                         )()}
                     }})(boxN)
@@ -101,7 +101,7 @@ gridPage.prototype.buildBoxes = function(){
                 {p:[0.75,0,0.25,0.25],
                     event:(function(n){return function(){
                         pageLinkFN(
-                            that.boxes[n].meta.number+1,
+                            that.boxes[n].meta.sequence.getN(that.boxes[n].meta.number+1),
                             that.boxes[n].meta.sequence
                         )()
                     }})(boxN)
