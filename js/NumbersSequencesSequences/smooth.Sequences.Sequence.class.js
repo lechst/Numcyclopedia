@@ -33,7 +33,7 @@ function smoothSequence(n) {
 
 smoothSequence.prototype = new NumbersSequence();
 
-smoothSequence.prototype.constructor = automorphicSequence;
+smoothSequence.prototype.constructor = smoothSequence;
 
 smoothSequence.prototype.length = Infinity;
 

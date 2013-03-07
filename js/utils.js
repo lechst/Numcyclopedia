@@ -172,3 +172,50 @@ var sumOfDigits = function(n){
 
     return sum;
 }
+
+var legendreSymbol = function(a,p){
+    if(p!=2 && primesSequence.prototype.Q(p)){
+        if((a%p)==0){
+            return 0;
+        } else {
+            for(var i=1; i<p; i++){
+                if(((i*i)%p) == (a%p)){
+                    return 1;
+                }
+            }
+            return -1;
+        }
+    }
+    return undefined;
+}
+
+var jacobiSymbol = function(a,n){
+    if((n%2)!=0){
+        var f = factors(n);
+        var x = 1;
+        for(var i=0; i<f.length; i++){
+            x *= Math.pow(legendreSymbol(a,f[i].prime),f[i].power);
+        }
+        return x;
+    }
+    return undefined;
+}
+
+var checkIfCoprime = function(a,n){
+    var fa = factors(a);
+    for(var i=0; i<fa.length; i++){
+        if((n%fa[i].prime)==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+

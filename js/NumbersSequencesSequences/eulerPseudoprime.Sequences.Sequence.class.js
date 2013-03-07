@@ -33,7 +33,7 @@ function eulerPseudoprimeSequence(n) {
 
 eulerPseudoprimeSequence.prototype = new NumbersSequence();
 
-eulerPseudoprimeSequence.prototype.constructor = automorphicSequence;
+eulerPseudoprimeSequence.prototype.constructor = eulerPseudoprimeSequence;
 
 eulerPseudoprimeSequence.prototype.length = Infinity;
 
@@ -80,5 +80,3 @@ eulerPseudoprimeSequence.prototype.Q = function (n){
 
     return false;
 }
-
-console.log((Math.pow(2,(341-1)/2)%341));
