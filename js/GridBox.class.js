@@ -8,6 +8,8 @@ function GridBox(grid,n,m){
     this.ctnr = document.createElement('div');
     this.ctnr.className = "gridBox"
 
+    this.ctnr.style.overflow = "hidden";
+
     //this.ctnr.style.webkitTransformStyle = 'preserve-3d';
 
     this.W = this.grid.boxW-(2*(this.grid.borderDist));
@@ -107,6 +109,8 @@ GridBox.prototype.privI = undefined;
 
 GridBox.prototype.buttons = [];
 
+GridBox.prototype.contentsArray = undefined;
+
 GridBox.prototype.privN = undefined;
 GridBox.prototype.privM = undefined;
 
@@ -117,6 +121,8 @@ GridBox.prototype.privBgH = undefined;
 
 GridBox.prototype.privBgX = 0;
 GridBox.prototype.privBgY = 0;
+
+GridBox.prototype.bgTransitionTime = 1200;
 
 GridBox.prototype.X = 0;
 GridBox.prototype.Y = 0;
@@ -190,11 +196,11 @@ GridBox.prototype.styleBorders = function(bW){
         this.borders[i].style.webkitTransformOrigin =  "0 0";
 
         this.corners[i].style.webkitTransitionProperty = 'webkitTransform';
-        this.corners[i].style.webkitTransitionDuration = '800ms';
+        this.corners[i].style.webkitTransitionDuration = this.bgTransitionTime+'ms';
         this.corners[i].style.webkitTransitionDelay = '0ms';
 
         this.borders[i].style.webkitTransitionProperty = 'webkitTransform';
-        this.borders[i].style.webkitTransitionDuration = '800ms';
+        this.borders[i].style.webkitTransitionDuration = this.bgTransitionTime+'ms';
         this.borders[i].style.webkitTransitionDelay = '0ms';
 
         this.corners[i].style.zIndex = '90';
@@ -331,16 +337,156 @@ GridBox.prototype.renderBorders = function(bW){
     this.styleBorders(bW);
 }
 
+GridBox.prototype.arrangeArray = function(state){
+
+    var seq = this.meta.sequence;
+
+
+    var onLeft = Math.floor(this.grid.W/this.W);
+
+    if( this.meta.number <= onLeft )
+    {
+        onLeft = this.meta.number - 1;
+    }
+
+    var onRight = Math.floor(this.grid.W/this.W);
+
+    var j = 0;
+    console.log(this.meta.number,this.meta.number-onLeft,this.meta.number+onRight)
+    for (var i = this.meta.number-onLeft;i<=this.meta.number+onRight;i++)
+    {
+        if(i!=this.meta.number)
+        {
+            this.contentsArray[j].style.webkitTransitionDuration = this.bgTransitionTime/2+'ms';
+
+            this.contentsArray[j].style.webkitTransitionProperty = "webkitTransform"
+
+            if(state == undefined)
+            {
+                this.contentsArray[j].style.webkitTransitionDelay = 200+'ms';
+                this.contentsArray[j].style.webkitTransform = 'translate3D('
+                    +(this.W*(i-this.meta.number))+'px,'
+                    +0+'px,'
+                    +0+'px'
+                    +')';
+            }
+            else if(state = "under")
+            {
+                this.contentsArray[j].style.webkitTransitionDelay = 0+'ms';
+                this.contentsArray[j].style.webkitTransform = 'translate3D('
+                    +0+'px,'
+                    +0+'px,'
+                    +0+'px'
+                    +')';
+            }
+            j++;
+        }
+    }
+
+}
+
+GridBox.prototype.destroyArray = function(){
+    for (var i = 0;i<this.contentsArray.length;i++)
+    {
+        this.ctnr.removeChild(this.contentsArray[i]);
+    }
+    this.contentsArray = [];
+}
+
+GridBox.prototype.buildArray = function(){
+
+    var seq = this.meta.sequence;
+
+
+    var onLeft = Math.floor(this.grid.W/this.W);
+
+    if( this.meta.number <= onLeft )
+    {
+        onLeft = this.meta.number - 1;
+    }
+
+    var onRight = Math.floor(this.grid.W/this.W);
+
+    var left = true;
+
+    this.contentsArray = [];
+
+    for (var i = this.meta.number-onLeft;i<=this.meta.number+onRight;i++)
+    {
+        if(i!=this.meta.number)
+        {
+        var newArrayMember = document.createElement('div');
+        this.contentsArray.push(newArrayMember);
+
+
+        var qn = i;
+
+        var mM = new memberModule({},qn,seq);
+
+        var sNM = new sequenceNumModule({maxW:this.boxW*0.8,maxH:this.boxH*0.65},qn,seq);
+
+        mM.build();
+        sNM.build();
+
+        newArrayMember.appendChild(mM.ctnr[0]);
+        newArrayMember.appendChild(sNM.ctnr[0]);
+
+        newArrayMember.style.width = this.W+'px';
+        newArrayMember.style.height = this.H+'px';
+        newArrayMember.className = "content array";
+        this.ctnr.appendChild(newArrayMember);
+
+        newArrayMember.style.webkitTransform = 'translate3D('
+            //+(left?(-this.grid.W):this.grid.W)+'px,'
+            +0+'px,'
+            +0+'px,'
+            +0+'px'
+            +')';
+        }
+        else
+        {
+            var left = false;
+        }
+    }
+
+
+
+   // fake = this.privContent.clientWidth+3;
+
+ //   this.privContent.style.webkitTransitionDelay = '0ms';
+ //   this.privContent.style.webkitTransitionProperty = 'webkitTransform';
+//    this.privContent.style.webkitTransitionDuration = '600ms';
+//    this.privContent.style.webkitTransform = 'translate3D('
+
+}
+
+
 GridBox.prototype.unfold = function(){
 
     this.ctnr.style.overflow = "visible";
 
+    this.bg.style.webkitTransitionProperty = '';
+    this.bg.style.backgroundColor = this.bgColor;
+
+    var a = this.bg.clientWidth+'b';
+
     this.bg.style.webkitTransitionProperty = 'webkitTransform';
-    this.bg.style.webkitTransitionDuration = '800ms';
+    this.bg.style.webkitTransitionDuration = this.bgTransitionTime+'ms';
     this.bg.style.webkitTransitionDelay = '0ms';
 
-    this.bgW = this.grid.W-60;
-    this.bgX = -this.X+30;
+    var that = this;
+
+    that.arrangeArray();
+
+    this.bg.addEventListener( 'webkitTransitionEnd',function(e){
+
+
+        e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);
+    });
+
+
+    this.bgW = 2*this.grid.W;
+    this.bgX = -this.grid.W;
 
 };
 
@@ -350,11 +496,18 @@ GridBox.prototype.fold = function(doAfter){
     this.bgX = 0;
     var that = this;
 
+    this.bg.style.webkitTransitionDelay = '200ms';
+
     this.bg.addEventListener( 'webkitTransitionEnd',function(e){
         doAfter();
         that.ctnr.style.overflow = "hidden";
+        that.destroyArray();
+
         e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);
+
     });
+
+    that.arrangeArray('under');
 
     this.updateBg();
     this.bordersUpdate();
@@ -546,15 +699,20 @@ GridBox.prototype.alphaTransition = function(){
 
     }
 
-    this.privPendingContent.style.webkitTransitionProperty = '';
-    this.privPendingContent.style.webkitFilter = 'opacity(0)';
+
 
     this.ctnr.appendChild(this.privPendingContent);
 
-    this.privPendingContent.clientWidth;
+    this.privPendingContent.style.webkitTransitionProperty = '';
+    this.privPendingContent.style.webkitFilter = 'opacity(0)';
+
+
+
+    var a = this.privPendingContent.clientWidth+'b';
 
     this.privPendingContent.addEventListener( 'webkitTransitionEnd',
         function( e ) {
+            console.log('test');
             that.bg.style.backgroundColor = that.bgColor;
 
             e.target.removeEventListener( 'webkitTransitionEnd',arguments.callee,false);

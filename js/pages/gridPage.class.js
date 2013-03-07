@@ -140,6 +140,8 @@ gridPage.prototype.unfoldBox = function(n){
 
         var box = this.boxes[n];
 
+        box.buildArray();
+
         var binded = false;
 
         for(var i=0;i<this.nBox;i++){
