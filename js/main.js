@@ -25,7 +25,8 @@ var seqSeq = [
     automorphicSequencesSequence.prototype,
     //smoothSequencesSequence.prototype,  jak wyzej
     eulerPseudoprimeSequencesSequence.prototype,
-    eulerJacobiPseudoprimeSequencesSequence.prototype
+    eulerJacobiPseudoprimeSequencesSequence.prototype,
+    fermatPseudoprimeSequencesSequence.prototype
 ]
 
 for(ssId in seqSeq)
