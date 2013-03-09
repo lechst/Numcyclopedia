@@ -41,7 +41,7 @@ NumbersSequence.prototype.QN = function(nn){
 
     verbose(this,'Warning: Brute QN implementation of:',this);
 
-    NumbersSequence.prototype.QN = function(n){
+    var newFN = function(n){
 
 
 
@@ -64,7 +64,8 @@ NumbersSequence.prototype.QN = function(nn){
         }
         return false;
     }
-
+    newFN.brute = true;
+    NumbersSequence.prototype.QN = newFN;
     return this.QN(nn);
 
 }
@@ -73,7 +74,7 @@ NumbersSequence.prototype.getN = function(nn){
 
     verbose(this,'Warning: Brute getN implementation of:',this);
 
-    NumbersSequence.prototype.getN = function(n){
+     var newFN = function(n){
         for (var i = 1;(i<this.maxSearch && n>0);i++)
         {
             if(this.Q(i))
@@ -86,10 +87,12 @@ NumbersSequence.prototype.getN = function(nn){
         }
         return false;
     }
-
+    newFN.brute = true;
+    NumbersSequence.prototype.getN = newFN;
     return this.getN(nn);
 
 }
+
 
 
 // poniżej przykładowa najprostsza klasa dziedzicaca po Sequence
@@ -114,5 +117,9 @@ naturalSequence.prototype.Q = function (n){
 };
 
 naturalSequence.prototype.QN = function (n){
+    return n;
+};
+
+naturalSequence.prototype.getN = function (n){
     return n;
 };

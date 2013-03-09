@@ -20,7 +20,7 @@ gridNumberPage.prototype.generateContent = function(){
     this.content = [];
     this.partSequences = [];
 
-    this.partitions = [primeSignaturePartition.prototype];
+    this.partitions = []//[primeSignaturePartition.prototype];
 
     for (var partNid in this.partitions)
     {

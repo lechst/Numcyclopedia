@@ -26,6 +26,8 @@ var seqSeq = [
     //smoothSequencesSequence.prototype,  jak wyzej
 ]
 
+var seqSeq = [];
+
 for(ssId in seqSeq)
 {
     for(var i = 1;i<10;i++)

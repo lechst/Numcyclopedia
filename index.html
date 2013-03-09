@@ -34,44 +34,12 @@
                 var pixRatio = 1;
             }
 
-            var verbose = function(who){
-                if(who.verbose)
-                {
-                    var toConsole = [];
-
-                    switch(arguments.length)
-                    {
-                        case 2:
-                            console.log(arguments[1])
-                            break;
-                        case 3:
-                            console.log(arguments[1],arguments[2])
-                            break;
-                        case 4:
-                            console.log(arguments[1],arguments[2],arguments[3])
-                            break;
-                        case 5:
-                            console.log(arguments[1],arguments[2],arguments[3],arguments[4])
-                            break;
-                        case 6:
-                            console.log(arguments[1],arguments[2],arguments[3],arguments[4],arguments[5])
-                            break;
-                        case 7:
-                            console.log(arguments[1],arguments[2],arguments[3],arguments[4],arguments[5],arguments[6])
-                            break;
-                        case 8:
-                            console.log(arguments[1],arguments[2],arguments[3],arguments[4],arguments[5],arguments[6],arguments[7])
-                            break;
-                        default:
-
-                    }
-
-                }
-            }
 
         </script>
 
         <script src="vendor/StackBlur.js"></script>
+
+        <script src="js/Verbose.js"></script>
 
         <script src="js/utils.js"></script>
         <script src="js/imgUtils.js"></script>
@@ -157,7 +125,7 @@
         <script src="js/NumbersSequences/roundSequence.class.js"></script>
         <script src="js/NumbersSequences/smithSequence.class.js"></script>
         <script src="js/NumbersSequences/highlyCompositeSequence.class.js"></script>
-        <script src="js/NumbersSequences/samePrimeSignatureSequence.class.js"></script>
+        <script src="js/Partitions/Sequences/samePrimeSignatureSequence.class.js"></script>
         <script src="js/NumbersSequences/abundantSequence.class.js"></script>
         <script src="js/NumbersSequences/happySequence.class.js"></script>
         <script src="js/NumbersSequences/unhappySequence.class.js"></script>
