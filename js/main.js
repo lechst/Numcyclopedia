@@ -22,8 +22,11 @@ var seqSeq = [
     generalizedLucasSequencesSequence.prototype,
     //powerfreeSequencesSequence.prototype,  fajna sekwencja, ale duzo jej :) na razie chowam ale pojawi sie
     pyramidalSequencesSequence.prototype,
-    automorphicSequencesSequence.prototype
+    automorphicSequencesSequence.prototype,
     //smoothSequencesSequence.prototype,  jak wyzej
+    eulerPseudoprimeSequencesSequence.prototype,
+    eulerJacobiPseudoprimeSequencesSequence.prototype,
+    fermatPseudoprimeSequencesSequence.prototype
 ]
 
 var seqSeq = [];
