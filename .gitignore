@@ -5,6 +5,11 @@
 node_modules
 node_modules/*
 
+server/primes.Uint32.All.getN
+server/primes.Uint32.Q
+
+server/temp/*
+
 #################
 ## JetBrains WebStorm
 #################

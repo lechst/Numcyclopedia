@@ -23,3 +23,7 @@ centeredCubeSequence.prototype.Q = function (n){
 
     return false;
 }
+
+centeredCubeSequence.prototype.getN = function (n){
+    return n*n*n+(n+1)*(n+1)*(n+1);
+}

@@ -20,10 +20,10 @@ euclidSequence.prototype.texExpressionForN = function(x,n){
     var expr = m+'=1+';
 
     for(var i=1; i<n; i++){
-        expr += primesSequence.prototype.getN(i)+'\\cdot';
+        expr += fastPrimes.getN(i)+'\\cdot';
     }
 
-    expr += primesSequence.prototype.getN(n);
+    expr += fastPrimes.getN(n);
 
     return expr;
 
@@ -36,7 +36,7 @@ euclidSequence.prototype.getN = function(n){
     var x = 1;
 
     for(var i=1; i<=n; i++){
-        x *= primesSequence.prototype.getN(i);
+        x *= fastPrimes.getN(i);
     }
 
     x += 1;

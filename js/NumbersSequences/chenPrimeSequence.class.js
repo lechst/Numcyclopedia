@@ -20,7 +20,7 @@ chenPrimeSequence.prototype.texExpressionForN = function(x,n){
 
     var expr = m+'\\in\\mathbb{P}\\\\';
 
-    if(primesSequence.prototype.Q(m+2)){
+    if(fastPrimes.prototype.Q(m+2)){
         expr += m+'+2\\in \\mathbb{P}';
     } else {
         if(f.length == 1){
@@ -39,9 +39,11 @@ chenPrimeSequence.prototype.texExpressionForN = function(x,n){
 
 chenPrimeSequence.prototype.length = Infinity;
 
+chenPrimeSequence.prototype.needs = ['semiprimeSequence'];
+
 chenPrimeSequence.prototype.Q = function (n){
 
-    if(primesSequence.prototype.Q(n) && (primesSequence.prototype.Q(n+2) || semiprimeSequence.prototype.Q(n+2))){
+    if(fastPrimes.Q(n) && (fastPrimes.Q(n+2) || semiprimeSequence.prototype.Q(n+2))){
         return true;
     }
 

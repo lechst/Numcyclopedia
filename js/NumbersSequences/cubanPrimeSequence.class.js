@@ -30,7 +30,7 @@ cubanPrimeSequence.prototype.length = Infinity;
 
 cubanPrimeSequence.prototype.Q = function (n){
 
-    if(primesSequence.prototype.Q(n)){
+    if(fastPrimes.Q(n)){
         var x = Math.round((3+Math.sqrt(3*(4*n-1)))/6);
 
         if((x*x*x-(x-1)*(x-1)*(x-1))==n){

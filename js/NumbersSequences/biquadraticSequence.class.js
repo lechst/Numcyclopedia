@@ -37,6 +37,10 @@ biquadraticSequence.prototype.Q = function (n){
     return false;
 }
 
+biquadraticSequence.prototype.getN = function (n){
+    return n*n*n*n;
+}
+
 biquadraticSequence.prototype.arrange = function(n){
 
     var pos = {};

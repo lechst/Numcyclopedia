@@ -11,6 +11,9 @@ fastPrimes.init = function(){
 };
 
 fastPrimes.load = function(onload){
+
+
+
     var oReq = new XMLHttpRequest();
     oReq.open("GET", "http://localhost:8080/Numcyclopedia/server/primes.Uint26.Q", true);
     oReq.responseType = "arraybuffer";
@@ -27,6 +30,7 @@ fastPrimes.load = function(onload){
     oReq.onerror = function() {
         throw new Error('cant download binnaries');
     };
+
 
 
     oReq.send(null);

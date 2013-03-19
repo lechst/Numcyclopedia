@@ -24,6 +24,10 @@ cubicSequence.prototype.Q = function (n){
     return false;
 }
 
+cubicSequence.prototype.getN = function (n){
+    return n*n*n;
+}
+
 cubicSequence.prototype.arrange3D = function(n){
 
     var pos = {};

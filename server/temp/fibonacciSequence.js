@@ -1,3 +1,7 @@
+var fastPrimes = require('../fastPrimesNode.js');
+var factors = require('../factorsNode.js');
+var divisors = require('../divisorsNode.js');
+var digits = require('../digitsNode.js');
 function NumbersSequence(){}
 
 function fibonacciSequence() {

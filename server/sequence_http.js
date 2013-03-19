@@ -4,6 +4,7 @@ var path = require("path");
 var url = require('url');
 
 
+
 var pathToApp = 'http://localhost:8080/Numcyclopedia/'
 
 var loadToClient = [
