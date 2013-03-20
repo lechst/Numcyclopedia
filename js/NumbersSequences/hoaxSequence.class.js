@@ -10,6 +10,7 @@ hoaxSequence.prototype.name = 'Hoax';
 
 hoaxSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Hoax_number";
 hoaxSequence.prototype.wolfram = "http://mathworld.wolfram.com/HoaxNumber.html";
+hoaxSequence.prototype.oeis = "019506";
 
 hoaxSequence.prototype.texExpressionForN = function(x,n){
 

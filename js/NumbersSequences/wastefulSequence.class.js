@@ -10,6 +10,7 @@ wastefulSequence.prototype.name = 'wasteful';
 
 wastefulSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Extravagant_number";
 wastefulSequence.prototype.wolfram = "http://mathworld.wolfram.com/WastefulNumber.html";
+wastefulSequence.prototype.oeis = "046760";
 
 wastefulSequence.prototype.texExpressionForN = function(x,n){
 

@@ -10,6 +10,7 @@ lucasSequence.prototype.name = 'Lucas';
 
 lucasSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Lucas_number";
 lucasSequence.prototype.wolfram = "http://mathworld.wolfram.com/LucasNumber.html";
+lucasSequence.prototype.oeis = "000032";
 
 lucasSequence.prototype.length = Infinity;
 

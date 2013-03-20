@@ -10,6 +10,7 @@ abundantSequence.prototype.name = 'abundant';
 
 abundantSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Abundant_number";
 abundantSequence.prototype.wolfram = "http://mathworld.wolfram.com/AbundantNumber.html";
+abundantSequence.prototype.oeis = "005101";
 
 abundantSequence.prototype.texExpression = "\\sigma(n)-n>n";
 

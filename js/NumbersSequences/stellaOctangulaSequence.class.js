@@ -10,8 +10,13 @@ stellaOctangulaSequence.prototype.name = 'stella octangula';
 
 stellaOctangulaSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Stella_octangula_number";
 stellaOctangulaSequence.prototype.wolfram = "http://mathworld.wolfram.com/StellaOctangulaNumber.html";
+stellaOctangulaSequence.prototype.oeis = "007588";
 
 stellaOctangulaSequence.prototype.length = Infinity;
+
+stellaOctangulaSequence.prototype.getN = function (n){
+    return n*(2*n*n-1);
+}
 
 stellaOctangulaSequence.prototype.Q = function (n){
 

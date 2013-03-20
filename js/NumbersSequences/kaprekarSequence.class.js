@@ -10,6 +10,7 @@ kaprekarSequence.prototype.name = 'Kaprekar';
 
 kaprekarSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Kaprekar_number";
 kaprekarSequence.prototype.wolfram = "http://mathworld.wolfram.com/KaprekarNumber.html";
+kaprekarSequence.prototype.oeis = "006886";
 
 kaprekarSequence.prototype.texExpressionForN = function(x,n){
 

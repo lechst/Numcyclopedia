@@ -8,6 +8,7 @@ cullenSequence.prototype.constructor = cullenSequence;
 
 cullenSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Cullen_number";
 cullenSequence.prototype.wolfram = "http://mathworld.wolfram.com/CullenNumber.html";
+cullenSequence.prototype.oeis = "002064";
 
 cullenSequence.prototype.name = 'Cullen';
 

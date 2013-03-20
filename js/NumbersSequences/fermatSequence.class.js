@@ -8,6 +8,7 @@ fermatSequence.prototype.constructor = fermatSequence;
 
 fermatSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Fermat_number";
 fermatSequence.prototype.wolfram = "http://mathworld.wolfram.com/FermatNumber.html";
+fermatSequence.prototype.oeis = "000215";
 
 fermatSequence.prototype.name = 'Fermat';
 

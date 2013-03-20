@@ -10,6 +10,7 @@ primesSequence.prototype.name = 'primes';
 
 primesSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Prime_number";
 primesSequence.prototype.wolfram = "http://mathworld.wolfram.com/PrimeNumber.html";
+primesSequence.prototype.oeis = "000040";
 
 primesSequence.prototype.length = Infinity;
 

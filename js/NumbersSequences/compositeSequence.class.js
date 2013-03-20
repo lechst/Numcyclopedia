@@ -8,6 +8,8 @@ compositeSequence.prototype.constructor = compositeSequence;
 
 compositeSequence.prototype.name = 'composite';
 
+compositeSequence.prototype.oeis = "002808";
+
 compositeSequence.prototype.texExpressionForN = function(n){
 
     var expr = "";

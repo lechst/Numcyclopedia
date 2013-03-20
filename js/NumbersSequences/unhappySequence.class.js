@@ -9,6 +9,7 @@ unhappySequence.prototype.constructor = unhappySequence;
 unhappySequence.prototype.name = 'unhappy';
 
 unhappySequence.prototype.wolfram = "http://mathworld.wolfram.com/UnhappyNumber.html";
+unhappySequence.prototype.oeis = "031177";
 
 unhappySequence.prototype.texExpressionForN = function(x,n){
 

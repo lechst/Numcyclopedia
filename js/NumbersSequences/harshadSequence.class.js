@@ -10,6 +10,7 @@ harshadSequence.prototype.name = 'Harshad';
 
 harshadSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Harshad_number";
 harshadSequence.prototype.wolfram = "http://mathworld.wolfram.com/HarshadNumber.html";
+harshadSequence.prototype.oeis = "005349";
 
 harshadSequence.prototype.texExpression = "(x+y+...+z)|xy...z";
 

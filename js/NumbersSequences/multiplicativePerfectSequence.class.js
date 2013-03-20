@@ -9,6 +9,7 @@ multiplicativePerfectSequence.prototype.constructor = multiplicativePerfectSeque
 multiplicativePerfectSequence.prototype.name = 'multiplicative perfect';
 
 multiplicativePerfectSequence.prototype.wolfram = "http://mathworld.wolfram.com/MultiplicativePerfectNumber.html";
+multiplicativePerfectSequence.prototype.oeis = "007422";
 
 multiplicativePerfectSequence.prototype.texExpression = "d(n)=4";
 

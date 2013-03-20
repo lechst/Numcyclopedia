@@ -9,8 +9,13 @@ tritriangularSequence.prototype.constructor = tritriangularSequence;
 tritriangularSequence.prototype.name = 'tritriangular';
 
 tritriangularSequence.prototype.wolfram = "http://mathworld.wolfram.com/TritriangularNumber.html";
+tritriangularSequence.prototype.oeis = "050534";
 
 tritriangularSequence.prototype.length = Infinity;
+
+tritriangularSequence.prototype.getN = function (n){
+    return n*(n+1)*(n-1)*(n-2)/8;
+}
 
 tritriangularSequence.prototype.Q = function (n){
 

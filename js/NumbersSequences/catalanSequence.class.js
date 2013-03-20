@@ -8,6 +8,7 @@ catalanSequence.prototype.constructor = catalanSequence;
 
 catalanSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Catalan_number";
 catalanSequence.prototype.wolfram = "http://mathworld.wolfram.com/CatalanNumber.html";
+catalanSequence.prototype.oeis = "000108";
 
 catalanSequence.prototype.name = 'Catalan';
 

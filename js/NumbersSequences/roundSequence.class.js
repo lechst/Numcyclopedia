@@ -10,6 +10,7 @@ roundSequence.prototype.name = 'round';
 
 roundSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Round_number";
 roundSequence.prototype.wolfram = "http://mathworld.wolfram.com/RoundNumber.html";
+roundSequence.prototype.oeis = "048098";
 
 roundSequence.prototype.texExpression = "\\nexists p: p|N, p>\\sqrt{N}";
 

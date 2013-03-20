@@ -10,6 +10,7 @@ fibonacciSequence.prototype.name = 'Fibonacci';
 
 fibonacciSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Fibonacci_number";
 fibonacciSequence.prototype.wolfram = "http://mathworld.wolfram.com/FibonacciNumber.html";
+fibonacciSequence.prototype.oeis = "000045";
 
 fibonacciSequence.prototype.length = Infinity;
 

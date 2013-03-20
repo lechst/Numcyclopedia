@@ -1,16 +1,17 @@
-function verystrongVeryprimeSequence() {
+function weakVeryprimeSequence() {
     NumbersSequence.call(this);
 }
 
-verystrongVeryprimeSequence.prototype = new NumbersSequence();
+weakVeryprimeSequence.prototype = new NumbersSequence();
 
-verystrongVeryprimeSequence.prototype.constructor = verystrongVeryprimeSequence;
+weakVeryprimeSequence.prototype.constructor = weakVeryprimeSequence;
 
-verystrongVeryprimeSequence.prototype.name = 'weak veryprime';
+weakVeryprimeSequence.prototype.name = 'weak veryprime';
 
-verystrongVeryprimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/Veryprime.html";
+weakVeryprimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/Veryprime.html";
+weakVeryprimeSequence.prototype.oeis = "050264";
 
-verystrongVeryprimeSequence.prototype.texExpressionForN = function(x,n){
+weakVeryprimeSequence.prototype.texExpressionForN = function(x,n){
 
     var m = this.getN(n);
 
@@ -22,9 +23,9 @@ verystrongVeryprimeSequence.prototype.texExpressionForN = function(x,n){
 
 }
 
-verystrongVeryprimeSequence.prototype.length = Infinity;
+weakVeryprimeSequence.prototype.length = Infinity;
 
-verystrongVeryprimeSequence.prototype.Q = function (n){
+weakVeryprimeSequence.prototype.Q = function (n){
 
     if(n == 1){
         return false;

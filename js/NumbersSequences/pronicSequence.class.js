@@ -10,6 +10,7 @@ pronicSequence.prototype.name = 'pronic';
 
 pronicSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Pronic_number";
 pronicSequence.prototype.wolfram = "http://mathworld.wolfram.com/PronicNumber.html";
+pronicSequence.prototype.oeis = "002378";
 
 pronicSequence.prototype.length = Infinity;
 

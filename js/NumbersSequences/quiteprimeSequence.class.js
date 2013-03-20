@@ -9,6 +9,7 @@ quiteprimeSequence.prototype.constructor = quiteprimeSequence;
 quiteprimeSequence.prototype.name = 'quiteprime';
 
 quiteprimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/Quiteprime.html";
+quiteprimeSequence.prototype.oeis = "050260";
 
 quiteprimeSequence.prototype.texExpressionForN = function(x,n){
 

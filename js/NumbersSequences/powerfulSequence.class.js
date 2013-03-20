@@ -10,6 +10,7 @@ powerfulSequence.prototype.name = 'powerful';
 
 powerfulSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Powerful_number";
 powerfulSequence.prototype.wolfram = "http://mathworld.wolfram.com/PowerfulNumber.html";
+powerfulSequence.prototype.oeis = "001694";
 
 powerfulSequence.prototype.texExpression = "p|n \\Rightarrow p^2|n";
 

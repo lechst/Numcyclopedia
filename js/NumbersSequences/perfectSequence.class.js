@@ -10,6 +10,7 @@ perfectSequence.prototype.name = 'perfect';
 
 perfectSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Perfect_number";
 perfectSequence.prototype.wolfram = "http://mathworld.wolfram.com/PerfectNumber.html";
+perfectSequence.prototype.oeis = "000396";
 
 perfectSequence.prototype.length = Infinity;
 

@@ -10,6 +10,7 @@ equidigitalSequence.prototype.name = 'equidigital';
 
 equidigitalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Equidigital_number";
 equidigitalSequence.prototype.wolfram = "http://mathworld.wolfram.com/EquidigitalNumber.html";
+equidigitalSequence.prototype.oeis = "046758";
 
 equidigitalSequence.prototype.texExpressionForN = function(x,n){
 

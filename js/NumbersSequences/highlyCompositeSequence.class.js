@@ -10,6 +10,7 @@ highlyCompositeSequence.prototype.name = 'highly composite';
 
 highlyCompositeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Highly_composite_number";
 highlyCompositeSequence.prototype.wolfram = "http://mathworld.wolfram.com/HighlyCompositeNumber.html";
+highlyCompositeSequence.prototype.oeis = "002182";
 
 highlyCompositeSequence.prototype.length = Infinity;
 

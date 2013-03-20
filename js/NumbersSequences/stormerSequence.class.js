@@ -10,6 +10,7 @@ stormerSequence.prototype.name = 'St\u00f8rmer';
 
 stormerSequence.prototype.wiki = "http://en.wikipedia.org/wiki/St\u00f8rmer_number";
 stormerSequence.prototype.wolfram = "http://mathworld.wolfram.com/StormerNumber.html";
+stormerSequence.prototype.oeis = "005528";
 
 stormerSequence.prototype.texExpressionForN = function(x,n){
 

@@ -10,6 +10,7 @@ narcissisticSequence.prototype.name = 'narcissistic';
 
 narcissisticSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Narcissistic_number";
 narcissisticSequence.prototype.wolfram = "http://mathworld.wolfram.com/NarcissisticNumber.html";
+narcissisticSequence.prototype.oeis = "005188";
 
 narcissisticSequence.prototype.texExpression = "\\underbrace{xy...z}_d=x^d+y^d+...+z^d";
 

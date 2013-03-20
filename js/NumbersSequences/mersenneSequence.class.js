@@ -8,6 +8,7 @@ mersenneSequence.prototype.constructor = mersenneSequence;
 
 mersenneSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Mersenne_number";
 mersenneSequence.prototype.wolfram = "http://mathworld.wolfram.com/MersenneNumber.html";
+mersenneSequence.prototype.oeis = "000225";
 
 mersenneSequence.prototype.name = 'Mersenne';
 
