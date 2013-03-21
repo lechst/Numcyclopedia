@@ -8,6 +8,7 @@ octahedralSequence.prototype.constructor = octahedralSequence;
 
 octahedralSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Octahedral_number";
 octahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/OctahedralNumber.html";
+octahedralSequence.prototype.oeis = "005900";
 
 octahedralSequence.prototype.name = 'octahedral';
 

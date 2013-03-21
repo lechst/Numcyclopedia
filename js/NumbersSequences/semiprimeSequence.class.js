@@ -10,6 +10,7 @@ semiprimeSequence.prototype.name = 'semiprime';
 
 semiprimeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Semiprime";
 semiprimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/Semiprime.html";
+semiprimeSequence.prototype.oeis = "001358";
 
 semiprimeSequence.prototype.texExpression = "n=pq | n=p^2";
 

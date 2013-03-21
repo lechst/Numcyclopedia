@@ -8,6 +8,7 @@ cubicSequence.prototype.constructor = cubicSequence;
 
 cubicSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Cube_number";
 cubicSequence.prototype.wolfram = "http://mathworld.wolfram.com/CubicNumber.html";
+cubicSequence.prototype.oeis = "000578";
 
 cubicSequence.prototype.name = 'cube';
 

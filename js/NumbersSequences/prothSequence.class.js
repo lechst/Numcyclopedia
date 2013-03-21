@@ -10,6 +10,7 @@ prothSequence.prototype.name = 'Proth';
 
 prothSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Proth_number";
 prothSequence.prototype.wolfram = "http://mathworld.wolfram.com/ProthNumber.html";
+prothSequence.prototype.oeis = "080075";
 
 prothSequence.prototype.texExpression = "k\\cdot 2^n+1, k<2^n";
 

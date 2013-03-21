@@ -10,6 +10,7 @@ harmonicDivisorSequence.prototype.name = 'harmonic divisor';
 
 harmonicDivisorSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Harmonic_divisor_number";
 harmonicDivisorSequence.prototype.wolfram = "http://mathworld.wolfram.com/HarmonicDivisorNumber.html";
+harmonicDivisorSequence.prototype.oeis = "001599";
 
 harmonicDivisorSequence.prototype.texExpression = "\\frac{nd(n)}{\sigma(n)}\\in \\mathbb{N}";
 

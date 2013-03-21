@@ -10,6 +10,7 @@ economicalSequence.prototype.name = 'economical';
 
 economicalSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Frugal_number";
 economicalSequence.prototype.wolfram = "http://mathworld.wolfram.com/EconomicalNumber.html";
+economicalSequence.prototype.oeis = "046759";
 
 economicalSequence.prototype.texExpressionForN = function(x,n){
 

@@ -10,6 +10,7 @@ smithSequence.prototype.name = 'Smith';
 
 smithSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Smith_number";
 smithSequence.prototype.wolfram = "http://mathworld.wolfram.com/SmithNumber.html";
+smithSequence.prototype.oeis = "006753";
 
 smithSequence.prototype.texExpressionForN = function(x,n){
 

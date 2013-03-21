@@ -10,6 +10,7 @@ happySequence.prototype.name = 'happy';
 
 happySequence.prototype.wiki = "http://en.wikipedia.org/wiki/Happy_number";
 happySequence.prototype.wolfram = "http://mathworld.wolfram.com/HappyNumber.html";
+happySequence.prototype.oeis = "007770";
 
 happySequence.prototype.texExpressionForN = function(x,n){
 

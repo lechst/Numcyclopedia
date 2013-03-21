@@ -9,6 +9,7 @@ biquadraticSequence.prototype.constructor = biquadraticSequence;
 biquadraticSequence.prototype.name = 'biquadratic';
 
 biquadraticSequence.prototype.wolfram = "http://mathworld.wolfram.com/BiquadraticNumber.html";
+biquadraticSequence.prototype.oeis = "000583";
 
 biquadraticSequence.prototype.length = Infinity;
 

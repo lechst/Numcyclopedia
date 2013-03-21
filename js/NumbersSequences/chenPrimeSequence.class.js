@@ -10,6 +10,7 @@ chenPrimeSequence.prototype.name = 'Chen prime';
 
 chenPrimeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Chen_prime";
 chenPrimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/ChenPrime.html";
+chenPrimeSequence.prototype.oeis = "109611";
 
 chenPrimeSequence.prototype.texExpression = "n=p & (p+2=q^2 | p+2=qr)";
 

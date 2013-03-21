@@ -10,6 +10,7 @@ euclidSequence.prototype.name = 'Euclid';
 
 euclidSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Euclid_number";
 euclidSequence.prototype.wolfram = "http://mathworld.wolfram.com/EuclidNumber.html";
+euclidSequence.prototype.oeis = "006862";
 
 euclidSequence.prototype.texExpression = "E_n=1+\\prod_{i=1}^{n}p_i";
 

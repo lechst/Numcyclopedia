@@ -10,6 +10,7 @@ pentatopeSequence.prototype.name = 'pentatope';
 
 pentatopeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Pentatope_number";
 pentatopeSequence.prototype.wolfram = "http://mathworld.wolfram.com/PentatopeNumber.html";
+pentatopeSequence.prototype.oeis = "000332";
 
 pentatopeSequence.prototype.length = Infinity;
 

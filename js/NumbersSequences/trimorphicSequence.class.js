@@ -10,6 +10,7 @@ trimorphicSequence.prototype.name = 'trimorphic';
 
 trimorphicSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Trimorphic_number";
 trimorphicSequence.prototype.wolfram = "http://mathworld.wolfram.com/TrimorphicNumber.html";
+trimorphicSequence.prototype.oeis = "033819";
 
 trimorphicSequence.prototype.texExpression = "(x...y)^3=a...bx...y";
 

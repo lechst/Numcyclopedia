@@ -9,8 +9,13 @@ truncatedTetrahedralSequence.prototype.constructor = truncatedTetrahedralSequenc
 truncatedTetrahedralSequence.prototype.name = 'truncated tetrahedral';
 
 truncatedTetrahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/TruncatedTetrahedralNumber.html";
+truncatedTetrahedralSequence.prototype.oeis = "005906";
 
 truncatedTetrahedralSequence.prototype.length = Infinity;
+
+truncatedTetrahedralSequence.prototype.getN = function (n){
+    return (n+1)*(23*n*n+19*n+6)/6;
+}
 
 truncatedTetrahedralSequence.prototype.Q = function (n){
 

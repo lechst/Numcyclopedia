@@ -9,8 +9,13 @@ truncatedOctahedralSequence.prototype.constructor = truncatedOctahedralSequence;
 truncatedOctahedralSequence.prototype.name = 'truncated octahedral';
 
 truncatedOctahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/TruncatedOctahedralNumber.html";
+truncatedOctahedralSequence.prototype.oeis = "005910";
 
 truncatedOctahedralSequence.prototype.length = Infinity;
+
+truncatedOctahedralSequence.prototype.getN = function (n){
+    return (16*n*n*n-33*n*n+24*n-6);
+}
 
 truncatedOctahedralSequence.prototype.Q = function (n){
 

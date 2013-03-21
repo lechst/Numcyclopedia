@@ -9,8 +9,13 @@ rhombicDodecahedralSequence.prototype.constructor = rhombicDodecahedralSequence;
 rhombicDodecahedralSequence.prototype.name = 'rhombic dodecahedral';
 
 rhombicDodecahedralSequence.prototype.wolfram = "http://mathworld.wolfram.com/RhombicDodecahedralNumber.html";
+rhombicDodecahedralSequence.prototype.oeis = "005917";
 
 rhombicDodecahedralSequence.prototype.length = Infinity;
+
+rhombicDodecahedralSequence.prototype.getN = function (n){
+    return (n*n*n*n-(n-1)*(n-1)*(n-1)*(n-1));
+}
 
 rhombicDodecahedralSequence.prototype.Q = function (n){
 

@@ -10,6 +10,7 @@ twosidedPrimesSequence.prototype.name = 'two-sided prime';
 
 twosidedPrimesSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Truncatable_prime";
 twosidedPrimesSequence.prototype.wolfram = "http://mathworld.wolfram.com/TruncatablePrime.html";
+twosidedPrimesSequence.prototype.oeis = "020994";
 
 twosidedPrimesSequence.prototype.texExpressionForN = function(x,n){
 

@@ -10,6 +10,7 @@ selfSequence.prototype.name = 'self';
 
 selfSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Self_number";
 selfSequence.prototype.wolfram = "http://mathworld.wolfram.com/SelfNumber.html";
+selfSequence.prototype.oeis = "003052";
 
 selfSequence.prototype.texExpression = "\\nexists k=xy...z:\\\\ n=k+x+y+...+z";
 

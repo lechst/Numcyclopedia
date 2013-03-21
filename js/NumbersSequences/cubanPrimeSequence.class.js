@@ -10,6 +10,7 @@ cubanPrimeSequence.prototype.name = 'cuban prime';
 
 cubanPrimeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Cuban_prime";
 cubanPrimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/CubanPrime.html";
+cubanPrimeSequence.prototype.oeis = "002407";
 
 cubanPrimeSequence.prototype.texExpression = "n=p & n=k^3-(k-1)^3";
 

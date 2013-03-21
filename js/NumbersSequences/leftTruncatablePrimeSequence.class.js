@@ -10,6 +10,7 @@ leftTruncatablePrimeSequence.prototype.name = 'left-truncatable prime';
 
 leftTruncatablePrimeSequence.prototype.wiki = "http://en.wikipedia.org/wiki/Truncatable_prime";
 leftTruncatablePrimeSequence.prototype.wolfram = "http://mathworld.wolfram.com/TruncatablePrime.html";
+leftTruncatablePrimeSequence.prototype.oeis = "024785";
 
 leftTruncatablePrimeSequence.prototype.texExpressionForN = function(x,n){
 
